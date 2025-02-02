@@ -11,6 +11,7 @@ let
   #   destination = "/etc/sway/sway.conf";
   # };
   ev4SwayConfig = configs/sway.conf;
+  ev4WaybarConfig = configs/waybar-config.jsonc;
 
 in  
 {
@@ -73,7 +74,11 @@ in
       wlogout
   ];
 
+  # setup our bar
   programs.waybar.enable = true;
+  environment.etc = {
+  "xdg/waybar/config.jsonc".source = configs/waybar-config.jsonc;
+};
  
   fonts.packages = with pkgs; [
     cantarell-fonts
