@@ -2,16 +2,7 @@
 { config, pkgs, inputs, ... }:
 
 let
-  # write our sway config
-  # ev4SwayConfigText = builtins.readFile ./ev4config.conf;
-  # mySwayConfig = builtins.readFile ./config/greetd_sway.conf;
-  # ev4SwayConfig = pkgs.writeTextFile {
-  #   name = "./sway.conf";
-  #   text = builtins.readFile ./sway.conf;
-  #   destination = "/etc/sway/sway.conf";
-  # };
   ev4SwayConfig = configs/sway.conf;
-  ev4WaybarConfig = configs/waybar-config.jsonc;
 
 in  
 {
@@ -77,8 +68,13 @@ in
   # setup our bar
   programs.waybar.enable = true;
   environment.etc = {
-  "xdg/waybar/config.jsonc".source = configs/waybar-config.jsonc;
-};
+    "xdg/waybar/config.jsonc".source = configs/waybar-config.jsonc;
+  };
+
+  # set up out terminal
+  environment.etc = {
+    "xdg/alacritty/alacritty.toml".source = configs/alacritty.toml;
+  };
  
   fonts.packages = with pkgs; [
     cantarell-fonts
