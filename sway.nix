@@ -4,6 +4,7 @@
 let
   ev4SwayConfig = configs/sway.conf;
 
+
 in  
 {
   imports =
@@ -61,14 +62,20 @@ in
       kanshi
       slurp
       alacritty # Alacritty is our default terminal
-      # dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
-      # wofi
       tofi # menu/launcher
       blueman # bluetooth settings
       pavucontrol # sound settings
       alsa-tools # aplay, hda-verb, etc
       lshw
       wlogout
+
+      # desktop files
+      (pkgs.makeDesktopItem {
+        name = "network-settings";
+        desktopName = "Network Settings";
+        exec = "/run/current-system/sw/bin/alacritty --command /run/current-system/sw/bin/nmtui";
+        keywords = ["wifi" "network" "networks" "ethernet" "settings"];
+      })
   ];
 
   # setup our bar
@@ -86,7 +93,7 @@ in
   environment.etc = {
     "xdg/tofi/tofi-config".source = configs/tofi-config;
   };
- 
+
   fonts.packages = with pkgs; [
     cantarell-fonts
     dejavu_fonts
