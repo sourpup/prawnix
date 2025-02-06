@@ -10,6 +10,8 @@
       ./hardware-configuration.nix
       # use sway
       ./sway.nix
+      # rb specific fixes
+      ./rb-fixes.nix
     ];
 
 
