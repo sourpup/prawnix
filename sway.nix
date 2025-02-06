@@ -63,6 +63,9 @@ in
       alacritty # Alacritty is our default terminal
       dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
       blueman # bluetooth settings
+      pavucontrol # sound settings
+      alsa-tools # aplay, hda-verb, etc
+      lshw
       wlogout
   ];
 
