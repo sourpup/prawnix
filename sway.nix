@@ -61,7 +61,9 @@ in
       kanshi
       slurp
       alacritty # Alacritty is our default terminal
-      dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+      # dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+      # wofi
+      tofi # menu/launcher
       blueman # bluetooth settings
       pavucontrol # sound settings
       alsa-tools # aplay, hda-verb, etc
@@ -75,9 +77,14 @@ in
     "xdg/waybar/config.jsonc".source = configs/waybar-config.jsonc;
   };
 
-  # set up out terminal
+  # set up our terminal
   environment.etc = {
     "xdg/alacritty/alacritty.toml".source = configs/alacritty.toml;
+  };
+
+  # set up our menu/launcher
+  environment.etc = {
+    "xdg/tofi/tofi-config".source = configs/tofi-config;
   };
  
   fonts.packages = with pkgs; [
