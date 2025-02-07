@@ -69,9 +69,17 @@ in
       lshw
       wlogout # shutdown/reboot/logout window
 
-      # desktop files
 
-      ## Settings shortcuts
+      ## Utility Scripts
+
+      # simple script which prompts the user to select a region to screenshot, and puts the image on the clipboard
+      (pkgs.writeShellScriptBin "screenshot-script" ''
+        ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy
+      '')
+
+      ## Desktop files
+
+      ### Settings shortcuts
       (pkgs.makeDesktopItem {
         name = "network-settings";
         desktopName = "Network Settings";
@@ -85,12 +93,20 @@ in
         keywords = ["sound" "audio" "settings"];
       })
 
-      ## system state shortcuts
+      ### system state shortcuts
       (pkgs.makeDesktopItem {
         name = "shutdown-reboot-logout-lock-shortcut";
         desktopName = "Shutdown/Reboot/Logout/Lock";
         exec = "/run/current-system/sw/bin/wlogout";
         keywords = ["shutdown" "power" "reboot" "logout" "lock"];
+      })
+
+      ### Utility Shotcuts
+      (pkgs.makeDesktopItem {
+        name = "screenshot-clipboard";
+        desktopName = "Screenshot to Clipboard";
+        exec = "/run/current-system/sw/bin/screenshot-script";
+        keywords = ["screenshot"];
       })
   ];
 
@@ -110,6 +126,7 @@ in
     "xdg/tofi/tofi-config".source = configs/tofi-config;
   };
 
+
   fonts.packages = with pkgs; [
     cantarell-fonts
     dejavu_fonts
@@ -119,5 +136,6 @@ in
     powerline-fonts
     powerline-symbols
   ];
+
 
 }
