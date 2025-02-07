@@ -12,6 +12,7 @@
       ./sway.nix
       # rb specific fixes
       ./rb-fixes.nix
+      ./applications.nix
     ];
 
 
