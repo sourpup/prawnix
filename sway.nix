@@ -54,9 +54,9 @@ in
   environment.systemPackages = with pkgs; [
       swaylock
       swayidle
-      wl-clipboard
+      wl-clipboard # lets manage the system clipboard from the cli
       wf-recorder
-      waybar
+      waybar # menu bar
       mako # notification daemon
       grim
       kanshi
@@ -67,14 +67,30 @@ in
       pavucontrol # sound settings
       alsa-tools # aplay, hda-verb, etc
       lshw
-      wlogout
+      wlogout # shutdown/reboot/logout window
 
       # desktop files
+
+      ## Settings shortcuts
       (pkgs.makeDesktopItem {
         name = "network-settings";
         desktopName = "Network Settings";
         exec = "/run/current-system/sw/bin/alacritty --command /run/current-system/sw/bin/nmtui";
         keywords = ["wifi" "network" "networks" "ethernet" "settings"];
+      })
+      (pkgs.makeDesktopItem {
+        name = "sound-settings";
+        desktopName = "Sound Settings";
+        exec = "/run/current-system/sw/bin/pavucontrol";
+        keywords = ["sound" "audio" "settings"];
+      })
+
+      ## system state shortcuts
+      (pkgs.makeDesktopItem {
+        name = "shutdown-reboot-logout-lock-shortcut";
+        desktopName = "Shutdown/Reboot/Logout/Lock";
+        exec = "/run/current-system/sw/bin/wlogout";
+        keywords = ["shutdown" "power" "reboot" "logout" "lock"];
       })
   ];
 
