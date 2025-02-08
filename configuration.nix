@@ -13,6 +13,8 @@
       # rb specific fixes
       ./rb-fixes.nix
       ./applications.nix
+      # use our wallpapers
+      ./wallpapers.nix
     ];
 
 

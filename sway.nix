@@ -58,6 +58,8 @@ in
       wf-recorder
       waybar # menu bar
       mako # notification daemon
+      eog # image viewer
+      gcolor3 # color picker
       grim
       kanshi
       slurp
@@ -125,7 +127,6 @@ in
   environment.etc = {
     "xdg/tofi/tofi-config".source = configs/tofi-config;
   };
-
 
   fonts.packages = with pkgs; [
     cantarell-fonts

@@ -5,11 +5,12 @@ TERM = "xterm-256color"
 size = 8.0
 
 [window]
-opacity = 0.95
+opacity = 1.0
 
 ## COLOR SCHEME
 [colors.primary]
-background = "#09090d"
+# background = "#09090d"
+background = "#574464"
 foreground = "#e3c7fc"
 
 [colors.cursor]
@@ -46,9 +47,9 @@ background = "#f1c4e0"
 
 [colors.normal]
 black = "#140a1d"
-red = "#B52A5B"
-green = "#FF4971"
-yellow = "#8897F4"
+red = "#FF4971"
+green = "#8897F4"
+yellow = "#B52A5B"
 blue = "#bd93f9"
 magenta = "#E9729D"
 cyan = "#F18FB0"
@@ -56,9 +57,9 @@ white = "#f1c4e0"
 
 [colors.bright]
 black = "#a8899c"
-red = "#B52A5B"
-green = "#FF4971"
-yellow = "#8897F4"
+red = "#FF4971"
+green = "#8897F4"
+yellow = "#B52A5B"
 blue = "#bd93f9"
 magenta = "#E9729D"
 cyan = "#F18FB0"
