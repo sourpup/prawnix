@@ -114,8 +114,12 @@ in
 
   # setup our bar
   programs.waybar.enable = true;
+
   environment.etc = {
     "xdg/waybar/config.jsonc".source = configs/waybar-config.jsonc;
+  };
+  environment.etc = {
+    "xdg/waybar/style.css".source = configs/waybar-style.css;
   };
 
   # set up our terminal
