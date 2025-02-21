@@ -118,24 +118,6 @@
     vimAlias = true;
   };
 
-  # setup default shell
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      osupdate = "sudo nixos-rebuild switch";
-    };
-    histSize = 100000;
-  };
-  # set zsh as the default shell
-  users.defaultUserShell = pkgs.zsh;
-  # ensure the user still shows up in GDM: https://nixos.wiki/wiki/Zsh 
-  environment.shells = with pkgs; [ zsh ];
-
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
