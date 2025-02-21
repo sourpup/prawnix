@@ -15,6 +15,8 @@
       ./applications.nix
       # use our wallpapers
       ./wallpapers.nix
+      # use zsh4humans
+      ./zsh/zsh.nix
     ];
 
 
@@ -137,10 +139,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     wget
-     git
-     ripgrep
-     nautilus
+    fzf
+    wget
+    git
+    ripgrep
+    nautilus
   ];
 
 
