@@ -14,9 +14,15 @@
     #TODO use some of the packages from this, but not the whole thing?
     # regolith-nix.url = "github:SolidHal/regolith-nix/main";
     # regolith-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # use precreated nix-index databases for shell command not found
+    #TODO as-is, this installs the database but doesn't update the command-not-found.sh
+    # so we still have to run nix-locate manually
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-index-database, ... }@inputs: {
     nixosConfigurations.mistral = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       # this lets us import modules from flakes (like sway-gnome) in our other modules (like configuration.nix)
@@ -27,6 +33,8 @@
         ./configuration.nix
         # inputs.sway-gnome.nixosModules.default
         # inputs.regolith-nix.nixosModules.regolith
+
+        nix-index-database.nixosModules.nix-index
       ];
     };
   };
