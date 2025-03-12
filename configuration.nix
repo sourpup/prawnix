@@ -121,11 +121,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # basic tools
     fzf
     wget
     git
     ripgrep
     nautilus
+
+    # baisc dev env
+    gcc14
   ];
 
 
