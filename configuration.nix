@@ -127,9 +127,12 @@
     git
     ripgrep
     nautilus
+    dtrx
 
     # baisc dev env
     gcc14
+    python3
+    ruff # linter for python
   ];
 
 
