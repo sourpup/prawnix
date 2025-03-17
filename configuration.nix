@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # use sway
-      ./sway.nix
+      ./modules/sway/default.nix
       # rb specific fixes
       ./modules/rb-fixes/default.nix
       ./applications.nix

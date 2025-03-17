@@ -2,7 +2,7 @@
 { config, pkgs, inputs, ... }:
 
 let
-  ev4SwayConfig = configs/sway.conf;
+  ev4SwayConfig = ./sway.conf;
 
 
 in  
@@ -115,15 +115,15 @@ in
   programs.waybar.enable = true;
 
   environment.etc = {
-    "xdg/waybar/config.jsonc".source = configs/waybar-config.jsonc;
+    "xdg/waybar/config.jsonc".source = ./waybar-config.jsonc;
   };
   environment.etc = {
-    "xdg/waybar/style.css".source = configs/waybar-style.css;
+    "xdg/waybar/style.css".source = ./waybar-style.css;
   };
 
   # set up our menu/launcher
   environment.etc = {
-    "xdg/tofi/tofi-config".source = configs/tofi-config;
+    "xdg/tofi/tofi-config".source = ./tofi-config;
   };
 
   fonts.packages = with pkgs; [
