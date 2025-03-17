@@ -11,7 +11,7 @@
       # use sway
       ./sway.nix
       # rb specific fixes
-      ./rb-fixes.nix
+      ./modules/rb-fixes/default.nix
       ./applications.nix
       # use our wallpapers
       ./wallpapers.nix
