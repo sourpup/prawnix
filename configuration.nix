@@ -14,7 +14,7 @@
       ./modules/rb-fixes/default.nix
       ./applications.nix
       # use our wallpapers
-      ./wallpapers.nix
+      ./modules/wallpapers/default.nix
       # use zsh4humans
       ./modules/zsh/default.nix
       # use alacritty

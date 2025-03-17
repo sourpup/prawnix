@@ -1,4 +1,3 @@
-# relatively basic sway setup
 { config, pkgs, inputs, ... }:
 
 let
