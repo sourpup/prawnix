@@ -16,7 +16,7 @@
       # use our wallpapers
       ./wallpapers.nix
       # use zsh4humans
-      ./zsh/zsh.nix
+      ./modules/zsh/default.nix
     ];
 
 
