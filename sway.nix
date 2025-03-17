@@ -63,7 +63,6 @@ in
       grim
       kanshi
       slurp
-      alacritty # Alacritty is our default terminal
       tofi # menu/launcher
       blueman # bluetooth settings
       pavucontrol # sound settings
@@ -120,11 +119,6 @@ in
   };
   environment.etc = {
     "xdg/waybar/style.css".source = configs/waybar-style.css;
-  };
-
-  # set up our terminal
-  environment.etc = {
-    "xdg/alacritty/alacritty.toml".source = configs/alacritty.toml;
   };
 
   # set up our menu/launcher

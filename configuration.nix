@@ -17,6 +17,8 @@
       ./wallpapers.nix
       # use zsh4humans
       ./modules/zsh/default.nix
+      # use alacritty
+      ./modules/alacritty/default.nix
     ];
 
 
