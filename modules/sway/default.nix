@@ -58,6 +58,7 @@ in
       wf-recorder
       waybar # menu bar
       mako # notification daemon
+      libnotify # some applications depend on this to feed mako
       eog # image viewer
       gcolor3 # color picker
       grim
