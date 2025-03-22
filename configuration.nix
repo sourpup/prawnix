@@ -106,6 +106,7 @@
     ];
   };
 
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -113,12 +114,12 @@
   nixpkgs.config.allowUnfree = true;
 
   # setup our default text editor
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
+  # programs.neovim = {
+  #   enable = true;
+  #   defaultEditor = true;
+  #   viAlias = true;
+  #   vimAlias = true;
+  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -135,6 +136,10 @@
     gcc14
     python3
     ruff # linter for python
+
+
+    # use our neovim/nixvim config
+    inputs.nvix.packages.${pkgs.system}.core
   ];
 
 

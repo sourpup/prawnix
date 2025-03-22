@@ -5,13 +5,13 @@ let
   ev4SwayConfig = ./sway.conf;
 
 
-in  
+in
 {
   imports =
   [
     # none
   ];
- 
+
 
   # use gdm as our display manager
   services.xserver = {
@@ -134,6 +134,14 @@ in
     font-awesome
     powerline-fonts
     powerline-symbols
+
+# pre 25.05
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    fira-code
+# post 25.05
+#    nerd-fonts.fira-code
+#    nerd-fonts.droid-sans-mono
+
   ];
 
 

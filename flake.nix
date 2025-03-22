@@ -20,13 +20,16 @@
     # so we still have to run nix-locate manually
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    # use our local nixvim/neovim checkout
+    nvix.url = "/home/eva/Documents/nixvim-config";
   };
 
   outputs = { self, nixpkgs, nix-index-database, ... }@inputs: {
     nixosConfigurations.mistral = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       # this lets us import modules from flakes (like sway-gnome) in our other modules (like configuration.nix)
-      #extraSpecialArgs = {inherit inputs;};
+      specialArgs.inputs = inputs;
       modules = [
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
