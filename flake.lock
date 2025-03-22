@@ -259,11 +259,11 @@
         "tokyodark": "tokyodark"
       },
       "locked": {
-        "lastModified": 1742623001,
-        "narHash": "sha256-nnFr7N+XOUsfyrWifuf+NiyrP1qiW72471KIQFb1SIw=",
+        "lastModified": 1742663121,
+        "narHash": "sha256-m0RSB+T/KQBhdsv3fkwkwDZU1ROv0RtzB5hJD9bO0TU=",
         "ref": "refs/heads/master",
-        "rev": "81fff1eb11f57316b488e67364d76b777484b706",
-        "revCount": 44,
+        "rev": "2fd13fe85076788d708228a4ff3c962dca8aa508",
+        "revCount": 45,
         "type": "git",
         "url": "file:///home/eva/Documents/nixvim-config"
       },
@@ -329,8 +329,8 @@
     "tokyodark": {
       "flake": false,
       "locked": {
-        "lastModified": 1742621116,
-        "narHash": "sha256-mEB8AV1tCSkiSkqn/RPHvYhlhGYavAD628qJgODDqeE=",
+        "lastModified": 1742663115,
+        "narHash": "sha256-HaG30EGW2gNiH5cfGhAdlUxv6LWYX8oAB83PebnmmZ8=",
         "path": "/home/eva/Documents/tokyodark.nvim",
         "type": "path"
       },
