@@ -9,7 +9,7 @@ in
 {
   imports =
   [
-    # none
+    ./mako.nix # for notifications
   ];
 
 
@@ -28,7 +28,6 @@ in
 
   # use libinput
   services.libinput.enable = true;
-
 
   # use sway as our wm
   programs.sway = {
@@ -57,7 +56,6 @@ in
       wl-clipboard # lets manage the system clipboard from the cli
       wf-recorder
       waybar # menu bar
-      mako # notification daemon
       libnotify # some applications depend on this to feed mako
       eog # image viewer
       gcolor3 # color picker
@@ -70,7 +68,6 @@ in
       alsa-tools # aplay, hda-verb, etc
       lshw
       wlogout # shutdown/reboot/logout window
-
 
       ## Utility Scripts
 
@@ -110,6 +107,7 @@ in
         exec = "/run/current-system/sw/bin/screenshot-script";
         keywords = ["screenshot"];
       })
+
   ];
 
   # setup our bar
