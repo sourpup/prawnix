@@ -21,8 +21,8 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
-    # use our local nixvim/neovim checkout
-    nvix.url = "/home/eva/Documents/nixvim-config";
+    # use our local nvix checkout
+    nvix.url = "/home/eva/Documents/nvix";
   };
 
   outputs = { self, nixpkgs, nix-index-database, ... }@inputs: {

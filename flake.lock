@@ -74,6 +74,19 @@
         "type": "github"
       }
     },
+    "hickey": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743627312,
+        "narHash": "sha256-TONdjM62dPAwP2rA+smx2Ojgk94IpEFjEYQiZBA7pIU=",
+        "path": "/home/eva/Documents/hickey.nvim",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/eva/Documents/hickey.nvim",
+        "type": "path"
+      }
+    },
     "ixx": {
       "inputs": {
         "flake-utils": [
@@ -251,25 +264,25 @@
       "inputs": {
         "buffer-manager": "buffer-manager",
         "flake-parts": "flake-parts",
+        "hickey": "hickey",
         "md-pdf": "md-pdf",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "oil-lsp-diagnostics": "oil-lsp-diagnostics",
-        "oil-vcs-status": "oil-vcs-status",
-        "tokyodark": "tokyodark"
+        "oil-vcs-status": "oil-vcs-status"
       },
       "locked": {
-        "lastModified": 1742693522,
-        "narHash": "sha256-ekG2tAdaSVGwNcpE/0b0+xCXVogSxdMi1l4/5RVa2dg=",
+        "lastModified": 1743628543,
+        "narHash": "sha256-eLjzYMa4V/XISBtyWG5JlTAtKg+fqOUA51qVRN6e2CM=",
         "ref": "refs/heads/master",
-        "rev": "bd94bb1827fadae9d3de0b7c70c7f44ff2bcc9bf",
-        "revCount": 47,
+        "rev": "248ee3958be71723134187a62f72efabdf5a884b",
+        "revCount": 48,
         "type": "git",
-        "url": "file:///home/eva/Documents/nixvim-config"
+        "url": "file:///home/eva/Documents/nvix"
       },
       "original": {
         "type": "git",
-        "url": "file:///home/eva/Documents/nixvim-config"
+        "url": "file:///home/eva/Documents/nvix"
       }
     },
     "oil-lsp-diagnostics": {
@@ -324,19 +337,6 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
-      }
-    },
-    "tokyodark": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1742663115,
-        "narHash": "sha256-HaG30EGW2gNiH5cfGhAdlUxv6LWYX8oAB83PebnmmZ8=",
-        "path": "/home/eva/Documents/tokyodark.nvim",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/eva/Documents/tokyodark.nvim",
-        "type": "path"
       }
     }
   },
