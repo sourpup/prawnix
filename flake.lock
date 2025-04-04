@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "buffer-manager": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1738607471,
-        "narHash": "sha256-sIkz5jkt+VkZNbiHRB7E+ttcm9XNtDiI/2sTyyYd1gg=",
-        "owner": "j-morano",
-        "repo": "buffer_manager.nvim",
-        "rev": "03df0142e60cdf3827d270f01ccb36999d5a4e08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "j-morano",
-        "repo": "buffer_manager.nvim",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -262,7 +246,6 @@
     },
     "nvix": {
       "inputs": {
-        "buffer-manager": "buffer-manager",
         "flake-parts": "flake-parts",
         "hickey": "hickey",
         "md-pdf": "md-pdf",
@@ -272,11 +255,11 @@
         "oil-vcs-status": "oil-vcs-status"
       },
       "locked": {
-        "lastModified": 1743628543,
-        "narHash": "sha256-eLjzYMa4V/XISBtyWG5JlTAtKg+fqOUA51qVRN6e2CM=",
+        "lastModified": 1743634886,
+        "narHash": "sha256-GysW58qngPj4TSuG+YS4/WcGpUPv/mxPUJDYGWtHJhA=",
         "ref": "refs/heads/master",
-        "rev": "248ee3958be71723134187a62f72efabdf5a884b",
-        "revCount": 48,
+        "rev": "8fb6cd12fcd7e9625190cb68e6b09413829466c4",
+        "revCount": 50,
         "type": "git",
         "url": "file:///home/eva/Documents/nvix"
       },

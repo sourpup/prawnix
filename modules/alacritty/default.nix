@@ -2,7 +2,7 @@
 
 let
   # none
-in  
+in
 {
   imports =
   [
