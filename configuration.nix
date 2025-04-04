@@ -102,63 +102,11 @@
     description = "eva";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
+    #  user specific applications
     ];
   };
 
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # setup our default text editor
-  # programs.neovim = {
-  #   enable = true;
-  #   defaultEditor = true;
-  #   viAlias = true;
-  #   vimAlias = true;
-  # };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # basic tools
-    fzf
-    wget
-    git
-    ripgrep
-    nautilus
-    dtrx
-
-    # baisc dev env
-    gcc14
-    python3
-    ruff # linter for python
-
-
-    # use our neovim/nixvim config
-    inputs.nvix.packages.${pkgs.system}.core
-  ];
-
-
-  # syncthing
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-    # run as user
-    user = "eva";
-    # lets use the usual syncthing config rather than confiuring syncthing
-    # with nix
-    dataDir = "/home/eva";  # default location for new folders
-    configDir = "/home/eva/.config/syncthing";
-    # Dont delete devices and folders that are created
-    # by the web interface
-    overrideDevices = false;
-    overrideFolders = false;
-
-  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
