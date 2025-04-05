@@ -1,6 +1,6 @@
 # base configuration for all hosts
 
-{ config, pkgs, inputs, ... }:
+{ ... }:
 
 {
   imports =

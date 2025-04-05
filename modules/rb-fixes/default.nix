@@ -1,5 +1,5 @@
 # fixes for the silly razerblade hardware
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
 
   # packages for sound fixes
@@ -16,7 +16,7 @@
       serviceConfig = {
         Environment = "PATH=/run/current-system/sw/bin";
         Type = "oneshot";
-        ExecStart = ./RB14_2023_enable_internal_speakers_ver2.sh; 
+        ExecStart = ./RB14_2023_enable_internal_speakers_ver2.sh;
       };
    };
 }

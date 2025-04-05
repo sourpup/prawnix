@@ -1,10 +1,8 @@
 # relatively basic sway setup
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 let
   ev4SwayConfig = ./sway.conf;
-
-
 in
 {
   imports =

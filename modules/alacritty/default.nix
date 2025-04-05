@@ -1,8 +1,5 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
-let
-  # none
-in
 {
   imports =
   [

@@ -1,9 +1,6 @@
 # general applications
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
-let
-
-in
 {
   imports =
   [

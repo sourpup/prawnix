@@ -1,9 +1,6 @@
 # zsh with z4humans baked in
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
-let
-  # none
-in  
 {
   imports =
   [
@@ -37,7 +34,7 @@ in
   # TODO explicitly install zsh4humans cache
   # right now when launching zsh for the first time, it will
   # download z4h things to ~/.cache
-  # instead, take the zsh4humans bundle and package it so we 
+  # instead, take the zsh4humans bundle and package it so we
   # and have it installed in /etc/zsh/<blah> for us
   # so the download doesn't have to happen at first launch
   # the location it loads from is configured in ~/.zshenv
@@ -57,6 +54,6 @@ in
   };
   # set zsh as the default shell
   users.defaultUserShell = pkgs.zsh;
-  # ensure the user still shows up in GDM: https://nixos.wiki/wiki/Zsh 
+  # ensure the user still shows up in GDM: https://nixos.wiki/wiki/Zsh
   environment.shells = with pkgs; [ zsh ];
 }
