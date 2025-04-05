@@ -9,17 +9,17 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # rb specific fixes
-      ./modules/rb-fixes/default.nix
+      (inputs.self + /modules/rb-fixes/default.nix)
       # use sway
-      ./modules/sway/default.nix
+      (inputs.self + /modules/sway/default.nix)
       # use our wallpapers
-      ./modules/wallpapers/default.nix
+      (inputs.self + /modules/wallpapers/default.nix)
       # use zsh4humans
-      ./modules/zsh/default.nix
+      (inputs.self + /modules/zsh/default.nix)
       # use alacritty
-      ./modules/alacritty/default.nix
+      (inputs.self + /modules/alacritty/default.nix)
       # general application configs
-      ./modules/applications/default.nix
+      (inputs.self + /modules/applications/default.nix)
     ];
 
 

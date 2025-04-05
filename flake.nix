@@ -28,15 +28,10 @@
   outputs = { self, nixpkgs, nix-index-database, ... }@inputs: {
     nixosConfigurations.mistral = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      # this lets us import modules from flakes (like sway-gnome) in our other modules (like configuration.nix)
+      # this lets us import modules from flakes in our other modules
       specialArgs.inputs = inputs;
       modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./configuration.nix
-        # inputs.sway-gnome.nixosModules.default
-        # inputs.regolith-nix.nixosModules.regolith
-
+        hosts/mistral/configuration.nix
         nix-index-database.nixosModules.nix-index
       ];
     };
