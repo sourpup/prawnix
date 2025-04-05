@@ -25,5 +25,15 @@
         nix-index-database.nixosModules.nix-index
       ];
     };
+
+    nixosConfigurations.emmerich = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      # this lets us import modules from flakes in our other modules
+      specialArgs.inputs = inputs;
+      modules = [
+        hosts/emmerich/configuration.nix
+        nix-index-database.nixosModules.nix-index
+      ];
+    };
   };
 }
