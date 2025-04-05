@@ -19,7 +19,7 @@
       # use zsh4humans
       (inputs.self + /modules/zsh/default.nix)
       # use alacritty
-      (inputs.self + /modules/alacritty/default.nix)
+      (inputs.self + /modules/alacritty/laptop.nix)
       # general application configs
       (inputs.self + /modules/applications/default.nix)
     ];

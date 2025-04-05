@@ -1,16 +1,12 @@
 [env]
 TERM = "xterm-256color"
 
-[font]
-size = 10.0
-
 [window]
 opacity = 0.95
 
 ## COLOR SCHEME
 [colors.primary]
-# background = "#09090d"
-background = "#574464"
+# background = "#574464" # a dark purple-y/plum-y background
 foreground = "#e3c7fc"
 
 [colors.cursor]

@@ -1,19 +1,10 @@
 { pkgs, ... }:
 
 {
-  imports =
-  [
-    # none
-  ];
 
-# install alacritty
+  # install alacritty
   environment.systemPackages = with pkgs; [
-      alacritty
+    alacritty
   ];
-
-# install alacritty config
-  environment.etc = {
-    "xdg/alacritty/alacritty.toml".source = ./alacritty.toml;
-  };
 
 }
