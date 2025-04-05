@@ -5,16 +5,6 @@
     # NixOS official package source, using the nixos-24.11 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 
-    # dont use any flakes for now
-    #sway-gnome.url = "github:SolidHal/sway-gnome-nix/main";
-    #sway-gnome.url = "path:/home/eva/Documents/sway-gnome-nix";
-    # force the flake to use our nixpkgs
-    #sway-gnome.inputs.nixpkgs.follows = "nixpkgs";
-
-    #TODO use some of the packages from this, but not the whole thing?
-    # regolith-nix.url = "github:SolidHal/regolith-nix/main";
-    # regolith-nix.inputs.nixpkgs.follows = "nixpkgs";
-
     # use precreated nix-index databases for shell command not found
     #TODO as-is, this installs the database but doesn't update the command-not-found.sh
     # so we still have to run nix-locate manually
