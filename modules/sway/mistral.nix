@@ -33,7 +33,7 @@ in
     "xdg/sway/sway.conf".source = (
       pkgs.concatTextFile {
         name = "sway.conf";
-        files = [ host_sway_conf ./sway.conf ];
+        files = [ ./sway.conf host_sway_conf ];
       });
   };
 

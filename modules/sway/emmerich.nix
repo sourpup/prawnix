@@ -14,15 +14,30 @@ let
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 #
-# set resolution and scaling
+# set resolution, scaling, and position
+# used nwg-displays to calculate the display positions
 output DP-1 resolution 7680x2160@119.970Hz
 output DP-1 scale 1.0
+output DP-1 pos 0 1440
+output DP-1 dpms on
 
 output DP-2 resolution 3840x2160@59.997Hz
 output DP-2 scale 1.5
 output DP-2 transform 180
+output DP-2 pos 2551 0
+output DP-2 dpms on
 
 
+# workspace assignments
+workspace 1 output DP-1
+workspace 2 output DP-1
+workspace 3 output DP-2
+workspace 4 output DP-1
+workspace 5 output DP-1
+workspace 6 output DP-2
+workspace 7 output DP-1
+workspace 8 output DP-1
+workspace 9 output DP-2
     '';
   });
 in
@@ -37,7 +52,7 @@ in
     "xdg/sway/sway.conf".source = (
       pkgs.concatTextFile {
         name = "sway.conf";
-        files = [ host_sway_conf ./sway.conf ];
+        files = [ ./sway.conf host_sway_conf ];
       });
   };
 

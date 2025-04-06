@@ -67,6 +67,7 @@ in
       alsa-tools # aplay, hda-verb, etc
       lshw
       wlogout # shutdown/reboot/logout window
+      nwg-displays
 
       ## Utility Scripts
 
