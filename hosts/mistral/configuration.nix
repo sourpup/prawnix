@@ -4,6 +4,13 @@
 
 { inputs, ... }:
 
+let
+
+  hostname = "mistral";
+  # supports laptop and desktop
+  platform = "laptop";
+
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -13,17 +20,17 @@
       # base host configuration
       (inputs.self + /modules/base-configuration/default.nix)
       # use sway
-      (inputs.self + /modules/sway/default.nix)
+      (inputs.self + /modules/sway/${hostname}.nix)
       # use our wallpapers
       (inputs.self + /modules/wallpapers/default.nix)
       # use zsh4humans
       (inputs.self + /modules/zsh/default.nix)
       # use alacritty
-      (inputs.self + /modules/alacritty/laptop.nix)
+      (inputs.self + /modules/alacritty/${platform}.nix)
       # general application configs
       (inputs.self + /modules/applications/default.nix)
     ];
 
-  networking.hostName = "mistral"; # Define your hostname.
+  networking.hostName = "${hostname}"; # Define your hostname.
 
 }

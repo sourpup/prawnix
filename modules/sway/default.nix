@@ -35,8 +35,9 @@ in
     # ];
 
     # use our sway config
+    # the host specific nix file writes this
     extraOptions = [
-      "--config=${ev4SwayConfig}"
+      "--config=/etc/xdg/sway/sway.conf"
     ];
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland
