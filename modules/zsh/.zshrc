@@ -107,3 +107,6 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
 # Workaround setting ZDOTHOME to /etc/zsh
 source /etc/zsh/.zshhomefix.zsh
+
+# Load work profile do this last so we can reload p10k if we want to
+if [ -f "$HOME/.zshwork" ]; then . "$HOME/.zshwork"; fi
