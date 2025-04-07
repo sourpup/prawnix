@@ -47,6 +47,8 @@ in
     ./default.nix
   ];
 
+  #TODO write a lil function that wraps this logic for all hosts
+
   # install this hosts sway config
   environment.etc = {
     "xdg/sway/sway.conf".source = (
