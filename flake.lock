@@ -264,11 +264,11 @@
         "rev": "9501240621404ef1f3d72685081309fa52aa9c0d",
         "revCount": 54,
         "type": "git",
-        "url": "file:///home/eva/Documents/nvix"
+        "url": "file:///home/eva/repos/nvix"
       },
       "original": {
         "type": "git",
-        "url": "file:///home/eva/Documents/nvix"
+        "url": "file:///home/eva/repos/nvix"
       }
     },
     "oil-lsp-diagnostics": {

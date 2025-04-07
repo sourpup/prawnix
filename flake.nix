@@ -12,7 +12,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     # use our local nvix checkout
-    nvix.url = "/home/eva/Documents/nvix";
+    nvix.url = "/home/eva/repos/nvix";
   };
 
   outputs = { self, nixpkgs, nix-index-database, ... }@inputs: {
