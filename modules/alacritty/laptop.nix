@@ -21,11 +21,11 @@ in
   # install alacritty config
   environment.etc = {
     "xdg/alacritty/alacritty.toml".source = (
-    pkgs.concatTextFile {
-      name = "alacritty.toml";
-      files = [ font_size_10 ./alacritty.toml ];
+      pkgs.concatTextFile {
+        name = "alacritty.toml";
+        files = [ font_size_10 ./alacritty.toml ];
       });
-    };
+  };
 
 
 }

@@ -2,7 +2,7 @@
 
 {
 
-  # install alacritty
+ # install alacritty
   environment.systemPackages = with pkgs; [
     alacritty
   ];
