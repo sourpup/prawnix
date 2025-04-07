@@ -49,6 +49,7 @@
     kicad
     krita
     libreoffice-qt
+    ncdu # tui for disk usage
     openscad
     qflipper
     signal-desktop
@@ -56,6 +57,7 @@
     thunderbird
     vorta
     wireshark-qt
+    yt-dlp
     zoom-us
   ];
 
