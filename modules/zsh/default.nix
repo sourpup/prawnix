@@ -53,11 +53,8 @@ let
       name = "z4h_auto_tele_hosts";
       text = ''
         # The default value if none of the overrides above match the hostname.
+        # Don't use auto teleportation over ssh
         zstyle ':z4h:ssh:*'                   enable 'no'
-        zstyle ':z4h:ssh:liquidsnake-*'                   enable 'yes'
-        zstyle ':z4h:ssh:raiden'                   enable 'yes'
-        zstyle ':z4h:ssh:mistral'                   enable 'yes'
-        zstyle ':z4h:ssh:solidsnake'                   enable 'yes'
       '';
     })
 
