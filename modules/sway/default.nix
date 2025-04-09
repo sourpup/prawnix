@@ -6,20 +6,20 @@ let
 in
 {
   imports =
-  [
-    ./mako.nix # for notifications
-  ];
+    [
+      ./mako.nix # for notifications
+    ];
 
 
   # use gdm as our display manager
   services.xserver = {
     desktopManager.gnome.enable = false;
-      displayManager = {
-        gdm = {
-          enable = true;
-          wayland = true;
-        };
+    displayManager = {
+      gdm = {
+        enable = true;
+        wayland = true;
       };
+    };
     enable = true; # xwayland
     updateDbusEnvironment = true;
   };
@@ -50,63 +50,63 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-      swaylock
-      swayidle
-      wl-clipboard # lets manage the system clipboard from the cli
-      wf-recorder
-      waybar # menu bar
-      libnotify # some applications depend on this to feed mako
-      eog # image viewer
-      gcolor3 # color picker
-      grim
-      kanshi
-      slurp
-      tofi # menu/launcher
-      blueman # bluetooth settings
-      pavucontrol # sound settings
-      alsa-tools # aplay, hda-verb, etc
-      lshw
-      wlogout # shutdown/reboot/logout window
-      nwg-displays
+    swaylock
+    swayidle
+    wl-clipboard # lets manage the system clipboard from the cli
+    wf-recorder
+    waybar # menu bar
+    libnotify # some applications depend on this to feed mako
+    eog # image viewer
+    gcolor3 # color picker
+    grim
+    kanshi
+    slurp
+    tofi # menu/launcher
+    blueman # bluetooth settings
+    pavucontrol # sound settings
+    alsa-tools # aplay, hda-verb, etc
+    lshw
+    wlogout # shutdown/reboot/logout window
+    nwg-displays
 
-      ## Utility Scripts
+    ## Utility Scripts
 
-      # simple script which prompts the user to select a region to screenshot, and puts the image on the clipboard
-      (pkgs.writeShellScriptBin "screenshot-script" ''
-        ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy
-      '')
+    # simple script which prompts the user to select a region to screenshot, and puts the image on the clipboard
+    (pkgs.writeShellScriptBin "screenshot-script" ''
+      ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy
+    '')
 
-      ## Desktop files
+    ## Desktop files
 
-      ### Settings shortcuts
-      (pkgs.makeDesktopItem {
-        name = "network-settings";
-        desktopName = "Network Settings";
-        exec = "/run/current-system/sw/bin/alacritty --command /run/current-system/sw/bin/nmtui";
-        keywords = ["wifi" "network" "networks" "ethernet" "settings"];
-      })
-      (pkgs.makeDesktopItem {
-        name = "sound-settings";
-        desktopName = "Sound Settings";
-        exec = "/run/current-system/sw/bin/pavucontrol";
-        keywords = ["sound" "audio" "settings"];
-      })
+    ### Settings shortcuts
+    (pkgs.makeDesktopItem {
+      name = "network-settings";
+      desktopName = "Network Settings";
+      exec = "/run/current-system/sw/bin/alacritty --command /run/current-system/sw/bin/nmtui";
+      keywords = [ "wifi" "network" "networks" "ethernet" "settings" ];
+    })
+    (pkgs.makeDesktopItem {
+      name = "sound-settings";
+      desktopName = "Sound Settings";
+      exec = "/run/current-system/sw/bin/pavucontrol";
+      keywords = [ "sound" "audio" "settings" ];
+    })
 
-      ### system state shortcuts
-      (pkgs.makeDesktopItem {
-        name = "shutdown-reboot-logout-lock-shortcut";
-        desktopName = "Shutdown/Reboot/Logout/Lock";
-        exec = "/run/current-system/sw/bin/wlogout";
-        keywords = ["shutdown" "power" "reboot" "logout" "lock"];
-      })
+    ### system state shortcuts
+    (pkgs.makeDesktopItem {
+      name = "shutdown-reboot-logout-lock-shortcut";
+      desktopName = "Shutdown/Reboot/Logout/Lock";
+      exec = "/run/current-system/sw/bin/wlogout";
+      keywords = [ "shutdown" "power" "reboot" "logout" "lock" ];
+    })
 
-      ### Utility Shotcuts
-      (pkgs.makeDesktopItem {
-        name = "screenshot-clipboard";
-        desktopName = "Screenshot to Clipboard";
-        exec = "/run/current-system/sw/bin/screenshot-script";
-        keywords = ["screenshot"];
-      })
+    ### Utility Shotcuts
+    (pkgs.makeDesktopItem {
+      name = "screenshot-clipboard";
+      desktopName = "Screenshot to Clipboard";
+      exec = "/run/current-system/sw/bin/screenshot-script";
+      keywords = [ "screenshot" ];
+    })
 
   ];
 
@@ -134,12 +134,12 @@ in
     powerline-fonts
     powerline-symbols
 
-# pre 25.05
+    # pre 25.05
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     fira-code
-# post 25.05
-#    nerd-fonts.fira-code
-#    nerd-fonts.droid-sans-mono
+    # post 25.05
+    #    nerd-fonts.fira-code
+    #    nerd-fonts.droid-sans-mono
   ];
 
   # setup default applications
