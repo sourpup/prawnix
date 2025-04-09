@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 let
   host_sway_conf = (pkgs.writeTextFile {
@@ -18,6 +18,8 @@ let
 # resolution and scaling
 output * scale 1.5
 
+# Default wallpaper
+output * bg /etc/wallpapers/horizontal/cat_window.png fill
 
     '';
   });
@@ -26,6 +28,7 @@ in
 {
   imports = [
     ./default.nix
+    (inputs.self + /modules/wallpapers/default.nix)
   ];
 
   # install this hosts sway config

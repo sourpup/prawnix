@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 let
   host_sway_conf = (pkgs.writeTextFile {
@@ -27,6 +27,9 @@ output DP-2 transform 180
 output DP-2 pos 2551 0
 output DP-2 dpms on
 
+# Default wallpaper
+output DP-1 bg /etc/wallpapers/horizontal/future_stacked_city.png fill
+output DP-2 bg /etc/wallpapers/horizontal/sword_and_sworcery.png fill
 
 # workspace assignments
 workspace 1 output DP-1
@@ -45,6 +48,7 @@ in
 {
   imports = [
     ./default.nix
+    (inputs.self + /modules/wallpapers/default.nix)
   ];
 
   #TODO write a lil function that wraps this logic for all hosts
