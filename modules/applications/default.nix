@@ -14,12 +14,24 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Set Firefox as the default browser
+  xdg.mime.enable = true;
+  xdg.mime.defaultApplications = {
+    "text/html" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+    "x-scheme-handler/about" = "firefox.desktop";
+    "x-scheme-handler/unknown" = "firefox.desktop";
+  };
+  environment.sessionVariables.DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # basic tools
     dtrx
+    file
     fzf
     git
     nautilus
