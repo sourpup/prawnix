@@ -59,6 +59,15 @@
     wireshark-qt
     yt-dlp
 
+
+    # desktop shortcuts
+    (pkgs.makeDesktopItem {
+      name = "firefoxWork";
+      desktopName = "Firefox Work";
+      exec = "/run/current-system/sw/bin/firefox -P Work";
+      keywords = ["firefox" "work"];
+    })
+
   ];
 
   # configure syncthing
