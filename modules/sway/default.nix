@@ -140,8 +140,14 @@ in
 # post 25.05
 #    nerd-fonts.fira-code
 #    nerd-fonts.droid-sans-mono
-
   ];
 
+  # setup default applications
+  xdg.mime.enable = true;
+  xdg.mime.defaultApplications = {
+    "image/jpeg" = "org.gnome.eog.desktop";
+    "image/png" = "org.gnome.eog.desktop";
+    "image/svg" = "org.gnome.eog.desktop";
+  };
 
 }
