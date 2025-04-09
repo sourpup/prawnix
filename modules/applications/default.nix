@@ -4,7 +4,7 @@
 {
   imports =
   [
-    # none
+    ./zoom.nix
   ];
 
 
@@ -58,9 +58,6 @@
     vorta
     wireshark-qt
     yt-dlp
-    zoom-us
-    xdg-desktop-portal-wlr # required for zoom screen sharing on wayland
-    xdg-desktop-portal-gtk # required for zoom screen sharing on wayland
 
   ];
 
@@ -81,12 +78,5 @@
 
   };
 
-# https://github.com/NixOS/nixpkgs/issues/359533
-systemd.tmpfiles.rules = [
-  "L+ /usr/share/xdg-desktop-portal/portals - - - - /run/current-system/sw/share/xdg-desktop-portal/portals "
-  "L+ /usr/libexec/xdg-desktop-portal-gtk - - - - ${pkgs.xdg-desktop-portal-gtk}/libexec/xdg-desktop-portal-gtk "
-  "L+ /usr/libexec/xdg-desktop-portal-wlr - - - - ${pkgs.xdg-desktop-portal-wlr}/libexec/xdg-desktop-portal-wlr "
-  "L+ /usr/libexec/xdg-desktop-portal - - - - ${pkgs.xdg-desktop-portal}/libexec/xdg-desktop-portal "
-];
 
 }
