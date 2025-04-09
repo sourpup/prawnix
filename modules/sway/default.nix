@@ -59,6 +59,7 @@ in
     eog # image viewer
     gcolor3 # color picker
     grim
+    jq
     kanshi
     slurp
     tofi # menu/launcher
@@ -67,6 +68,7 @@ in
     alsa-tools # aplay, hda-verb, etc
     lshw
     wlogout # shutdown/reboot/logout window
+    wl-mirror # used to help us with individual window sharing
     nwg-displays
 
     ## Utility Scripts
@@ -74,6 +76,48 @@ in
     # simple script which prompts the user to select a region to screenshot, and puts the image on the clipboard
     (pkgs.writeShellScriptBin "screenshot-script" ''
       ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy
+    '')
+
+    # start virtual workspace for single window sharing
+    (pkgs.writeShellScriptBin "start-share" ''
+      # Step 1: Create a new output
+      ${pkgs.sway}/bin/swaymsg create_output
+
+      # Step 2: Find the name of the newly created output
+      NEW_OUTPUT=$(${pkgs.sway}/bin/swaymsg -t get_outputs | ${pkgs.jq}/bin/jq -r '.[] | select(.name | startswith("HEADLESS-")) | .name' | sort | tail -n 1)
+
+      # Check if the output was successfully created
+      if [ -z "$NEW_OUTPUT" ]; then
+          echo "Failed to create a new output."
+          exit 1
+      fi
+
+      # Step 3: Assign a workspace to the new output
+      ${pkgs.sway}/bin/swaymsg workspace screenshare output "$NEW_OUTPUT"
+
+      # Step 4: Set the resolution for the new output
+      ${pkgs.sway}/bin/swaymsg output "$NEW_OUTPUT" resolution 1920x1080
+
+      # Step 5: Set the background color for the new output
+      ${pkgs.sway}/bin/swaymsg output "$NEW_OUTPUT" bg "#C299FF" solid_color
+
+      # Step 6: Switch to workspace "screenshare" and then back to the previous workspace
+      CURRENT_WORKSPACE=$(${pkgs.sway}/bin/swaymsg -t get_workspaces | jq -r '.[] | select(.focused) | .name')
+      ${pkgs.sway}/bin/swaymsg workspace screenshare
+      ${pkgs.sway}/bin/swaymsg workspace "$CURRENT_WORKSPACE"
+
+      trap ctrl_c INT
+      function ctrl_c() {
+          echo "removing output $NEW_OUTPUT"
+          ${pkgs.sway}/bin/swaymsg output "$NEW_OUTPUT" unplug
+          ${pkgs.libnotify}/bin/notify-send "unplugged headless output"
+          exit 0
+      }
+
+      echo "Starting wl-mirror"
+      echo "the headless output is likely to the right of your main workspace"
+      echo "When done, close all windows on the shared workspace, then ctrl-c to tear down the screen sharing output and workspace"
+      ${pkgs.wl-mirror}/bin/wl-mirror "$NEW_OUTPUT"
     '')
 
     ## Desktop files
