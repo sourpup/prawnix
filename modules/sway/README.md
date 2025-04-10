@@ -9,3 +9,7 @@ script adapted from
 https://github.com/emersion/xdg-desktop-portal-wlr/issues/107#issuecomment-2132150014
 and
 https://github.com/emersion/xdg-desktop-portal-wlr/issues/107#issuecomment-2168613018
+
+
+## Tip
+if you are adding a desktop file, but it won't show up in tofi, try deleting `~/.cache/tofi-drun`
