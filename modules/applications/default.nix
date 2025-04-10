@@ -49,6 +49,7 @@
 
     # other apps
     bambu-studio
+    borgbackup
     calibre
     chromium
     discord
