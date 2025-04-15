@@ -22,6 +22,7 @@
       system = "x86_64-linux";
       # this lets us import modules from flakes in our other modules
       specialArgs = {
+        user = "eva";
         inputs = inputs;
         # To use packages from nixpkgs-stable,
         # we configure some parameters for it first
@@ -44,6 +45,7 @@
       system = "x86_64-linux";
       # this lets us import modules from flakes in our other modules
       specialArgs = {
+        user = "eva";
         inputs = inputs;
         # To use packages from nixpkgs-stable,
         # we configure some parameters for it first

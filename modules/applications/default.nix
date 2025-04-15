@@ -1,5 +1,5 @@
 # general applications
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, user, ... }:
 
 {
   imports =
@@ -90,11 +90,11 @@
     enable = true;
     openDefaultPorts = true;
     # run as user
-    user = "eva";
+    user = user;
     # lets use the usual syncthing config rather than confiuring syncthing
     # with nix
-    dataDir = "/home/eva";  # default location for new folders
-    configDir = "/home/eva/.config/syncthing";
+    dataDir = "/home/${user}";  # default location for new folders
+    configDir = "/home/${user}/.config/syncthing";
     # Dont delete devices and folders that are created
     # by the web interface
     overrideDevices = false;
