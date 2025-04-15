@@ -46,6 +46,8 @@
     # use our neovim/nixvim config
     inputs.nvix.packages.${pkgs.system}.core
 
+    # android dev
+    android-tools
 
     # other apps
     bambu-studio
