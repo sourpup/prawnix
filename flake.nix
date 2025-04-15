@@ -13,8 +13,7 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
-    # use our local nvix checkout
-    nvix.url = "/home/eva/repos/nvix";
+    nvix.url = "github:SolidHal/nvix";
   };
 
   outputs = { self, nixpkgs, nixpkgs-zoom, nix-index-database, ... }@inputs: {

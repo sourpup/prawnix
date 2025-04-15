@@ -276,15 +276,15 @@
       "locked": {
         "lastModified": 1744399744,
         "narHash": "sha256-FYamteFrN+2ZwbObSKODJkadh4JNC0SQHpcPBz2mpv4=",
-        "ref": "refs/heads/master",
+        "owner": "SolidHal",
+        "repo": "nvix",
         "rev": "57e92d10dcc7aa9cff1b8f7424ef3b0782769082",
-        "revCount": 59,
-        "type": "git",
-        "url": "file:///home/eva/repos/nvix"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/eva/repos/nvix"
+        "owner": "SolidHal",
+        "repo": "nvix",
+        "type": "github"
       }
     },
     "oil-lsp-diagnostics": {
