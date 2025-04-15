@@ -27,6 +27,9 @@ in
       (inputs.self + /modules/alacritty/${platform}.nix)
       # general application configs
       (inputs.self + /modules/applications/default.nix)
+      (inputs.self + /modules/applications/heavy.nix)
+      (inputs.self + /modules/applications/syncthing.nix)
+      (inputs.self + /modules/applications/zoom.nix)
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.

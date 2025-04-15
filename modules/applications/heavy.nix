@@ -1,10 +1,11 @@
 # general applications
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, user, ... }:
 
 {
   imports =
   [
-
+    ./default.nix
+    ./syncthing.nix
   ];
 
 
@@ -29,35 +30,31 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # basic tools
-    dtrx
-    file
-    fzf
-    git
-    nautilus
-    ripgrep
-    wget
+    # extra apps
+    bambu-studio
+    borgbackup
+    chromium
+    discord
+    freecad-wayland
+    kicad
+    krita
+    openscad
+    qflipper
+    signal-desktop
+    spotify
+    thunderbird
+    vorta
+    wireshark-qt
+    yt-dlp
 
-    # baisc dev env
-    gcc14
-    python3
-    ruff # linter for python
 
-    # use our neovim/nixvim config
-    inputs.nvix.packages.${pkgs.system}.core
-
-    # android dev
-    android-tools
-
-    # other apps
-    calibre
-    gimp
-    gparted
-    handbrake
-    imagemagick
-    keepassxc
-    libreoffice-qt
-    ncdu # tui for disk usage
+    # desktop shortcuts
+    (pkgs.makeDesktopItem {
+      name = "firefoxWork";
+      desktopName = "Firefox Work";
+      exec = "/run/current-system/sw/bin/firefox -P Work";
+      keywords = ["firefox" "work"];
+    })
 
   ];
 
