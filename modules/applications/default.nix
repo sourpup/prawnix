@@ -58,6 +58,7 @@
     keepassxc
     libreoffice-qt
     ncdu # tui for disk usage
+    tor-browser
 
   ];
 
