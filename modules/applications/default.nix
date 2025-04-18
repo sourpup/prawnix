@@ -59,6 +59,7 @@
     libreoffice-qt
     ncdu # tui for disk usage
     tor-browser
+    wireguard-tools
 
   ];
 

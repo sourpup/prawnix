@@ -32,6 +32,7 @@ in
       (inputs.self + /modules/applications/heavy.nix)
       (inputs.self + /modules/applications/syncthing.nix)
       (inputs.self + /modules/applications/zoom.nix)
+      (inputs.self + /modules/applications/wireguard.nix)
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
