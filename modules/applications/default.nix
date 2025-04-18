@@ -35,6 +35,7 @@
     fzf
     git
     nautilus
+    pciutils
     ripgrep
     wget
 
