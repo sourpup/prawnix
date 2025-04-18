@@ -43,6 +43,7 @@
     signal-desktop
     spotify
     thunderbird
+    tlp # power monitoring
     vorta
     wireshark-qt
     yt-dlp
