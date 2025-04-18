@@ -7,6 +7,8 @@
 
     nixpkgs-zoom.url = "github:Yarny0/nixpkgs/zoom-fhs";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # use precreated nix-index databases for shell command not found
     #TODO as-is, this installs the database but doesn't update the command-not-found.sh
     # so we still have to run nix-locate manually
@@ -16,7 +18,7 @@
     nvix.url = "github:SolidHal/nvix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-zoom, nix-index-database, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-zoom, nix-index-database, nixos-hardware, ... }@inputs: {
     nixosConfigurations.mistral = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       # this lets us import modules from flakes in our other modules
