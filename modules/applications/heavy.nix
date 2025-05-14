@@ -39,6 +39,8 @@
     kicad
     krita
     openscad
+    pdftk
+    pdfchain
     qflipper
     signal-desktop
     spotify
