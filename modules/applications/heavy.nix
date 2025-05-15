@@ -26,6 +26,13 @@
   };
   environment.sessionVariables.DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
 
+  # enable docker daemon
+  virtualisation.docker.enable = true;
+  users.users.${user} = {
+    extraGroups = [
+      "docker"
+    ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -34,7 +41,9 @@
     bambu-studio
     borgbackup
     chromium
+    devcontainer # used for zmk build
     discord
+    docker
     freecad-wayland
     kicad
     krita
