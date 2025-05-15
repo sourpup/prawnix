@@ -49,6 +49,25 @@ in
     '';
   };
 
+  # add support for auto mount
+  services.udisks2.enable = true;
+  security.polkit.enable = true;
+
+  # start udiskie on login
+  systemd.user.services.udiskie = {
+    wantedBy = [ "graphical-session.target" ];
+    description = "Drive automounter";
+    partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+
+    serviceConfig = {
+     Type = "simple";
+     ExecStart = "${pkgs.udiskie}/bin/udiskie";
+   };
+
+  };
+
+
   environment.systemPackages = with pkgs; [
     swaylock
     swayidle
@@ -67,6 +86,7 @@ in
     pavucontrol # sound settings
     alsa-tools # aplay, hda-verb, etc
     lshw
+    udiskie
     wlogout # shutdown/reboot/logout window
     wl-mirror # used to help us with individual window sharing
     nwg-displays
