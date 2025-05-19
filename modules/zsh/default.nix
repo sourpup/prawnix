@@ -14,7 +14,11 @@ let
       text = ''
         # Since we set ZDOTDIR at the system level
         # we need to override where zsh should read/write its history
-        export HISTFILE=~/.zsh_history
+        HISTFILE=~/.zsh_history
+        # keep history
+        HISTSIZE=999999999
+        SAVEHIST=$HISTSIZE
+
         # same with the comp file
         #
         # from the manpage:
