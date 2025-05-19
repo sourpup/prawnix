@@ -40,6 +40,7 @@
     # extra apps
     bambu-studio
     borgbackup
+    cargo # rust
     chromium
     devcontainer # used for zmk build
     discord
@@ -51,6 +52,7 @@
     pdftk
     pdfchain
     qflipper
+    rustc # rust
     signal-desktop
     spotify
     thunderbird
