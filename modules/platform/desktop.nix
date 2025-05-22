@@ -1,0 +1,6 @@
+# desktop platform specific configuration
+{ ... }:
+
+{
+
+}

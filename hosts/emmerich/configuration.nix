@@ -17,6 +17,8 @@ in
       ./hardware-configuration.nix
       # base host configuration
       (inputs.self + /modules/base-configuration/default.nix)
+      # platform specific configuration
+      (inputs.self + /modules/platform/${platform}.nix)
       # use sway
       (inputs.self + /modules/sway/${hostname}.nix)
       # use our wallpapers
