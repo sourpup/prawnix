@@ -1,10 +1,13 @@
 # fixes for the silly razerblade hardware
 { pkgs, ... }:
+
+
 {
 
   # packages for sound fixes
   environment.systemPackages = with pkgs; [
       alsa-tools # required for hda-verb
+      alsa-utils # aplay
       lshw # for debugging
   ];
 
