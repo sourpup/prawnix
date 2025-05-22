@@ -62,6 +62,7 @@
     ncdu # tui for disk usage
     tor-browser
     wireguard-tools
+    zenith # top/htop replacement
 
   ];
 
