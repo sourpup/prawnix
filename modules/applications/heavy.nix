@@ -48,15 +48,18 @@
     freecad-wayland
     kicad
     krita
+    mpv
     openscad
     pdftk
     pdfchain
     qflipper
     rustc # rust
+    sabnzbd
     signal-desktop
     spotify
     thunderbird
     tlp # power monitoring
+    vlc
     vorta
     wireshark-qt
     yt-dlp
