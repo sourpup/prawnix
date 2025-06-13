@@ -199,12 +199,8 @@ in
     powerline-fonts
     powerline-symbols
 
-    # pre 25.05
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    fira-code
-    # post 25.05
-    #    nerd-fonts.fira-code
-    #    nerd-fonts.droid-sans-mono
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
   ];
 
   # setup default applications

@@ -3,9 +3,7 @@
 
   inputs = {
     # NixOS official package source, using the nixos-24.11 branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-
-    nixpkgs-zoom.url = "github:Yarny0/nixpkgs/zoom-fhs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -18,23 +16,13 @@
     nvix.url = "github:SolidHal/nvix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-zoom, nix-index-database, nixos-hardware, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-index-database, nixos-hardware, ... }@inputs: {
     nixosConfigurations.mistral = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       # this lets us import modules from flakes in our other modules
       specialArgs = {
         user = "eva";
         inputs = inputs;
-        # To use packages from nixpkgs-stable,
-        # we configure some parameters for it first
-        pkgs-zoom = import nixpkgs-zoom {
-            # Refer to the `system` parameter from
-            # the outer scope recursively
-            inherit system;
-            # To use zoom, we need to allow the
-            # installation of non-free software.
-            config.allowUnfree = true;
-        };
       };
       modules = [
         hosts/mistral/configuration.nix
@@ -50,14 +38,6 @@
         inputs = inputs;
         # To use packages from nixpkgs-stable,
         # we configure some parameters for it first
-        pkgs-zoom = import nixpkgs-zoom {
-            # Refer to the `system` parameter from
-            # the outer scope recursively
-            inherit system;
-            # To use zoom, we need to allow the
-            # installation of non-free software.
-            config.allowUnfree = true;
-        };
       };
       modules = [
         hosts/emmerich/configuration.nix

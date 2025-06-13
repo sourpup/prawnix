@@ -1,9 +1,9 @@
 # zoom is a special annoyance
-{ pkgs-zoom, ... }:
+{ pkgs, ... }:
 
 
 {
-  environment.systemPackages = with pkgs-zoom; [
+  environment.systemPackages = with pkgs; [
     zoom-us
   ];
 
