@@ -17,12 +17,12 @@ let
 # set resolution, scaling, and position
 # used nwg-displays to calculate the display positions
 output DP-1 resolution 7680x2160@119.970Hz
-output DP-1 scale 1.0
+output DP-1 scale 2.0
 output DP-1 pos 0 1440
 output DP-1 dpms on
 
 output DP-2 resolution 3840x2160@59.997Hz
-output DP-2 scale 1.5
+output DP-2 scale 2.0
 output DP-2 transform 180
 output DP-2 pos 2551 0
 output DP-2 dpms on

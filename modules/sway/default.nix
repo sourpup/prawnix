@@ -72,6 +72,7 @@ in
     swaylock
     swayidle
     wl-clipboard # lets manage the system clipboard from the cli
+    wl-gammactl
     wf-recorder
     waybar # menu bar
     libnotify # some applications depend on this to feed mako
