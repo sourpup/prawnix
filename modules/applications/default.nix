@@ -51,10 +51,13 @@
     # android dev
     android-tools
 
+    #filesystem management
+    gparted
+    ntfs3g
+
     # other apps
     calibre
     gimp
-    gparted
     handbrake
     imagemagick
     keepassxc
