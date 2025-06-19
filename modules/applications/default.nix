@@ -62,6 +62,7 @@
     imagemagick
     keepassxc
     libreoffice-qt
+    papers # pdf viewer
     ncdu # tui for disk usage
     tor-browser
     wireguard-tools

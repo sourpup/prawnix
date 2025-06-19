@@ -211,4 +211,8 @@ in
     "image/svg" = "org.gnome.eog.desktop";
   };
 
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "org.gnome.papers.desktop";
+  };
+
 }
