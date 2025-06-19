@@ -46,6 +46,7 @@
     discord
     docker
     freecad-wayland
+    ghidra # reverse engineering tools
     kicad
     krita
     mpv
