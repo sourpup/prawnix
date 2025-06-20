@@ -212,7 +212,7 @@ in
   };
 
   xdg.mime.defaultApplications = {
-    "application/pdf" = "org.gnome.papers.desktop";
+    "application/pdf" = "org.gnome.Papers.desktop";
   };
 
 }
