@@ -53,6 +53,7 @@
 
     #filesystem management
     gparted
+    exfatprogs
     ntfs3g
 
     # other apps
