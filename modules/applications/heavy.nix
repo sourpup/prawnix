@@ -62,6 +62,7 @@
     spotify
     thunderbird
     tlp # power monitoring
+    virt-manager # for qemu configuration
     vlc
     vorta
     wireshark-qt
