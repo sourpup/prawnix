@@ -53,6 +53,8 @@
     openscad
     pdftk
     pdfchain
+    qemu
+    qemu-utils
     qflipper
     rustc # rust
     sabnzbd
