@@ -21,10 +21,8 @@ in
       (inputs.self + /modules/base-configuration/default.nix)
       # use zsh4humans
       (inputs.self + /modules/zsh/default.nix)
-      # use alacritty
-      (inputs.self + /modules/alacritty/${platform}.nix)
-      # general application configs
-      (inputs.self + /modules/applications/default.nix)
+      # application suite
+      (inputs.self + /modules/applications/minimal.nix)
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.

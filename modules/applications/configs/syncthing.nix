@@ -1,4 +1,5 @@
-# general applications
+# syncthing configuration
+# runs as the current user
 {  user, ... }:
 
 {
@@ -21,7 +22,6 @@
     # by the web interface
     overrideDevices = false;
     overrideFolders = false;
-
   };
 
 

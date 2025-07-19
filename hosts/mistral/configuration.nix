@@ -29,12 +29,12 @@ in
       (inputs.self + /modules/zsh/default.nix)
       # use alacritty
       (inputs.self + /modules/alacritty/${platform}.nix)
-      # general application configs
-      (inputs.self + /modules/applications/default.nix)
-      (inputs.self + /modules/applications/heavy.nix)
-      (inputs.self + /modules/applications/syncthing.nix)
-      (inputs.self + /modules/applications/zoom.nix)
-      (inputs.self + /modules/applications/wireguard.nix)
+      # application suite
+      (inputs.self + /modules/applications/graphical-full.nix)
+      # application specific inclusions/configurations
+      (inputs.self + /modules/applications/configs/firefox-work.nix)
+      (inputs.self + /modules/applications/configs/zoom.nix)
+      (inputs.self + /modules/applications/configs/wireguard.nix)
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.

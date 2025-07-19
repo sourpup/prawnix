@@ -1,6 +1,12 @@
-{ user, ... }:
+{ pkgs, user, ... }:
 
 {
+
+
+  environment.systemPackages = with pkgs; [
+    wireguard-tools
+  ];
+
   # use wireguard config
   # start:
   # sudo systemctl start wg-quick-wg0.service

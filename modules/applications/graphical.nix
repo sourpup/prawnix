@@ -1,12 +1,12 @@
-# general applications
-{ pkgs, inputs, ... }:
+# general graphical applications, shared between DEs/WMs
+# this should be kept minimal, most packages should go in graphical-full.nix
+{ pkgs, ... }:
 
 {
   imports =
   [
-
+    ./minimal.nix
   ];
-
 
 # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -25,48 +25,22 @@
   };
   environment.sessionVariables.DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # basic tools
-    dtrx
-    file
-    fzf
-    git
-    nmap
-    pciutils
-    ripgrep
-    wget
-
-    # baisc dev env
-    gcc14
-    python3
-    ruff # linter for python
-
-    # use our neovim/nixvim config
-    inputs.nvix.packages.${pkgs.system}.core
-
-    # android dev
-    android-tools
+    calibre
+    gimp
+    handbrake
+    keepassxc
+    libreoffice-qt
+    mpv
+    tor-browser
+    vlc
 
     #filesystem management
     gparted
     exfatprogs
     ntfs3g
-
-    # other apps
-    calibre
-    gimp
-    handbrake
-    imagemagick
-    keepassxc
-    libreoffice-qt
-    ncdu # tui for disk usage
-    tor-browser
-    wireguard-tools
-    zenith # top/htop replacement
-
   ];
 
 }
