@@ -76,11 +76,13 @@ in
     wf-recorder
     waybar # menu bar
     libnotify # some applications depend on this to feed mako
+    nautilus # gui file explorer
     eog # image viewer
     gcolor3 # color picker
     grim
     jq
     kanshi
+    papers # pdf viewer
     slurp
     tofi # menu/launcher
     blueman # bluetooth settings
