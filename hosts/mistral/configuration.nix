@@ -7,7 +7,7 @@
 let
 
   hostname = "mistral";
-  # supports laptop and desktop
+  # must be one of the .nix files in modules/platform
   platform = "laptop";
 
 in
@@ -15,14 +15,12 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # platform specific configuration
+      # base platform configuration
       (inputs.self + /modules/platform/${platform}.nix)
       # rb specific fixes
       (inputs.self + /modules/rb-fixes/default.nix)
       # disable the nvidia card
       (inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable)
-      # base host configuration
-      (inputs.self + /modules/base-configuration/default.nix)
       # use sway
       (inputs.self + /modules/sway/${hostname}.nix)
       # use our wallpapers
@@ -40,5 +38,9 @@ in
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
 }

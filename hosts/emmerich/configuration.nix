@@ -7,7 +7,7 @@
 let
 
   hostname = "emmerich";
-  # supports laptop and desktop
+  # must be one of the .nix files in modules/platform
   platform = "desktop";
 
 in
@@ -15,9 +15,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # base host configuration
-      (inputs.self + /modules/base-configuration/default.nix)
-      # platform specific configuration
+      # base platform configuration
       (inputs.self + /modules/platform/${platform}.nix)
       # use sway
       (inputs.self + /modules/sway/${hostname}.nix)
@@ -36,4 +34,7 @@ in
 
   networking.hostName = "${hostname}"; # Define your hostname.
 
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 }
