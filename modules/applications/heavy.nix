@@ -6,6 +6,7 @@
   [
     ./default.nix
     ./syncthing.nix
+    ./qemu.nix
   ];
 
 
@@ -34,6 +35,7 @@
     ];
   };
 
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -53,8 +55,6 @@
     openscad
     pdftk
     pdfchain
-    qemu
-    qemu-utils
     qflipper
     rustc # rust
     sabnzbd
@@ -62,7 +62,6 @@
     spotify
     thunderbird
     tlp # power monitoring
-    virt-manager # for qemu configuration
     vlc
     vorta
     wireshark-qt
