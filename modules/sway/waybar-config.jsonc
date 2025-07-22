@@ -3,7 +3,8 @@
     "spacing": 0,
     "height": 0,
 
-    "margin-top": 4,
+    // TODO reduce this back to 4 after adjusting kb placement on laptop
+    "margin-top": 30,
     "margin-right": 4,
     "margin-bottom": 4,
     "margin-left": 4,
