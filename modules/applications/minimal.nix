@@ -20,10 +20,12 @@
     fzf
     git
     imagemagick
+    minicom
     ncdu # tui for disk usage
     nmap
     pciutils
     ripgrep
+    rsync
     wireguard-tools
     wget
     zenith # top/htop replacement
