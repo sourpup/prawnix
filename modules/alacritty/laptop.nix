@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 let
-  font_size_10 = (pkgs.writeTextFile {
-    name = "alacritty_font_size_10_chunk";
+  font_size = (pkgs.writeTextFile {
+    name = "alacritty_font_size";
     text = ''
 
       [font]
-      size = 10
+      size = 12
 
     '';
   });
@@ -23,7 +23,7 @@ in
     "xdg/alacritty/alacritty.toml".source = (
       pkgs.concatTextFile {
         name = "alacritty.toml";
-        files = [ font_size_10 ./alacritty.toml ];
+        files = [ font_size ./alacritty.toml ];
       });
   };
 
