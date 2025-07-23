@@ -46,7 +46,7 @@
           ''command="systemctl default" [SSHKey]''
         ];
         # Location of the SSH host key
-        hostKeys = [ "/etc/ssh/initrd_ssh_host_ed25519_key" ];
+        hostKeys = [ /etc/ssh/initrd_ssh_host_ed25519_key ];
       };
     };
   };

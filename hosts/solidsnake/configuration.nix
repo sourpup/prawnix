@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 let
 
@@ -17,8 +17,6 @@ in
       ./hardware-configuration.nix
       # platform specific configuration
       (inputs.self + /modules/platform/${platform}.nix)
-      # base host configuration
-      (inputs.self + /modules/base-configuration/default.nix)
       # use zsh4humans
       (inputs.self + /modules/zsh/default.nix)
       # application suite
@@ -26,6 +24,24 @@ in
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
+
+
+  # TODO move these to a server app suite?
+  # btrfs
+  services.btrfs.autoScrub.enable = true;
+
+
+  environment.systemPackages = with pkgs; [
+    borgbackup
+    btrfs-progs
+    cryptsetup
+    lshw
+    usbutils
+
+  ];
+
+  # TODO do the initial install next and get our hardware config and bootloader config
+  # TODO migrate server scripts
 
   #TODO set the bootloader here?
 
