@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, pkgs, user, primary-eth, ... }:
+{ config, inputs, lib, pkgs, user, primary-eth, ... }:
 
 let
 
@@ -53,14 +53,37 @@ in
     systemd = {
       enable = true;
       # Configure networking using systemd's network manager
+
+      # if you don't need to override any of the
+      # normal running systems network interface configuration
+      # you can remove this section
       network = {
-        networks = {
-          "${primary-eth}" = {
+        enable = true;
+        # mkForce is required to override the normal systems
+        # MAC and hostname
+        networks =  lib.mkForce {
+          "${primary-eth}" =  {
             matchConfig = {
               Name = "${primary-eth}";  # Matches the network interface by name
             };
             networkConfig = {
-              DHCP = "yes";  # Enable DHCP to automatically get an IP address
+              DHCP = "yes";  # Enable DHCP
+            };
+            # set a different mac address for the initrd so the router
+            # can assign a different static ip for the initrd
+            # this ensures that any open ports on the router, which
+            # route to the server during normal operation, are not
+            # routed to the servers initrd
+            linkConfig = {
+              MACAddress =  "d2:c5:07:41:ad:80";
+            };
+            # set a different hostname for the initrd to differentiate
+            # it from the normal-running system
+            dhcpV4Config = {
+              Hostname =  "${hostname}-decrypt";
+            };
+            dhcpV6Config = {
+              Hostname = "${hostname}-decrypt";
             };
           };
         };
@@ -75,7 +98,7 @@ in
         port = 2222;  # Use a non-standard port for security
         # Only allow running the unlock service when connecting via SSH
         authorizedKeys = [
-          ''${inputs.prawnix-secrets.initrd_authorized_key}''
+          ''command="systemctl default" ${inputs.prawnix-secrets.initrd_authorized_key}''
         ];
         # Location of the SSH host key
         # TODO document creating a key here as part of setup
