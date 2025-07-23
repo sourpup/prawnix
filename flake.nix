@@ -14,9 +14,11 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     nvix.url = "github:SolidHal/nvix";
+
+    prawnix-secrets.url = "git+file:///home/eva/prawnix-secrets";
   };
 
-  outputs = { self, nixpkgs, nix-index-database, nixos-hardware, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, ... }@inputs: {
     nixosConfigurations.mistral = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       # this lets us import modules from flakes in our other modules
@@ -45,13 +47,13 @@
       ];
     };
 
-  nixosConfigurations.solidsnake = nixpkgs.lib.nixosSystem rec {
+  nixosConfigurations.solidnix = nixpkgs.lib.nixosSystem rec {
       system = "aarch64-linux";
       # this lets us import modules from flakes in our other modules
       specialArgs = {
         user = "eva";
         inputs = inputs;
-        initrdssh-netdev-name="enp6s18";
+        primary-eth="enP4p65s0";
         # To use packages from nixpkgs-stable,
         # we configure some parameters for it first
       };

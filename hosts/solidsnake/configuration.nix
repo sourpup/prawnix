@@ -2,11 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, pkgs, ... }:
+{ config, inputs, pkgs, user, primary-eth, ... }:
 
 let
 
-  hostname = "solidsnake";
+  hostname = "solidnix";
   # must be one of the .nix files in modules/platform
   platform = "server";
 
@@ -31,17 +31,12 @@ in
   # need to explicitly tell extlinuix to use the correct dtb
   hardware.deviceTree.name = "rockchip/rk3588-friendlyelec-cm3588-nas.dtb";
 
-  # need to explicitly use a newer kernel, 6.6 is too old
-  # right now latest is 6.12, which works
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   networking.hostName = "${hostname}"; # Define your hostname.
 
 
   # TODO move these to a server app suite?
-  # btrfs
-  services.btrfs.autoScrub.enable = true;
-
+  # btrfs configuration
+  # services.btrfs.autoScrub.enable = true;
 
   environment.systemPackages = with pkgs; [
     borgbackup
@@ -52,14 +47,47 @@ in
 
   ];
 
-  # TODO do the initial install next and get our hardware config and bootloader config
+# remote unlock
+  boot.initrd = {
+    # Enable systemd in the initial ramdisk environment
+    systemd = {
+      enable = true;
+      # Configure networking using systemd's network manager
+      network = {
+        networks = {
+          "${primary-eth}" = {
+            matchConfig = {
+              Name = "${primary-eth}";  # Matches the network interface by name
+            };
+            networkConfig = {
+              DHCP = "yes";  # Enable DHCP to automatically get an IP address
+            };
+          };
+        };
+      };
+    };
+
+    # Configure SSH access during early boot
+    network = {
+      enable = true;
+      ssh = {
+        enable = true;
+        port = 2222;  # Use a non-standard port for security
+        # Only allow running the unlock service when connecting via SSH
+        authorizedKeys = [
+          ''${inputs.prawnix-secrets.initrd_authorized_key}''
+        ];
+        # Location of the SSH host key
+        # TODO document creating a key here as part of setup
+        # sudo ssh-keygen -t ed25519 -f /etc/ssh/initrd_ssh_host_ed25519_key -C "eva@host"
+        hostKeys = [ inputs.prawnix-secrets.initrd_ssh_host_key ];
+      };
+    };
+  };
+
   # TODO migrate server scripts
 
-
-
-
-
-    # This option defines the first version of NixOS you have installed on this particular machine,
+  # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
   # Most users should NEVER change this value after the initial install, for any reason,
