@@ -8,8 +8,13 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [];
-  boot.initrd.kernelModules = [ "8021q"
+
+  # include the kernel modules for networking for initrd ssh
+  # also include the kernel modules for the gpu, otherwise
+  # one of the rockchip drivers time out and panic :|
+  #
+  # TODO this list almost certainly can be reduced further
+  boot.initrd.availableKernelModules = [ "8021q"
 "nls_iso8859_1"
 "nls_cp437"
 "crct10dif_ce"
@@ -77,75 +82,8 @@
 "rtc_hym8563"
 "r8169" ];
 
-
-  boot.kernelModules = [
-"8021q"
-"nls_iso8859_1"
-"nls_cp437"
-"crct10dif_ce"
-"polyval_ce"
-"polyval_generic"
-"sm4"
-"rk805_pwrkey"
-"pwm_beeper"
-"optee"
-"pwm_fan"
-"tcpm"
-"ffa_core"
-"hantro_vpu"
-"phy_rockchip_naneng_combphy"
-"rockchip_saradc"
-"rockchip_thermal"
-"rockchipdrm"
-"v4l2_vp9"
-"dw_mipi_dsi"
-"v4l2_h264"
-"analogix_dp"
-"rockchip_rga"
-"v4l2_jpeg"
-"dw_hdmi"
-"rockchip_dfi"
-"drm_display_helper"
-"v4l2_mem2mem"
-"videobuf2_dma_sg"
-"videobuf2_dma_contig"
-"videobuf2_memops"
-"videobuf2_v4l2"
-"videobuf2_common"
-"videodev"
-"panthor"
-"mc"
-"cec"
-"drm_gpuvm"
-"drm_dma_helper"
-"drm_exec"
-"adc_keys"
-"gpu_sched"
-"pci_endpoint_test"
-"uio_pdrv_genirq"
-"uio"
-"sch_fq_codel"
-"tap"
-"macvlan"
-"fuse"
-"dm_crypt"
-"encrypted_keys"
-"trusted"
-"caam_jr"
-"libdes"
-"authenc"
-"caamhash_desc"
-"caamalg_desc"
-"caam"
-"error"
-"crypto_engine"
-"asn1_encoder"
-"mmc_block"
-"rpmb_core"
-"dm_mod"
-"dax"
-"rtc_hym8563"
-"r8169" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ ];
 
 
   boot.extraModulePackages = [ ];
