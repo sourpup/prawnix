@@ -8,6 +8,18 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  # increase the size of CMA
+  # otherwise with 4x nvme drives, we use all of it up immediately on boot
+  # *BEFORE*
+  # ❯ cat /proc/meminfo | grep -i cma
+  # CmaTotal:          32768 kB
+  # CmaFree:               0 kB
+  # *AFTER*
+  # ❯ cat /proc/meminfo | grep -i cma
+  # CmaTotal:          65536 kB
+  # CmaFree:             512 kB
+  boot.kernelParams = [ "cma=64M"];
+
   # disable the default kernel modules set
   # most of these are not necessary for our hardawre platform
   boot.initrd.includeDefaultModules = false;
