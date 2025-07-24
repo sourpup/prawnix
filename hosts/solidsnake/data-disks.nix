@@ -20,7 +20,7 @@
       # and the actual btrfs raid on the last disk, and the name of these entries matters!
       disk0 = {
         type = "disk";
-        device = "/dev/nvme0n1";
+        device = "/dev/disk/by-uuid/4f74dd61-f0f2-4223-aba4-85b2f5d05f76";
         content = {
             type = "luks";
             name = "disk0"; # device-mapper name when decrypted
@@ -32,7 +32,7 @@
       };
       disk1 = {
         type = "disk";
-        device = "/dev/nvme1n1";
+        device = "/dev/disk/by-uuid/8b24ec92-bf3a-4a77-be7f-8fe952cdd8de";
         content = {
             type = "luks";
             name = "disk1"; # device-mapper name when decrypted
@@ -44,7 +44,7 @@
       };
       disk2 = {
         type = "disk";
-        device = "/dev/nvme2n1";
+        device = "/dev/disk/by-uuid/8d372c10-f6b1-4dc5-bb45-968477451ea4";
         content = {
             type = "luks";
             name = "disk2"; # device-mapper name when decrypted
@@ -56,7 +56,7 @@
       };
       disk3 = {
         type = "disk";
-        device = "/dev/nvme3n1";
+        device = "/dev/disk/by-uuid/0f2882e1-8f75-4cb3-8494-d67e99c4b0b8";
         content = {
           type = "luks";
           name = "disk3"; # device-mapper name when decrypted
