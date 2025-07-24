@@ -15,6 +15,8 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # /mnt/data configuration
+      ./data-disks.nix
       # platform specific configuration
       (inputs.self + /modules/platform/${platform}.nix)
       # use zsh4humans
@@ -32,6 +34,12 @@ in
   hardware.deviceTree.name = "rockchip/rk3588-friendlyelec-cm3588-nas.dtb";
 
   networking.hostName = "${hostname}"; # Define your hostname.
+
+  # install disko-mount
+  # use this to mount the data disks created by data-disks.nix
+  environment.systemPackages = [
+    config.system.build.mount
+  ];
 
 
   # TODO move these to a server app suite?

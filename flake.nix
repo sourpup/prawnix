@@ -15,10 +15,13 @@
 
     nvix.url = "github:SolidHal/nvix";
 
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     prawnix-secrets.url = "git+file:///home/eva/prawnix-secrets";
   };
 
-  outputs = { self, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, ... }@inputs: {
+  outputs = { self, disko, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, ... }@inputs: {
     nixosConfigurations.mistral = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       # this lets us import modules from flakes in our other modules
@@ -60,6 +63,7 @@
       modules = [
         hosts/solidsnake/configuration.nix
         nix-index-database.nixosModules.nix-index
+        disko.nixosModules.disko
       ];
     };
   };
