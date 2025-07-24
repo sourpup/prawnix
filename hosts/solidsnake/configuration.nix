@@ -42,18 +42,8 @@ in
   ];
 
 
-  # TODO move these to a server app suite?
   # btrfs configuration
   # services.btrfs.autoScrub.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    borgbackup
-    btrfs-progs
-    cryptsetup
-    lshw
-    usbutils
-
-  ];
 
 # remote unlock
   boot.initrd = {
