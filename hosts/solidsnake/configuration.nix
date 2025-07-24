@@ -97,6 +97,7 @@ in
         # Only allow running the unlock service when connecting via SSH
         authorizedKeys = [
           ''command="systemctl default" ${inputs.prawnix-secrets.initrd_authorized_key}''
+          ''command="systemctl default" ${inputs.prawnix-secrets.initrd_authorized_key2}''
         ];
         # Location of the SSH host key
         # TODO document creating a key here as part of setup

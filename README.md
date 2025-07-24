@@ -192,4 +192,10 @@ cut down list:
 "r8169"
 ];
 ```
-```
+
+
+## setup luks and format data disks
+`sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ~/prawnix/hosts/solidsnake/data-disks.nix`
+
+## backup luks headers for rootfs and data disks
+`sudo cryptsetup luksHeaderBackup /dev/mmcblk0p4 --header-backup-file luks_header.bin`
