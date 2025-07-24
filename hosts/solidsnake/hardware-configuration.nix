@@ -8,6 +8,9 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  # disable the default kernel modules set
+  # most of these are not necessary for our hardawre platform
+  boot.initrd.includeDefaultModules = false;
 
   # include the kernel modules for networking for initrd ssh
   # also include the kernel modules for the gpu, otherwise
