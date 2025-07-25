@@ -38,9 +38,49 @@ in
   # install disko-mount
   # use this to mount the data disks created by data-disks.nix
   environment.systemPackages = [
-    config.system.build.mount
+    config.system.build.mount # disko-mount
   ];
 
+  # user for docker to run as for files
+  # it needs r/w access to, like configs
+  users ={
+    groups = {
+        dockerdata = {
+            gid = 1002;
+          };
+    };
+    users.dockerdata = {
+      isSystemUser = true;
+      group = "dockerdata";
+      uid = 1002;
+      description = "${user}";
+    };
+  };
+
+  # add main user to dockerdata group
+  users.users.${user} = {
+    extraGroups = [ "dockerdata" ];
+  };
+
+
+
+  networking.firewall.allowedTCPPorts = [
+    # open web ports for ssl reverse proxy host mode docker
+    80
+    443
+
+    # open web ports for syncthing host mode docker
+    # https://github.com/syncthing/syncthing/blob/main/README-Docker.md#discovery
+    8384
+    22000
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    # open web ports for syncthing host mode docker
+    # https://github.com/syncthing/syncthing/blob/main/README-Docker.md#discovery
+    22000
+    21027
+  ];
 
   # btrfs configuration
   # services.btrfs.autoScrub.enable = true;
