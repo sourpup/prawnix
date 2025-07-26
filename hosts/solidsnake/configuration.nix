@@ -85,6 +85,36 @@ in
   # btrfs configuration
   # services.btrfs.autoScrub.enable = true;
 
+# local borg backup filesystem mount
+ fileSystems."/mnt/local_backup" = {
+   device = "/dev/disk/by-id/usb-WD_Elements_25A3_56594A53424A504D-0:0-part1";
+   fsType = "ext4";
+ };
+
+# borg backup services and timers
+  systemd.services.local-borg-backup = {
+     wantedBy = [ "multi-user.target" ];
+     after = [ "data.mount" "mnt-local_backup.mount" ];
+      description = "Run borg to backup /data/* to /mnt/local_backup/borg-backups";
+      serviceConfig = {
+        Environment = "PATH=/run/current-system/sw/bin";
+        ExecStart = "${./create_local_backups.sh} ${inputs.prawnix-secrets.borgbackup-notify-emailaddress}";
+      };
+   };
+
+  # run local backups nightly ~10 minutes after midnight
+  systemd.timers.local-borg-backup = {
+    description = "Timer to run local-borg-backup.service nightly";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+        Unit = "local-borg-backup.service";
+        OnCalendar = "*-*-* 00:10:00";
+        Persistent = true;
+        RandomizedDelaySec = 300;
+      };
+  };
+
+
 # remote unlock
   boot.initrd = {
     # Enable systemd in the initial ramdisk environment
