@@ -114,6 +114,28 @@ in
       };
   };
 
+  systemd.services.remote-borg-backup = {
+     wantedBy = [ "multi-user.target" ];
+     after = [ "data.mount" ];
+      description = "Run borg to backup to remote borg repo";
+      serviceConfig = {
+        Environment = "PATH=/run/current-system/sw/bin";
+        ExecStart = "${./create_remote_backups.sh} ${inputs.prawnix-secrets.borgbackup-notify-emailaddress}";
+      };
+   };
+
+  # run remote backups nightly ~20 minutes after 1am
+  systemd.timers.remote-borg-backup = {
+    description = "Timer to run remote-borg-backup.service nightly";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+        Unit = "local-borg-backup.service";
+        OnCalendar = "*-*-* 01:20:00";
+        Persistent = true;
+        RandomizedDelaySec = 300;
+      };
+  };
+
 
 # remote unlock
   boot.initrd = {
