@@ -42,6 +42,7 @@
     spotify
     thunderbird
     tlp # power monitoring
+    transmission_4-gtk
     vorta
     wireshark-qt
     yt-dlp
