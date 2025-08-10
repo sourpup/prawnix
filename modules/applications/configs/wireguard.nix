@@ -17,6 +17,10 @@
   networking.wg-quick.interfaces.wg0.configFile = "/home/${user}/wireguard/wg0.conf";
   networking.wg-quick.interfaces.wg0.autostart = false;
 
+  networking.wg-quick.interfaces.wg1.configFile = "/home/${user}/wireguard/wg1.conf";
+  networking.wg-quick.interfaces.wg1.autostart = false;
+
+
   # wireguard example config:
   #
   # [Interface]
