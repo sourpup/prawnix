@@ -66,6 +66,18 @@
         disko.nixosModules.disko
       ];
     };
+  nixosConfigurations.mudpup = nixpkgs.lib.nixosSystem rec {
+    system = "x86_64-linux";
+    
+    specialArgs = {
+      user = "arthur";
+      inputs = inputs;
+     };
+     modules = [
+      hosts/mudpup/configuration.nix
+      nix-index-database.nixosModules.nix-index
+     ];
+    };
   };
 
 }
