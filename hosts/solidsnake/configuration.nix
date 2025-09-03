@@ -106,13 +106,13 @@ in
       };
    };
 
-  # run local backups nightly ~10 minutes after midnight
+  # run local backups daily ~10 minutes after 10
   systemd.timers.local-borg-backup = {
     description = "Timer to run local-borg-backup.service nightly";
     wantedBy = [ "timers.target" ];
     timerConfig = {
         Unit = "local-borg-backup.service";
-        OnCalendar = "*-*-* 00:10:00";
+        OnCalendar = "*-*-* 10:10:00";
         Persistent = true;
         RandomizedDelaySec = 300;
       };
@@ -128,13 +128,13 @@ in
       };
    };
 
-  # run remote backups nightly ~20 minutes after 1am
+  # run remote backups daily ~20 minutes after 11
   systemd.timers.remote-borg-backup = {
     description = "Timer to run remote-borg-backup.service nightly";
     wantedBy = [ "timers.target" ];
     timerConfig = {
         Unit = "local-borg-backup.service";
-        OnCalendar = "*-*-* 01:20:00";
+        OnCalendar = "*-*-* 11:20:00";
         Persistent = true;
         RandomizedDelaySec = 300;
       };
