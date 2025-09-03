@@ -7,7 +7,7 @@ a multi-host flake which defines a reasonable nixos system, made up of:
 - neovim (nixvim via a nvix fork)
 
 this flake is configured for my use case, but you might find the modules helpful.
-both laptop and desktop uses are considered
+laptop, desktop, and server uses are considered
 
 ## Usage Instructions:
 1) If you have a fresh nixos install be sure to do the following in `/etc/nixos/configuration.nix`:
@@ -18,14 +18,9 @@ both laptop and desktop uses are considered
   - be sure to copy your machines `/etc/nixos/hardware-configuration.nix` to your new hosts directory
 3) add a `nixosConfigurations.<hostname>` section to the `flake.nix` file
 4) `sudo nixos-rebuild --flake "path-to-flake" switch` should then just work
-TODO: write new host install instructions
-- add git to fresh install
-- enable flake/experimental features
-- add host to flake .nix and to hosts
-- rebuild switch flake "should" just work then
 
 
-CM3588 install
+## CM3588 install (ignore this if you are not using a CM3588 board)
 
 - boot from sd card (TODO, flesh out these instructions)
 - partition the emmc
@@ -86,7 +81,6 @@ sudo cp -a /home/nixos/.ssh /mnt/home/eva/.ssh
 ```
 
 TODO: ensure ssh auth keys are set on new install
-TODO: ensure we can decrypt the initrd
 
 TODO:
 had to explicitly set the latest kernel to get 6.12 with support with this board
@@ -114,88 +108,8 @@ boot.initrd.availableKernelModules = ["r8169"];
 ```
 
 
-# TWO problems
-
-1) need to figure out what modules are required for networking in initrd
-2) need to figure out what modules are required to prevent the gpu crash
-
-some subset of the following:
-cut down list:
-```
-"8021q"
-"nls_iso8859_1"
-"nls_cp437"
-"crct10dif_ce"
-"polyval_ce"
-"polyval_generic"
-"sm4"
-"rk805_pwrkey"
-"pwm_beeper"
-"optee"
-"pwm_fan"
-"tcpm"
-"ffa_core"
-"gpio_ir_recv"
-"hantro_vpu"
-"phy_rockchip_naneng_combphy"
-"rockchip_saradc"
-"rockchip_thermal"
-"rockchipdrm"
-"v4l2_vp9"
-"dw_mipi_dsi"
-"v4l2_h264"
-"analogix_dp"
-"rockchip_rga"
-"v4l2_jpeg"
-"dw_hdmi"
-"rockchip_dfi"
-"drm_display_helper"
-"v4l2_mem2mem"
-"videobuf2_dma_sg"
-"videobuf2_dma_contig"
-"videobuf2_memops"
-"videobuf2_v4l2"
-"videobuf2_common"
-"videodev"
-"panthor"
-"mc"
-"cec"
-"drm_gpuvm"
-"drm_dma_helper"
-"drm_exec"
-"adc_keys"
-"gpu_sched"
-"pci_endpoint_test"
-"uio_pdrv_genirq"
-"uio"
-"sch_fq_codel"
-"tap"
-"macvlan"
-"fuse"
-"dm_crypt"
-"encrypted_keys"
-"trusted"
-"caam_jr"
-"libdes"
-"authenc"
-"caamhash_desc"
-"caamalg_desc"
-"caam"
-"error"
-"crypto_engine"
-"asn1_encoder"
-"mmc_block"
-"rpmb_core"
-"dm_mod"
-"dax"
-"rtc_hym8563"
-"r8169"
-];
-```
-
-
-## setup luks and format data disks
+### setup luks and format data disks
 `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ~/prawnix/hosts/solidsnake/data-disks.nix`
 
-## backup luks headers for rootfs and data disks
+### backup luks headers for rootfs and data disks
 `sudo cryptsetup luksHeaderBackup /dev/mmcblk0p4 --header-backup-file luks_header.bin`
