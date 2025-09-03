@@ -89,6 +89,10 @@ in
  fileSystems."/mnt/local_backup" = {
    device = "/dev/disk/by-id/usb-WD_Elements_25A3_56594A53424A504D-0:0-part1";
    fsType = "ext4";
+   options = [
+      "defaults"
+      "nofail" # ensure that systemd failing to mount this doesn't send us to emergency mode
+   ];
  };
 
 # borg backup services and timers
