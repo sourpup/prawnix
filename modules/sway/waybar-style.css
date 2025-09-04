@@ -9,13 +9,13 @@
 }
 
 window#waybar {
-    background: #574464;
-    border: 2px solid #f1c4e0;
+    background: #161616;
+    border: 2px solid #52bdff;
 }
 
 tooltip {
-    background-color: #574464;
-    border: 2px solid #F18FB0;
+    background-color: #161616;
+    border: 2px solid #be95ff;
 }
 
 #clock,
@@ -28,7 +28,7 @@ tooltip {
 }
 
 #workspaces {
-    background-color: #E9729D;
+    background-color: #525253;
     margin: 6px 0px 6px 6px;
     /*border: 2px solid #434a4c;*/
 }
@@ -50,7 +50,7 @@ tooltip {
 }
 
 #clock {
-    background-color: #E9729D;
+    background-color: #78a9ff;
     /*border: 2px solid #434a4c;*/
     color: #140a1d;
 }
