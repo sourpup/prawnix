@@ -266,19 +266,19 @@
   # hickey
   #
 	# Window background color
-  background-color = #574464
-  
+  background-color = #161616
+
 	# Default text color
 	# All text defaults to this color if not otherwise specified.
   # text-color = #cad3f5
-  text-color = #E9729D
+  text-color = #52bdff
 
 	# Prompt text theme
   prompt-color = #bd93f9
-  
+
 	# Placeholder text theme
 	placeholder-color = #FFFFFFA8
-  
+
 	# Input text theme
 	# input-color = #FFFFFF # just use text-color
 	input-background = #00000000
@@ -313,7 +313,7 @@
 	#
 	# If unspecified, defaults to the same as background-color
 	# text-cursor-background = #000000
-  
+
 	# Border outline color
 	# outline-color = #f5bde6
   outline-color = #F18FB0
