@@ -13,7 +13,7 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
-    nvix.url = "github:SolidHal/nvix";
+    nvix.url = "github:sourpup/nvix";
 
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
@@ -68,7 +68,7 @@
     };
   nixosConfigurations.mudpup = nixpkgs.lib.nixosSystem rec {
     system = "x86_64-linux";
-    
+
     specialArgs = {
       user = "arthur";
       inputs = inputs;
