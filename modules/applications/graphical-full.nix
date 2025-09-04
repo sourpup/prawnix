@@ -43,7 +43,6 @@
     thunderbird
     tlp # power monitoring
     transmission_4-gtk
-    tree
     vorta
     wireshark-qt
     yt-dlp

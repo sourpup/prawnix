@@ -26,6 +26,7 @@
     pciutils
     ripgrep
     rsync
+    tree
     wireguard-tools
     wget
     zenith # top/htop replacement
