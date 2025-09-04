@@ -19,7 +19,7 @@ let
 output * scale 1.5
 
 # Default wallpaper
-output * bg /etc/wallpapers/horizontal/cat_window.png fill
+output * bg /etc/wallpapers/horizontal/gris4.PNG fill
 
     '';
   });
