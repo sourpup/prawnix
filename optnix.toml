@@ -1,0 +1,20 @@
+# optnix allows for nix local nixos option search
+# to use optnix run
+# optnix -c optnix.toml
+# while in this flakes directory
+
+default_scope = "nixos"
+
+[scopes.nixos]
+description = "NixOS flake configuration for current system"
+options-list-cmd = '''
+nix eval "#nixosConfigurations.$(hostname)" --json --apply 'input: let
+  inherit (input) options pkgs;
+
+  optionsList = builtins.filter
+    (v: v.visible && !v.internal)
+    (pkgs.lib.optionAttrSetToDocList options);
+in
+  optionsList'
+'''
+evaluator = "nix eval #nixosConfigurations.$(hostname).config.{{ .Option }}"

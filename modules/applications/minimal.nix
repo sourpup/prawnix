@@ -23,6 +23,7 @@
     minicom
     ncdu # tui for disk usage
     nmap
+    optnix # useful for local search of nixos options
     pciutils
     ripgrep
     rsync
