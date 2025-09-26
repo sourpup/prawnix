@@ -27,6 +27,7 @@
     pciutils
     ripgrep
     rsync
+    traceroute
     wireguard-tools
     wget
     zenith # top/htop replacement
