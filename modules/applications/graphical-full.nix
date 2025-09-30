@@ -40,6 +40,7 @@
     sabnzbd
     signal-desktop
     spotify
+    telegram-desktop
     thunderbird
     tlp # power monitoring
     transmission_4-gtk
