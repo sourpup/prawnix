@@ -33,6 +33,7 @@
     ghidra # reverse engineering tools
     kicad
     krita
+    mumble
     openscad
     pdftk
     pdfchain
