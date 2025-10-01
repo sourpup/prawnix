@@ -73,6 +73,9 @@ in
     # https://github.com/syncthing/syncthing/blob/main/README-Docker.md#discovery
     8384
     22000
+
+    # open ports for mumble docker
+    64738
   ];
 
   networking.firewall.allowedUDPPorts = [
@@ -80,6 +83,9 @@ in
     # https://github.com/syncthing/syncthing/blob/main/README-Docker.md#discovery
     22000
     21027
+
+    # open ports for mumble docker
+    64738
   ];
 
   # btrfs configuration
