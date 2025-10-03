@@ -34,12 +34,14 @@
     kicad
     krita
     mumble
+    nvme-cli
     openscad
     pdftk
     pdfchain
     qflipper
     sabnzbd
     signal-desktop
+    smartmontools
     spotify
     telegram-desktop
     thunderbird
