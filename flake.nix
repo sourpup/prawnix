@@ -2,7 +2,9 @@
   description = "ev4s flake";
 
   inputs = {
-    # NixOS official package source, using the nixos-24.11 branch here
+    # NixOS official package source, using the nixos-25.05 branch here
+    # can specify a commit like this:
+    # nixpkgs.url = "github:NixOS/nixpkgs?rev=af48b0c59ac0e7482480e8d671d858b199298cdb";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
