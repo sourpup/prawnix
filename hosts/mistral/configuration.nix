@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 
 let
 
@@ -38,17 +38,6 @@ in
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
-
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_latest.override {
-  argsOverride = rec {
-    src = pkgs.fetchurl {
-          url = "mirror://kernel/linux/kernel/v6.x/linux-${version}.tar.xz";
-          sha256 = "sha256-0ojdOMPmK6V2ums60qhM+6Zc1DtwL2xQ0fcBrulCsY4=";
-    };
-    version = "6.6.103";
-    modDirVersion = "6.6.103";
-    };
-  });
 
   # Bootloader.
   boot.loader = {
