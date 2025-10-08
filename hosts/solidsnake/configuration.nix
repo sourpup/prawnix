@@ -76,6 +76,9 @@ in
 
     # open ports for mumble docker
     64738
+
+    # open ports for borg server docker
+    2221
   ];
 
   networking.firewall.allowedUDPPorts = [
@@ -86,6 +89,9 @@ in
 
     # open ports for mumble docker
     64738
+
+    # open ports for borg server docker
+    2221
   ];
 
   # btrfs configuration
