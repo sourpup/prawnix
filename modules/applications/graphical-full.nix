@@ -23,6 +23,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # extra apps
+    anki
     arp-scan
     bambu-studio
     borgbackup
