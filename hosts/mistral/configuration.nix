@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, ... }:
+{ inputs, pkgs-mistral-firmware, ... }:
 
 let
 
@@ -36,6 +36,14 @@ in
       (inputs.self + /modules/applications/configs/zoom.nix)
       (inputs.self + /modules/applications/configs/wireguard.nix)
     ];
+
+  # Pin to an older version of linux-firmware
+  # some firmware change between versions 20250917 and 20251011 causes nvme issues
+  nixpkgs.overlays = [
+    (self: super: {
+      linux-firmware = pkgs-mistral-firmware.linux-firmware;
+    })
+  ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
 

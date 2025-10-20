@@ -4,7 +4,22 @@
   inputs = {
     # NixOS official package source, using the nixos-25.05 branch here
     # can specify a commit like this:
-    # nixpkgs.url = "github:NixOS/nixpkgs?rev=af48b0c59ac0e7482480e8d671d858b199298cdb";
+    #nixpkgs.url = "github:NixOS/nixpkgs?rev=8115ad8c71eca869f4af374799d52ca8a40bc1b7";
+    # something in the linux-firmware bump in nixpkgs commit
+    # "dd9633711ad69a86ba7771a3af9b21f453a2c707"
+    # started causing system freezes due to nvme timeouts
+    # these freezes usually show up by ~30 minutes after boot.
+    # sometimes faster though
+    # they look like:
+    # Oct 03 15:29:12 mistral kernel: nvme nvme0: 16/0/0 default/read/poll queues
+    # Oct 03 15:29:12 mistral kernel: nvme nvme0: Shutdown timeout set to 10 seconds
+    # Oct 03 15:29:12 mistral kernel: nvme nvme0: I/O 26 QID 2 timeout, reset controller
+    # Oct 03 15:28:42 mistral kernel: nvme nvme0: Abort status: 0x0
+    # Oct 03 15:28:42 mistral kernel: nvme nvme0: I/O 26 (I/O Cmd) QID 2 timeout, aborting
+
+    # pinning to the older linux-firmware package for now
+    nixpkgs-mistral-firmware.url = "github:NixOS/nixpkgs?rev=5e6e5ea38b0bdf4917c0b80b7b93ad790d5299a3";
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -23,13 +38,19 @@
     prawnix-secrets.url = "git+file:///home/eva/prawnix-secrets";
   };
 
-  outputs = { self, disko, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, ... }@inputs: {
+  outputs = { self, disko, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, nixpkgs-mistral-firmware, ... }@inputs: {
     nixosConfigurations.mistral = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
       # this lets us import modules from flakes in our other modules
+      system = "x86_64-linux";
       specialArgs = {
+        # including system in special args lets us use multiple versions of nixpkgs
+        # reference: https://nixos-and-flakes.thiscute.world/nixos-with-flakes/downgrade-or-upgrade-packages
         user = "eva";
         inputs = inputs;
+        pkgs-mistral-firmware = import nixpkgs-mistral-firmware {
+            inherit system;
+            config.allowUnfree = true;
+          };
       };
       modules = [
         hosts/mistral/configuration.nix
