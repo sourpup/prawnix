@@ -2,7 +2,10 @@
 { pkgs, ... }:
 
 let
-  ev4SwayConfig = ./sway.conf;
+  nmtuiLauncher = pkgs.writeShellScriptBin "nmtuiLauncher" ''
+        sleep 0.6 # fixes nmtui displaying incorrectly
+        ${pkgs.networkmanager}/bin/nmtui
+      '';
 in
 {
   imports =
@@ -149,7 +152,7 @@ in
     (pkgs.makeDesktopItem {
       name = "network-settings";
       desktopName = "Network Settings";
-      exec = "/run/current-system/sw/bin/alacritty --command /run/current-system/sw/bin/nmtui";
+      exec = "/run/current-system/sw/bin/alacritty --command ${nmtuiLauncher}";
       keywords = [ "wifi" "network" "networks" "ethernet" "settings" ];
     })
     (pkgs.makeDesktopItem {
