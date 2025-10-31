@@ -21,6 +21,8 @@ in
       (inputs.self + /modules/rb-fixes/default.nix)
       # disable the nvidia card
       (inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable)
+      # configure zswap as swap
+      (inputs.self + /modules/swap/zswap.nix)
       # use sway
       (inputs.self + /modules/sway/${hostname}.nix)
       # use our wallpapers
