@@ -1,5 +1,5 @@
 # general applications
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
   imports =
@@ -23,6 +23,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # extra apps
+    android-studio
     anki
     arp-scan
     bambu-studio
@@ -52,5 +53,8 @@
     wireshark-qt
     yt-dlp
   ];
+
+  programs.adb.enable = true;
+  users.users.${user}.extraGroups = ["adbusers" "kvm"]; # for android dev
 
 }
