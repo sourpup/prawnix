@@ -31,10 +31,12 @@
     chromium
     devcontainer # used for zmk build
     discord
+    ffmpeg
     freecad-wayland
     ghidra # reverse engineering tools
     kicad
     krita
+    mediainfo
     mumble
     nvme-cli
     openscad
