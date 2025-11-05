@@ -312,11 +312,11 @@
         "oil-vcs-status": "oil-vcs-status"
       },
       "locked": {
-        "lastModified": 1761336428,
-        "narHash": "sha256-gjn3WibPlqSxTk1wHebpD8mrkEbsFU8mrQqoYkDilLU=",
+        "lastModified": 1762344892,
+        "narHash": "sha256-4uqnurS3QRNsMY8+VtkRXo+8fWiMkhsSZV7qLJlOB2k=",
         "owner": "SolidHal",
         "repo": "nvix",
-        "rev": "7103b83b7c5036c6bc62a98a236fb38c721ee357",
+        "rev": "8f799184765a628a1815ce52de99f7bd37673e3c",
         "type": "github"
       },
       "original": {
