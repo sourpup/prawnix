@@ -25,6 +25,10 @@ zstyle ':z4h:fzf-complete' recurse-dirs 'no'
 
 # Enable direnv to automatically source .envrc files.
 zstyle ':z4h:direnv'         enable 'no'
+# the builtin z4h direnv is bugged
+# https://github.com/romkatv/zsh4humans/issues/202
+# manually load the direnv hook instead
+eval "$(direnv hook zsh)"
 # Show "loading" and "unloading" notifications from direnv.
 zstyle ':z4h:direnv:success' notify 'yes'
 
