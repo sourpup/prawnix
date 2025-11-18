@@ -35,7 +35,7 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
-    variant = "";
+    variant = "de_se_fi"; # add umlauts/sharp s by pressing right alt (alt gr)
   };
 
   # Enable sound with pipewire.
