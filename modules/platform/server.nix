@@ -18,6 +18,7 @@
     lshw
     msmtp # for sending emails on borg backup success/failure
     usbutils
+    yt-dlp
   ];
 
 }
