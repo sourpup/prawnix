@@ -47,6 +47,8 @@
     android-tools
   ];
 
+  environment.variables.EDITOR = "vim";
+
   # enable docker daemon
   virtualisation.docker.enable = true;
   users.users.${user} = {
