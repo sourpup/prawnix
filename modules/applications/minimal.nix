@@ -16,6 +16,7 @@
   environment.systemPackages = with pkgs; [
     # basic tools
     dtrx
+    fd
     file
     fzf
     git

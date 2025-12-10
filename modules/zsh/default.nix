@@ -43,10 +43,6 @@ let
             /usr/bin/ssh -X "$@"
         }
 
-        fd () {
-            find . -name "*$@*"
-        }
-
         la () {
             ls --color -lah "$@"
         }
