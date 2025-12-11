@@ -5,7 +5,6 @@
 {
   imports =
   [
-
   ];
 
 # Allow unfree packages
@@ -19,7 +18,6 @@
     fd
     file
     fzf
-    git
     imagemagick
     minicom
     ncdu # tui for disk usage
@@ -49,6 +47,28 @@
   ];
 
   environment.variables.EDITOR = "vim";
+
+  # setup some sane git options
+  programs.git.enable = true;
+  programs.git.config =  {
+    init = {
+      defaultBranch = "main";
+    };
+    color = {
+      ui = true;
+    };
+    core = {
+      editor = "vim";
+      pager = "less";
+    };
+    pull = {
+      rebase = true;
+    };
+    push = {
+      autoSetupRemote = true;
+    };
+  };
+
 
   # enable docker daemon
   virtualisation.docker.enable = true;
