@@ -27,6 +27,7 @@
     ripgrep
     rsync
     traceroute
+    usbmuxd
     wireguard-tools
     wget
     zenith # top/htop replacement
@@ -68,6 +69,9 @@
       autoSetupRemote = true;
     };
   };
+
+  # enable iphone tethering for iphone users
+  services.usbmuxd.enable = true;
 
 
   # enable docker daemon
