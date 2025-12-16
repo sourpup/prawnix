@@ -18,6 +18,7 @@
     fd
     file
     fzf
+    ghostscript
     imagemagick
     minicom
     ncdu # tui for disk usage
