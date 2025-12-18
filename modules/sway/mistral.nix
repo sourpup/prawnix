@@ -18,6 +18,9 @@ let
 # resolution and scaling
 output * scale 1.5
 
+output DP-1 resolution 7680x2160@59.9877Hz
+output DP-1 scale 1.0
+
 # Default wallpaper
 output * bg /etc/wallpapers/horizontal/cat_window.png fill
 
