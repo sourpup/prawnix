@@ -28,6 +28,25 @@ output DP-1 bg /etc/wallpapers/horizontal/32_10_house_island.jpg fill
 
     '';
   });
+
+  host_kanshi_conf = (pkgs.writeTextFile {
+    name = "host_kanshi_conf";
+    text = ''
+
+    profile docked {
+      output "DP-1" enable
+      output "eDP-1" disable
+    }
+
+    profile undocked {
+      output "eDP-1" enable
+      output "DP-1" disable
+    }
+
+    '';
+
+  });
+
 in
 
 {
@@ -44,5 +63,28 @@ in
         files = [ ./sway.conf host_sway_conf ];
       });
   };
+
+  # install this hosts kanshi config
+  environment.etc = {
+    "xdg/kanshi/config".source = ( host_kanshi_conf );
+  };
+
+  # start kanshi on login
+  systemd.user.services.kanshi = {
+    wantedBy = [ "sway-session.target" ];
+    description = "Kanshi - display auto config";
+    partOf = [ "sway-session.target" ];
+    after = [ "sway-session.target" ];
+
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.kanshi} --config /etc/xdg/kanshi/config";
+      Restart = "always";
+    };
+
+  };
+
+
+
 
 }
