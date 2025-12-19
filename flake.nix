@@ -20,7 +20,7 @@
     # pinning to the older linux-firmware package for now
     nixpkgs-mistral-firmware.url = "github:NixOS/nixpkgs?rev=5e6e5ea38b0bdf4917c0b80b7b93ad790d5299a3";
 
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
