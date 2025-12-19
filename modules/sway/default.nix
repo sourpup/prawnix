@@ -15,7 +15,7 @@ in
 
 
   # use gdm as our display manager
-  services.xserver = {
+  services = {
     desktopManager.gnome.enable = false;
     displayManager = {
       gdm = {
@@ -23,9 +23,9 @@ in
         wayland = true;
       };
     };
-    enable = true; # xwayland
-    updateDbusEnvironment = true;
   };
+
+  services.xserver.updateDbusEnvironment = true;
 
   # use libinput
   services.libinput.enable = true;
@@ -33,6 +33,7 @@ in
   # use sway as our wm
   programs.sway = {
     enable = true;
+    xwayland.enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
     # extraPackages = with pkgs; [
     # ];

@@ -42,7 +42,7 @@
     rustc
 
     # use our neovim/nixvim config
-    inputs.nvix.packages.${pkgs.system}.core
+    inputs.nvix.packages.${pkgs.stdenv.hostPlatform.system}.core
 
     # android dev
     android-tools

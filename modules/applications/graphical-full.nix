@@ -42,7 +42,7 @@
     openscad
     pdftk
     pdfchain
-    qflipper
+    qFlipper
     sabnzbd
     signal-desktop
     smartmontools
