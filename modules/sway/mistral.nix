@@ -78,7 +78,7 @@ in
 
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${pkgs.kanshi} --config /etc/xdg/kanshi/config";
+      ExecStart = "${pkgs.kanshi}/bin/kanshi --config /etc/xdg/kanshi/config";
       Restart = "always";
     };
 
