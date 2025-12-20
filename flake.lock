@@ -286,11 +286,11 @@
     },
     "prawnix-secrets": {
       "locked": {
-        "lastModified": 1759486834,
-        "narHash": "sha256-csZaKRC0hk2FM5ckAa/q1LEcxJJg/0zr5NfhwTJeqzo=",
+        "lastModified": 1753489280,
+        "narHash": "sha256-VDhZ0r0lnaYRYCeFZRmS10d3qCdLrQ9umfglg4sFv9A=",
         "ref": "refs/heads/main",
-        "rev": "5e3a17639bd4312e6e408b7d87511386bbd0ccbf",
-        "revCount": 1,
+        "rev": "64b3e9c5f2e55b353a2b418771d5a947055ed469",
+        "revCount": 5,
         "type": "git",
         "url": "file:///home/eva/prawnix-secrets"
       },
