@@ -104,6 +104,22 @@
         nix-index-database.nixosModules.nix-index
       ];
     };
+
+    nixosConfigurations.sunny = nixpkgs.lib.nixosSystem rec {
+      # this lets us import modules from flakes in our other modules
+      system = "x86_64-linux";
+      specialArgs = {
+        # including system in special args lets us use multiple versions of nixpkgs
+        # reference: https://nixos-and-flakes.thiscute.world/nixos-with-flakes/downgrade-or-upgrade-packages
+        user = "eva";
+        inputs = inputs;
+      };
+      modules = [
+        hosts/sunny/configuration.nix
+        nix-index-database.nixosModules.nix-index
+      ];
+    };
+
   };
 
 }
