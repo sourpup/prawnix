@@ -90,6 +90,21 @@
       ];
     };
 
+  nixosConfigurations.decoyoctopus = nixpkgs.lib.nixosSystem rec {
+      system = "aarch64-linux";
+      # this lets us import modules from flakes in our other modules
+      specialArgs = {
+        user = "eva";
+        inputs = inputs;
+        # To use packages from nixpkgs-stable,
+        # we configure some parameters for it first
+      };
+      modules = [
+        hosts/decoyoctopus/configuration.nix
+        disko.nixosModules.disko
+      ];
+    };
+
     nixosConfigurations.raiden = nixpkgs.lib.nixosSystem rec {
       # this lets us import modules from flakes in our other modules
       system = "x86_64-linux";
