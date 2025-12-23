@@ -39,6 +39,13 @@ in
   # use this to mount the data disks created by data-disks.nix
   environment.systemPackages = [
     config.system.build.mount # disko-mount
+    pkgs.borgbackup
+    pkgs.btrfs-progs
+    pkgs.cryptsetup
+    pkgs.lshw
+    pkgs.msmtp # for sending emails on borg backup success/failure
+    pkgs.usbutils
+    pkgs.yt-dlp
   ];
 
   # user for docker to run as for files
@@ -61,7 +68,6 @@ in
   users.users.${user} = {
     extraGroups = [ "dockerdata" ];
   };
-
 
 
   networking.firewall.allowedTCPPorts = [
