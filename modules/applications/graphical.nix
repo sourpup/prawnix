@@ -5,7 +5,7 @@
 {
   imports =
   [
-    ./minimal.nix
+    ./minimal-dev.nix
   ];
 
 # Allow unfree packages

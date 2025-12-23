@@ -22,7 +22,7 @@ in
       # use zsh4humans
       (inputs.self + /modules/zsh/default.nix)
       # application suite
-      (inputs.self + /modules/applications/minimal.nix)
+      (inputs.self + /modules/applications/minimal-dev.nix)
     ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
