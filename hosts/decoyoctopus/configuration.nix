@@ -15,6 +15,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./host-tunnel.nix
       # platform specific configuration
       (inputs.self + /modules/platform/${platform}.nix)
       # use zsh4humans
@@ -23,22 +24,33 @@ in
       (inputs.self + /modules/applications/minimal.nix)
     ];
 
-
   networking.hostName = "${hostname}"; # Define your hostname.
 
-  users.users.root.openssh.authorizedKeys.keys =
-  [
-    # change this to your ssh key
-    inputs.prawnix-secrets.root_ssh_key
-  ];
+  users.users.${user}.openssh.authorizedKeys.keys = inputs.prawnix-secrets.auth_keys;
 
+  services.openssh = {
+    ports = [ 4422 ]; #distract the script kiddies :)
+    settings.PasswordAuthentication = false;
+    settings.PermitRootLogin = "no";
+  };
 
+  services.fail2ban.enable = true;
 
-  networking.firewall.allowedTCPPorts = [
-  ];
-
-  networking.firewall.allowedUDPPorts = [
-  ];
+  networking = {
+    interfaces = {
+      enp1s0 = {
+        ipv6.addresses = [{
+          address = inputs.prawnix-secrets.ipv6_static_addr;
+          prefixLength = 64;
+        }];
+      useDHCP = true;
+    };
+  };
+  defaultGateway6 = {
+    address = "fe80::1";
+    interface = "enp1s0";
+  };
+};
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
