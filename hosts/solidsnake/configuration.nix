@@ -17,6 +17,8 @@ in
       ./hardware-configuration.nix
       # /mnt/data configuration
       ./data-disks.nix
+      # wireguard host-tunnel config
+      ./host-tunnel.nix
       # platform specific configuration
       (inputs.self + /modules/platform/${platform}.nix)
       # use zsh4humans
