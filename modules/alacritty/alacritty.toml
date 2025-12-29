@@ -5,68 +5,29 @@ TERM = "xterm-256color"
 opacity = 1.00
 decorations = "None"
 
-# rose pine dawn
 [colors.primary]
-foreground = "#575279"
-background = "#faf4ed"
-dim_foreground = "#797593"
-bright_foreground = "#575279"
-
-[colors.cursor]
-text = "#575279"
-cursor = "#cecacd"
-
-[colors.vi_mode_cursor]
-text = "#575279"
-cursor = "#cecacd"
-
-[colors.search.matches]
-foreground = "#797593"
-background = "#f2e9e1"
-
-[colors.search.focused_match]
-foreground = "#faf4ed"
-background = "#d7827e"
-
-[colors.hints.start]
-foreground = "#797593"
-background = "#fffaf3"
-
-[colors.hints.end]
-foreground = "#9893a5"
-background = "#fffaf3"
-
-[colors.line_indicator]
-foreground = "None"
-background = "None"
-
-[colors.footer_bar]
-foreground = "#575279"
-background = "#fffaf3"
-
-[colors.selection]
-text = "#575279"
-background = "#dfdad9"
+background = '#525253'
+foreground = '#f2f4f8'
 
 [colors.normal]
-black = "#f2e9e1"
-red = "#b4637a"
-green = "#286983"
-yellow = "#ea9d34"
-blue = "#56949f"
-magenta = "#907aa9"
-cyan = "#d7827e"
-white = "#575279"
+black = "#282828"
+red = "#ee5396"
+green = "#25be6a"
+yellow = "#08bdba"
+blue = "#78a9ff"
+magenta = "#be95ff"
+cyan = "#33b1ff"
+white = "#dfdfe0"
 
 [colors.bright]
-black = "#9893a5"
-red = "#b4637a"
-green = "#286983"
-yellow = "#ea9d34"
-blue = "#56949f"
-magenta = "#907aa9"
-cyan = "#d7827e"
-white = "#575279"
+black = "#484848"
+red = "#f16da6"
+green = "#46c880"
+yellow = "#2dc7c4"
+blue = "#8cb6ff"
+magenta = "#c8a5ff"
+cyan = "#52bdff"
+white = "#e4e4e5"
 
 [colors.dim]
 black = "#9893a5"

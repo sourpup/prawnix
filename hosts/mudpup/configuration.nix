@@ -22,7 +22,7 @@ in
       # disable the nvidia card
       (inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable)
       # use sway
-      (inputs.self + /modules/sway/mistral.nix)
+      (inputs.self + /modules/sway/${hostname}.nix)
       # use our wallpapers
       (inputs.self + /modules/wallpapers/default.nix)
       # use zsh4humans
