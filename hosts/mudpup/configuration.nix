@@ -17,8 +17,6 @@ in
       ./hardware-configuration.nix
       # base platform configuration
       (inputs.self + /modules/platform/${platform}.nix)
-      # rb specific fixes
-      (inputs.self + /modules/rb-fixes/default.nix)
       # disable the nvidia card
       (inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable)
       # use sway
