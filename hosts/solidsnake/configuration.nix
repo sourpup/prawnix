@@ -69,7 +69,6 @@ in
     extraGroups = [ "dockerdata" ];
   };
 
-
   networking.firewall.allowedTCPPorts = [
     # open web ports for ssl reverse proxy host mode docker
     80
@@ -98,6 +97,7 @@ in
 
     # open ports for borg server docker
     2221
+
   ];
 
   # btrfs configuration
@@ -112,6 +112,29 @@ in
       "nofail" # ensure that systemd failing to mount this doesn't send us to emergency mode
    ];
  };
+
+  # really handy when something misbehaves
+  # systemd.services."systemd-networkd".environment.SYSTEMD_LOG_LEVEL = "debug";
+
+  systemd.network = {
+    wait-online.enable = false;
+    networks."30-${primary-eth}" = {
+      matchConfig.Name = "${primary-eth}";
+      # acquire a DHCP lease on link up
+      networkConfig.DHCP = "yes";
+      networkConfig.IPv6AcceptRA = "yes";
+      ipv6AcceptRAConfig= {
+        Token="static:::cafe"; # stick the "::cafe" suffix on our assigned IPV6 prefix
+        DHCPv6Client = "always";
+        UseDNS = true;
+      };
+      # this port is not always connected and not required to be online
+      linkConfig.RequiredForOnline = "no";
+    };
+  };
+  networking.useNetworkd = true; #without this, dhcpd is also ran which causes conflicts
+  # dont use networkmanager on server
+  networking.networkmanager.enable = lib.mkForce false;
 
 # borg backup services and timers
   systemd.services.local-borg-backup = {
