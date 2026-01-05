@@ -14,12 +14,17 @@ let
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-
-# resolution and scaling
-output * scale 1.0
-
 # Default wallpaper
 output * bg /etc/wallpapers/horizontal/grove_city.png fill
+
+# Default resolution and scaling
+output * scale 1.0
+
+# External monitors
+output DP-1 resolution 7680x2160@59.987Hz
+output DP-1 dpms on
+output DP-1 scale 1.2
+output DP-1 bg /etc/wallpapers/horizontal/future_stacked_city.png fill
 
     '';
   });
