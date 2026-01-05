@@ -55,6 +55,11 @@
 
   environment.variables.EDITOR = "vim";
 
+  programs.gnupg.agent = {
+     enable = true;
+     pinentryPackage = pkgs.pinentry-curses;
+  };
+
   # setup some sane git options
   programs.git.enable = true;
   programs.git.config =  {
