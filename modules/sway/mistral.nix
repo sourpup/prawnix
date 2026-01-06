@@ -20,9 +20,10 @@ output * scale 1.5
 output * bg /etc/wallpapers/horizontal/cat_window.png fill
 
 # monitor specific configurations
-output DP-1 resolution 7680x2160@59.9877Hz
-output DP-1 scale 1.0
-output DP-1 bg /etc/wallpapers/horizontal/32_10_house_island.jpg fill
+output DP-3 resolution 7680x2160@59.987Hz
+output DP-3 scale 1.2
+output DP-3 dpms on
+output DP-3 bg /etc/wallpapers/horizontal/32_10_house_island.jpg fill
 
 # Default wallpaper
 
@@ -34,13 +35,13 @@ output DP-1 bg /etc/wallpapers/horizontal/32_10_house_island.jpg fill
     text = ''
 
     profile docked {
-      output "DP-1" enable
+      output "DP-3" enable
       output "eDP-1" disable
     }
 
     profile undocked {
       output "eDP-1" enable
-      output "DP-1" disable
+      output "DP-3" disable
     }
 
     '';
