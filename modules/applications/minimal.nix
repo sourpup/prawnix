@@ -22,6 +22,7 @@
     nmap
     ripgrep
     rsync
+    tcpdump
     traceroute
     wireguard-tools
     wget
