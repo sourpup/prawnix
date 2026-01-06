@@ -60,4 +60,11 @@
   programs.adb.enable = true;
   users.users.${user}.extraGroups = ["adbusers" "kvm"]; # for android dev
 
+  # enable thunderbolt configuration
+  # thunderbolt devices still likely need to be enrolled depending on your setting here
+  # cat /sys/bus/thunderbolt/devices/domain0/security
+  # https://nixos.wiki/wiki/Thunderbolt
+  # https://wiki.archlinux.org/title/Thunderbolt
+  services.hardware.bolt.enable = true;
+
 }
