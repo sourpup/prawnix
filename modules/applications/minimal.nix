@@ -39,19 +39,8 @@
     pciutils
     usbmuxd
 
-    # basic dev env
-    cargo # rust
-    docker
-    gcc14
-    python3
-    ruff # linter for python
-    rustc
-
     # use our neovim/nixvim config
     inputs.nvix.packages.${pkgs.stdenv.hostPlatform.system}.core
-
-    # android dev
-    android-tools
   ];
 
   environment.variables.EDITOR = "vim";
@@ -84,15 +73,5 @@
 
   # enable iphone tethering for iphone users
   services.usbmuxd.enable = true;
-
-
-  # enable docker daemon
-  virtualisation.docker.enable = true;
-  users.users.${user} = {
-    extraGroups = [
-      "docker"
-    ];
-  };
-
 
 }
