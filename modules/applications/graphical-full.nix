@@ -5,7 +5,7 @@
   imports =
   [
     # smaller configs
-    ./minimal.nix
+    ./minimal-dev.nix
     ./graphical.nix
 
     # application specific configs
