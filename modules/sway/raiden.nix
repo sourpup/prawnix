@@ -21,10 +21,10 @@ output * bg /etc/wallpapers/horizontal/grove_city.png fill
 output * scale 1.0
 
 # External monitors
-output DP-6 resolution 7680x2160@59.987Hz
-output DP-6 scale 1.2
-output DP-6 dpms on
-output DP-6 bg /etc/wallpapers/horizontal/future_stacked_city.png fill
+output 'Samsung Electric Company Odyssey G95NC HNTY800969' resolution 7680x2160@59.987Hz
+output 'Samsung Electric Company Odyssey G95NC HNTY800969' scale 1.2
+output 'Samsung Electric Company Odyssey G95NC HNTY800969' dpms on
+output 'Samsung Electric Company Odyssey G95NC HNTY800969' bg /etc/wallpapers/horizontal/future_stacked_city.png fill
 
     '';
   });
@@ -34,13 +34,13 @@ output DP-6 bg /etc/wallpapers/horizontal/future_stacked_city.png fill
     text = ''
 
     profile docked {
-      output "DP-6" enable
+      output 'Samsung Electric Company Odyssey G95NC HNTY800969' enable
       output "eDP-1" disable
     }
 
     profile undocked {
       output "eDP-1" enable
-      output "DP-6" disable
+      output 'Samsung Electric Company Odyssey G95NC HNTY800969' disable
     }
 
     '';
