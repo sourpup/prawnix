@@ -5,7 +5,7 @@ let
     name = "host_sway_conf";
     text = ''
 
-# mistral specific sway configuration
+# mudpup specific sway configuration
 
 #
 # Example configuration:
@@ -16,8 +16,19 @@ let
 
 
 # Default resolution and scaling, wallpaper
-output * scale 1.5
+# 1.6 instead of 1.5 to make 2560/1.6 equal a whole number
+output * scale 1.6
 output * bg /etc/wallpapers/horizontal/gris4.PNG fill
+
+# Resolution for separate OLED monitor
+output DP-2 resolution 2560x1440@119.999Hz
+output DP-2 scale 1
+
+# Monitor positioning
+output DP-2  position 1600,0
+output eDP-1 position 0,0
+
+
 
     '';
   });
