@@ -19,6 +19,7 @@
     file
     fzf
     ncdu # tui for disk usage
+    nix-diff
     nmap
     ripgrep
     rsync
