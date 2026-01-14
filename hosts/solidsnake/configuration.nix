@@ -130,6 +130,10 @@ in
         DHCPv6Client = "always";
         UseDNS = true;
       };
+      linkConfig = {
+        MACAddress =  "9A:B7:87:E9:27:AB"; # explicitly set the hardware address to override the hardware address we set in the initrd
+      };
+
       # this port is not always connected and not required to be online
       linkConfig.RequiredForOnline = "no";
     };
