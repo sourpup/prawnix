@@ -35,6 +35,9 @@
 
     # android dev
     android-tools
+
+    # network tools
+    dig
   ];
 
   # enable iphone tethering for iphone users
