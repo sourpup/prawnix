@@ -38,7 +38,18 @@
     prawnix-secrets.url = "git+file:///home/eva/prawnix-secrets";
   };
 
-  outputs = { self, disko, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, nixpkgs-mistral-firmware, ... }@inputs: {
+  outputs = { self, disko, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, nixpkgs-mistral-firmware, ... }@inputs:
+
+  let
+    # allows us to use the same devShells/package/etc definitions for multiple architectures
+    # borrowed from https://ayats.org/blog/no-flake-utils
+    forAllSystems = function:
+      nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+      ] (system: function nixpkgs.legacyPackages.${system});
+  in
+  {
     nixosConfigurations.mistral = nixpkgs.lib.nixosSystem rec {
       # this lets us import modules from flakes in our other modules
       system = "x86_64-linux";
@@ -134,6 +145,10 @@
         nix-index-database.nixosModules.nix-index
       ];
     };
+
+    packages = forAllSystems (pkgs: {
+        colmena-diff = pkgs.callPackage tools/colmena-diff.nix { };
+    });
 
   };
 
