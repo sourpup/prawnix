@@ -17,6 +17,10 @@ backup_failed() {
 	echo "Subject: ERROR local borg run $(date) failed" | msmtp --file /data/backups/borg-msmtp.conf $email
 }
 
+# first clean up any old generations
+echo "Removing generations older than 15 days"
+nix-collect-garbage --delete-older-than 15d
+
 echo "Trying to mount local backup"
 systemctl start mnt-local_backup.mount
 
