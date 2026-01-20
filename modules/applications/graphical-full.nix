@@ -31,6 +31,7 @@
     chromium
     devcontainer # used for zmk build
     discord
+    easyeffects # improve sound
     ffmpeg
     freecad-wayland
     ghidra # reverse engineering tools
