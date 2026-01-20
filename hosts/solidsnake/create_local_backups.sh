@@ -17,6 +17,19 @@ backup_failed() {
 	echo "Subject: ERROR local borg run $(date) failed" | msmtp --file /data/backups/borg-msmtp.conf $email
 }
 
+# borrowed from
+# https://github.com/NixOS/nixpkgs/pull/310199/files
+borgWrapper () {
+      local result
+      borg "$@" && result=$? || result=$?
+      if [[ "$result" == 1 ]]; then
+        echo "ignoring warning return value 1"
+        return 0
+      else
+        return "$result"
+      fi
+}
+
 # first clean up any old generations
 echo "Removing generations older than 15 days"
 nix-collect-garbage --delete-older-than 15d
@@ -48,7 +61,7 @@ BORG_BASE_DIR=/data/backups/borg-bootdrive-backup/basedir
 BORG_PASSCOMMAND="cat /data/backups/borg-bootdrive-backup/passphrase"
 # DONT USE --one-file-system SINCE WE ARE ON BTRFS
 echo Starting Backup for boot drive to $REPO
-BORG_BASE_DIR=$BORG_BASE_DIR BORG_PASSCOMMAND=$BORG_PASSCOMMAND borg create $BORG_OPTS --exclude /home/eva/.cache --exclude /home/root/.cache --exclude /proc --exclude /tmp --exclude /dev --exclude /sys --exclude /mnt --exclude /data --exclude /media --exclude /run $REPO::boot_drive-$DATE /
+BORG_BASE_DIR=$BORG_BASE_DIR BORG_PASSCOMMAND=$BORG_PASSCOMMAND borgWrapper create $BORG_OPTS --exclude /home/eva/.cache --exclude /home/root/.cache --exclude /proc --exclude /tmp --exclude /dev --exclude /sys --exclude /mnt --exclude /data --exclude /media --exclude /run --exclude /var/log $REPO::boot_drive-$DATE /
 
 
 # BACKUP /DATA TO /MNT/LOCAL_BACKUP
@@ -71,7 +84,7 @@ TARGETS=("docker" \
 
 for target in ${TARGETS[*]}; do
 	echo Starting Backup for $target to $REPO
-	BORG_BASE_DIR=$BORG_BASE_DIR BORG_PASSCOMMAND=$BORG_PASSCOMMAND borg create $BORG_OPTS $REPO::$target-$DATE /data/$target
+	BORG_BASE_DIR=$BORG_BASE_DIR BORG_PASSCOMMAND=$BORG_PASSCOMMAND borgWrapper create $BORG_OPTS $REPO::$target-$DATE /data/$target
 done
 
 
