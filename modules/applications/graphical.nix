@@ -30,6 +30,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     calibre
+    desktop-file-utils
     gimp
     handbrake
     keepassxc
