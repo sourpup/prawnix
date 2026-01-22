@@ -38,7 +38,7 @@ in
   networking.networkmanager.enable = lib.mkForce false;
 
   networking.firewall.allowedUDPPorts = [ 51821 ];
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 22 ];
 
   # enable ip forwarding so we can route packets
   boot.kernel.sysctl = {
@@ -111,9 +111,11 @@ in
 
     services.socat-tunnel-port-80 = socat_service { in_port="80"; out_port="4480"; };
     services.socat-tunnel-port-443 = socat_service { in_port="443"; out_port="4443"; };
+    services.socat-tunnel-port-22 = socat_service { in_port="22"; out_port="222"; };
 
     services.socat6-tunnel-port-80 = socat6_service { in_port="80"; out_port="4480"; };
     services.socat6-tunnel-port-443 = socat6_service { in_port="443"; out_port="4443"; };
+    services.socat6-tunnel-port-22 = socat6_service { in_port="22"; out_port="222"; };
 
 
     network = {
