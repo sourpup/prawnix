@@ -78,10 +78,6 @@ in
   ip6tables --new-chain ${wireguard_limiter}
   ip6tables -A INPUT -j ${wireguard_limiter}
   ip6tables -A ${wireguard_limiter} -p ipv6-icmp -i wg0 -j ACCEPT
-  ip6tables -A ${wireguard_limiter} -p tcp --dport 4443 -i wg0 -j ACCEPT
-  ip6tables -A ${wireguard_limiter} -p tcp --dport 4480 -i wg0 -j ACCEPT
-  ip6tables -A ${wireguard_limiter} -p udp --dport 4443 -i wg0 -j ACCEPT
-  ip6tables -A ${wireguard_limiter} -p udp --dport 4480 -i wg0 -j ACCEPT
   ip6tables -A ${wireguard_limiter} -i wg0 -j DROP
 
   # IPV4 rules
@@ -92,10 +88,6 @@ in
   iptables --new-chain ${wireguard_limiter}
   iptables -A INPUT -j ${wireguard_limiter}
   iptables -A ${wireguard_limiter} -p ipv6-icmp -i wg0 -j ACCEPT
-  iptables -A ${wireguard_limiter} -p tcp --dport 4443 -i wg0 -j ACCEPT
-  iptables -A ${wireguard_limiter} -p tcp --dport 4480 -i wg0 -j ACCEPT
-  iptables -A ${wireguard_limiter} -p udp --dport 4443 -i wg0 -j ACCEPT
-  iptables -A ${wireguard_limiter} -p udp --dport 4480 -i wg0 -j ACCEPT
   iptables -A ${wireguard_limiter} -i wg0 -j DROP
   '';
 
