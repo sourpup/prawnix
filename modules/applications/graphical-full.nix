@@ -57,7 +57,6 @@
     yt-dlp
   ];
 
-  programs.direnv.enable = true;
   programs.adb.enable = true;
   users.users.${user}.extraGroups = ["adbusers" "kvm"]; # for android dev
 
