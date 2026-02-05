@@ -48,6 +48,7 @@
     signal-desktop
     smartmontools
     spotify
+    steam-run
     telegram-desktop
     thunderbird
     tlp # power monitoring
