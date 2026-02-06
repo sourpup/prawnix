@@ -14,6 +14,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    lon
     optnix # useful for local search of nixos options
 
     # image tools
