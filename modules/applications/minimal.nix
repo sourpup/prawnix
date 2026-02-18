@@ -25,6 +25,7 @@
     rsync
     tcpdump
     traceroute
+    unzip
     wireguard-tools
     wget
     zenith # top/htop replacement
