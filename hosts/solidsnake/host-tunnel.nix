@@ -254,8 +254,8 @@ in
       wireguardConfig = {
         ListenPort = 51821;
 
-        # ensure file is readable by `systemd-network` user
-        PrivateKeyFile = inputs.prawnix-secrets.wg_decoyoctopus_privatekey;
+        # TODO: move to secrets repo once we redo secret handling
+        PrivateKeyFile = "/etc/wireguard/wg_decoyoctopus_privatekey";
 
         # we define our own routes to isolate traffic
         RouteTable = "off";
