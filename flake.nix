@@ -84,7 +84,7 @@
       ];
     };
 
-  nixosConfigurations.solidnix = nixpkgs.lib.nixosSystem rec {
+  nixosConfigurations.solidsnake = nixpkgs.lib.nixosSystem rec {
       system = "aarch64-linux";
       # this lets us import modules from flakes in our other modules
       specialArgs = {

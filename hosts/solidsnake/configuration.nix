@@ -6,7 +6,7 @@
 
 let
 
-  hostname = "solidnix";
+  hostname = "solidsnake";
   # must be one of the .nix files in modules/platform
   platform = "server";
 
