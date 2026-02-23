@@ -155,7 +155,7 @@ in
       networkConfig = {
         IPv6AcceptRA = false;
         IPv6Forwarding = true;
-        IPMasquerade = true;
+        IPMasquerade = "both";
       };
 
       linkConfig.RequiredForOnline = "no";
