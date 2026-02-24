@@ -23,6 +23,7 @@
     nmap
     ripgrep
     rsync
+    ssh-to-age # for sops-nix
     tcpdump
     traceroute
     unzip
