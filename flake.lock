@@ -299,6 +299,21 @@
         "url": "file:///home/eva/prawnix-secrets"
       }
     },
+    "prawnix-secrets-solidsnake": {
+      "locked": {
+        "lastModified": 1772472004,
+        "narHash": "sha256-+dJ4yfsHCXZi5L7mpt2LuCWWqa1gwz8SALvp5Chi560=",
+        "ref": "refs/heads/main",
+        "rev": "b34ec92037c485cde949d5f0d9ae9c0bc902e50f",
+        "revCount": 3,
+        "type": "git",
+        "url": "file:///home/eva/prawnix-secrets-solidsnake"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/eva/prawnix-secrets-solidsnake"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -307,7 +322,29 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-mistral-firmware": "nixpkgs-mistral-firmware",
         "nvix": "nvix",
-        "prawnix-secrets": "prawnix-secrets"
+        "prawnix-secrets": "prawnix-secrets",
+        "prawnix-secrets-solidsnake": "prawnix-secrets-solidsnake",
+        "sops-nix": "sops-nix"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1772048434,
+        "narHash": "sha256-/wA0OaH6kZ/pFA+nXR/tvg5oupOmEDmMS5us79JT60o=",
+        "owner": "mic92",
+        "repo": "sops-nix",
+        "rev": "334daa7c273dd8bf7a0cd370e4e16022b64e55e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "systems": {

@@ -36,9 +36,16 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
     prawnix-secrets.url = "git+file:///home/eva/prawnix-secrets";
+
+    sops-nix = {
+       url = "github:mic92/sops-nix";
+       inputs.nixpkgs.follows = "nixpkgs";
+     };
+
+    prawnix-secrets-solidsnake.url = "git+file:///home/eva/prawnix-secrets-solidsnake";
   };
 
-  outputs = { self, disko, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, nixpkgs-mistral-firmware, ... }@inputs:
+  outputs = { self, disko, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, prawnix-secrets-solidsnake, nixpkgs-mistral-firmware, ... }@inputs:
 
   let
     # allows us to use the same devShells/package/etc definitions for multiple architectures

@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
 
@@ -254,8 +254,7 @@ in
       wireguardConfig = {
         ListenPort = 51821;
 
-        # TODO: move to secrets repo once we redo secret handling
-        PrivateKeyFile = "/etc/wireguard/wg_decoyoctopus_privatekey";
+        PrivateKeyFile = config.sops.secrets."wireguard/decoyoctopus/privatekey".path;
 
         # we define our own routes to isolate traffic
         RouteTable = "off";
@@ -263,12 +262,12 @@ in
       wireguardPeers = [
         {
           # laptop wg conf
-          PublicKey = inputs.prawnix-secrets.wg_decoyoctopus_peer_publickey;
+          PublicKeyFile = config.sops.secrets."wireguard/decoyoctopus/peer_publickey".path;
           AllowedIPs = [
             "::/0"
             "0.0.0.0/0"
           ];
-          Endpoint = inputs.prawnix-secrets.wg_decoyoctopus_endpoint;
+          Endpoint = inputs.prawnix-secrets-solidsnake.wireguard.decoyoctopus.endpoint;
           PersistentKeepalive = 25;
         }
       ];

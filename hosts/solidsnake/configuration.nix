@@ -17,6 +17,8 @@ in
       ./hardware-configuration.nix
       # /mnt/data configuration
       ./data-disks.nix
+      # secrets
+      ./sops.nix
       # wireguard host-tunnel config
       ./host-tunnel.nix
       # platform specific configuration
@@ -149,7 +151,7 @@ in
       description = "Run borg to backup /data/* to /mnt/local_backup/borg-backups";
       serviceConfig = {
         Environment = "PATH=/run/current-system/sw/bin";
-        ExecStart = "${./create_local_backups.sh} ${inputs.prawnix-secrets.borgbackup-notify-emailaddress}";
+        ExecStart = "${./create_local_backups.sh} ${inputs.prawnix-secrets-solidsnake.borgbackup.notify-emailaddress}";
       };
    };
 
@@ -216,18 +218,16 @@ in
         port = 2222;  # Use a non-standard port for security
         # Only allow running the unlock service when connecting via SSH
         authorizedKeys = [
-          ''command="systemctl default" ${inputs.prawnix-secrets.initrd_authorized_key}''
-          ''command="systemctl default" ${inputs.prawnix-secrets.initrd_authorized_key2}''
+          ''command="systemctl default" ${inputs.prawnix-secrets-solidsnake.initrd.authorized_key.primary}''
+          ''command="systemctl default" ${inputs.prawnix-secrets-solidsnake.initrd.authorized_key.secondary}''
         ];
         # Location of the SSH host key
         # TODO document creating a key here as part of setup
         # sudo ssh-keygen -t ed25519 -f /etc/ssh/initrd_ssh_host_ed25519_key -C "eva@host"
-        hostKeys = [ inputs.prawnix-secrets.initrd_ssh_host_key ];
+        hostKeys = [ inputs.prawnix-secrets-solidsnake.initrd.host_key ];
       };
     };
   };
-
-  # TODO migrate server scripts
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
