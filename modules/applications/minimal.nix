@@ -77,4 +77,5 @@
   # enable iphone tethering for iphone users
   services.usbmuxd.enable = true;
 
+  programs.direnv.enable = true;
 }

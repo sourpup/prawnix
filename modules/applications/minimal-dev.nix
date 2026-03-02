@@ -44,8 +44,6 @@
   # enable iphone tethering for iphone users
   services.usbmuxd.enable = true;
 
-  programs.direnv.enable = true;
-
   # enable docker daemon
   virtualisation.docker.enable = true;
   users.users.${user} = {
