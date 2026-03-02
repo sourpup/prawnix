@@ -299,6 +299,21 @@
         "url": "file:///home/eva/prawnix-secrets"
       }
     },
+    "prawnix-secrets-decoyoctopus": {
+      "locked": {
+        "lastModified": 1772475635,
+        "narHash": "sha256-oBckldHIhq06HwWw6R/6wmob+oiYfdk6Qb4u94JVib0=",
+        "ref": "refs/heads/main",
+        "rev": "a5a66786c9f2da8507879f56f976d7306bb90367",
+        "revCount": 1,
+        "type": "git",
+        "url": "file:///home/eva/prawnix-secrets-decoyoctopus"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/eva/prawnix-secrets-decoyoctopus"
+      }
+    },
     "prawnix-secrets-solidsnake": {
       "locked": {
         "lastModified": 1772472004,
@@ -323,6 +338,7 @@
         "nixpkgs-mistral-firmware": "nixpkgs-mistral-firmware",
         "nvix": "nvix",
         "prawnix-secrets": "prawnix-secrets",
+        "prawnix-secrets-decoyoctopus": "prawnix-secrets-decoyoctopus",
         "prawnix-secrets-solidsnake": "prawnix-secrets-solidsnake",
         "sops-nix": "sops-nix"
       }

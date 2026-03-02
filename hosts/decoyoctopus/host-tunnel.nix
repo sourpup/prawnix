@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
 
@@ -17,7 +17,7 @@ socat_service = { in_port, out_port }: ({
       after = [ "firewall.service" "network.target" ];
       description = "forward ipv4 port ${in_port} to ipv4 port ${out_port}";
         serviceConfig = {
-          ExecStart = "${pkgs.socat}/bin/socat -d3 TCP4-LISTEN:${in_port},fork,su=nobody,reuseaddr,bind=${inputs.prawnix-secrets.ipv4_static_addr} 'TCP4:[${wireguard_peer_ipv4}]:${out_port}'";
+          ExecStart = "${pkgs.socat}/bin/socat -d3 TCP4-LISTEN:${in_port},fork,su=nobody,reuseaddr,bind=${inputs.prawnix-secrets-decoyoctopus.ipv4} 'TCP4:[${wireguard_peer_ipv4}]:${out_port}'";
         };
     });
 
@@ -26,7 +26,7 @@ socat6_service = { in_port, out_port }: ({
       after = [ "firewall.service" "network.target" ];
       description = "forward ipv6 port ${in_port} to ipv6 port ${out_port}";
         serviceConfig = {
-          ExecStart = "${pkgs.socat}/bin/socat -d3 TCP6-LISTEN:${in_port},fork,su=nobody,reuseaddr,bind=${inputs.prawnix-secrets.ipv6_static_addr} 'TCP6:[${wireguard_peer_ipv6}]:${out_port}'";
+          ExecStart = "${pkgs.socat}/bin/socat -d3 TCP6-LISTEN:${in_port},fork,su=nobody,reuseaddr,bind=${inputs.prawnix-secrets-decoyoctopus.ipv6} 'TCP6:[${wireguard_peer_ipv6}]:${out_port}'";
         };
     });
 
@@ -142,7 +142,8 @@ in
           ListenPort = 51821;
 
           # ensure file is readable by `systemd-network` user
-          PrivateKeyFile = inputs.prawnix-secrets.wg_private_key_file;
+          PrivateKeyFile = config.sops.secrets."wireguard/solidsnake/privatekey".path;
+
 
           # Automatically create routes for everything in AllowedIPs
           RouteTable = "main";
@@ -150,13 +151,14 @@ in
         wireguardPeers = [
           {
             # solidsnake wg conf
-            PublicKey = inputs.prawnix-secrets.wg_peer_public_key;
+            PublicKeyFile = config.sops.secrets."wireguard/solidsnake/peer_publickey".path;
+
             AllowedIPs = [
                "${wireguard_peer_ipv6}/128"
                "${wireguard_peer_ipv4}/32"
             ];
 
-            Endpoint = inputs.prawnix-secrets.wg_peer_endpoint;
+            Endpoint = inputs.prawnix-secrets-decoyoctopus.wireguard.solidsnake.endpoint;
           }
         ];
       };

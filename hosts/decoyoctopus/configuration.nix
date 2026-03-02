@@ -18,6 +18,8 @@ in
       ./host-tunnel.nix
       # platform specific configuration
       (inputs.self + /modules/platform/${platform}.nix)
+      # secrets
+      ./sops.nix
       # use zsh4humans
       (inputs.self + /modules/zsh/default.nix)
       # application suite
@@ -26,7 +28,7 @@ in
 
   networking.hostName = "${hostname}"; # Define your hostname.
 
-  users.users.${user}.openssh.authorizedKeys.keys = inputs.prawnix-secrets.auth_keys;
+  users.users.${user}.openssh.authorizedKeys.keys = inputs.prawnix-secrets-decoyoctopus.auth_keys;
 
   services.openssh = {
     ports = [ 4422 ]; #distract the script kiddies :)
@@ -40,7 +42,7 @@ in
     interfaces = {
       enp1s0 = {
         ipv6.addresses = [{
-          address = inputs.prawnix-secrets.ipv6_static_addr;
+          address = inputs.prawnix-secrets-decoyoctopus.ipv6;
           prefixLength = 64;
         }];
       useDHCP = true;

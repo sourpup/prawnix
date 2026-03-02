@@ -43,6 +43,7 @@
      };
 
     prawnix-secrets-solidsnake.url = "git+file:///home/eva/prawnix-secrets-solidsnake";
+    prawnix-secrets-decoyoctopus.url = "git+file:///home/eva/prawnix-secrets-decoyoctopus";
   };
 
   outputs = { self, disko, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, prawnix-secrets-solidsnake, nixpkgs-mistral-firmware, ... }@inputs:
