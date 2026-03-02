@@ -24,12 +24,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # use precreated nix-index databases for shell command not found
-    #TODO as-is, this installs the database but doesn't update the command-not-found.sh
-    # so we still have to run nix-locate manually
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
     nvix.url = "github:SolidHal/nvix";
 
     disko.url = "github:nix-community/disko/latest";
@@ -46,7 +40,7 @@
     prawnix-secrets-decoyoctopus.url = "git+file:///home/eva/prawnix-secrets-decoyoctopus";
   };
 
-  outputs = { self, disko, nixpkgs, nix-index-database, nixos-hardware, prawnix-secrets, prawnix-secrets-solidsnake, nixpkgs-mistral-firmware, ... }@inputs:
+  outputs = { self, disko, nixpkgs, nixos-hardware, prawnix-secrets, prawnix-secrets-solidsnake, nixpkgs-mistral-firmware, ... }@inputs:
 
   let
     # allows us to use the same devShells/package/etc definitions for multiple architectures
@@ -73,7 +67,6 @@
       };
       modules = [
         hosts/mistral/configuration.nix
-        nix-index-database.nixosModules.nix-index
       ];
     };
 
@@ -88,7 +81,6 @@
       };
       modules = [
         hosts/emmerich/configuration.nix
-        nix-index-database.nixosModules.nix-index
       ];
     };
 
@@ -104,7 +96,6 @@
       };
       modules = [
         hosts/solidsnake/configuration.nix
-        nix-index-database.nixosModules.nix-index
         disko.nixosModules.disko
       ];
     };
@@ -149,7 +140,6 @@
       };
       modules = [
         hosts/raiden/configuration.nix
-        nix-index-database.nixosModules.nix-index
       ];
     };
 
@@ -164,7 +154,6 @@
       };
       modules = [
         hosts/sunny/configuration.nix
-        nix-index-database.nixosModules.nix-index
       ];
     };
 
