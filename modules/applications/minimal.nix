@@ -1,6 +1,10 @@
 # minimal, headless application set
 # graphical applications should go in either graphical or graphical-full
-{ pkgs, inputs, user, ... }:
+{ pkgs, sources, user, ... }:
+
+let
+  nvix = import sources.nvix { inherit (pkgs.stdenv.hostPlatform) system; };
+in
 
 {
   imports =
@@ -43,7 +47,7 @@
     usbmuxd
 
     # use our neovim/nixvim config
-    inputs.nvix.packages.${pkgs.stdenv.hostPlatform.system}.core
+    nvix.packages
   ];
 
   environment.variables.EDITOR = "vim";
