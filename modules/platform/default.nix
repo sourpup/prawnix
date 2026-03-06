@@ -1,6 +1,6 @@
 # base configuration for all platforms, used by all hosts
 
-{ user, ... }:
+{ user, pkgs, self, ... }:
 
 {
   imports =
@@ -63,4 +63,21 @@
     #  user specific applications
     #];
   };
+
+  # rebuild script
+
+  environment.systemPackages = [
+    (pkgs.writeShellApplication {
+          name = "nixos";
+
+          text = ''
+            set -euo pipefail
+
+            # assumes the user keeps prawnix at the root of their home dir
+            nixos-rebuild --no-flake --sudo --file /home/${user}/prawnix/default.nix -A "nixosConfigurations.$(hostname)" "$@"
+
+          '';
+    })
+  ];
+
 }
