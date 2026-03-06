@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # if the nvidia card is enabled, the devices get re-ordered
 if [ -f /dev/snd/hwC2D0 ]; then
   # when nvdidia card is available

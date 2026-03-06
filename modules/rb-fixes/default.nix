@@ -1,12 +1,24 @@
 # fixes for the silly razerblade hardware
 { pkgs, ... }:
 
+let
+
+rb-fix-script = ((pkgs.writeShellApplication {
+  name = "rb-fix-script";
+
+  runtimeInputs = with pkgs; [
+      alsa-tools # required for hda-verb
+  ];
+
+  text = builtins.readFile ./RB14_2023_enable_internal_speakers_ver2.sh;
+
+}) + "/bin/rb-fix-script");
+
+in
 
 {
 
-  # packages for sound fixes
   environment.systemPackages = with pkgs; [
-      alsa-tools # required for hda-verb
       alsa-utils # aplay
       lshw # for debugging
   ];
@@ -17,9 +29,8 @@
      wantedBy = [ "multi-user.target" ];
       description = "Run script to fix razerblade sound";
       serviceConfig = {
-        Environment = "PATH=/run/current-system/sw/bin";
         Type = "oneshot";
-        ExecStart = ./RB14_2023_enable_internal_speakers_ver2.sh;
+        ExecStart = rb-fix-script;
       };
    };
 }
