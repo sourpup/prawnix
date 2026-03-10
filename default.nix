@@ -31,15 +31,6 @@ in
 {
   inherit self sources;
 
-  # inspired by https://somas.is/notes/organizing-nix-configuration-without-flakes/
-
-  # TODO look at https://nix.dev/guides/recipes/dependency-management.html
-  # namely we probably want
-  # nix.channel.enable = false;
-  # nix.nixPath = lib.mapAttrsToList (k: v: "${k}=${v}") sources;
-  # AND OR https://github.com/somasis/puter/blob/46d573cb19fdab1333c6bd957ccafe5d1bbff480/modules/nixos/npins.nix
-  # also check out https://jade.fyi/blog/pinning-nixos-with-npins/
-
   # Allow for using "${self}" to get the project path.
   outPath = ./.;
 
