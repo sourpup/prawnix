@@ -31,6 +31,7 @@
     chromium
     devcontainer # used for zmk build
     discord
+    drawio
     easyeffects # improve sound
     ffmpeg
     freecad-wayland
