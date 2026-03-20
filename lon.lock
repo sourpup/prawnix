@@ -52,6 +52,16 @@
       "url": "https://github.com/SolidEva/nvix/archive/c35f855b2d4f3fd70c94503b52fbab596da56346.tar.gz",
       "hash": "sha256-telkcyGNjyM86wvKHvmUhjsqfzETW5xiGAgIASapLBo="
     },
+    "prawnix-secrets-solidsnake": {
+      "type": "Git",
+      "fetchType": "git",
+      "branch": "main",
+      "revision": "63081013dbaddbadea6aae3d68e09a97ee663ed3",
+      "url": "/home/eva/prawnix-secrets-solidsnake/",
+      "hash": "sha256-iFpwslxUvR5oHKys/XIFQ5CC/V6ntt2ANd+MQLt55bM=",
+      "lastModified": 1774026140,
+      "submodules": false
+    },
     "sops-nix": {
       "type": "GitHub",
       "fetchType": "tarball",

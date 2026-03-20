@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ self, sources, config, lib, pkgs, ... }:
 
 let
 
@@ -19,6 +19,7 @@ wireguard_ipv6_subnet = "fd31:bf08:57cb::/64";
 wireguard_ipv6_address = "fd31:bf08:57cb::9";
 wireguard_peer_ipv6_address = "fd31:bf08:57cb::1";
 
+secrets = import "${sources.prawnix-secrets-solidsnake}/default.nix";
 in
 
 {
@@ -267,7 +268,7 @@ in
             "::/0"
             "0.0.0.0/0"
           ];
-          Endpoint = inputs.prawnix-secrets-solidsnake.wireguard.decoyoctopus.endpoint;
+          Endpoint = secrets.wireguard.decoyoctopus.endpoint;
           PersistentKeepalive = 25;
         }
       ];

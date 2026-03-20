@@ -1,10 +1,10 @@
-{ inputs, ... }:
+{ self, sources, ... }:
 let
-  secrets = inputs.prawnix-secrets-solidsnake;
+  secrets = import "${sources.prawnix-secrets-solidsnake}/default.nix";
 in
 {
   imports = [
-    inputs.sops-nix.nixosModules.sops
+    "${sources.sops-nix}/modules/sops"
   ];
 
   sops = {

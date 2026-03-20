@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, lib, pkgs, user, primary-eth, ... }:
+{ self, config, sources, lib, pkgs, user, ... }:
 
 let
 
@@ -10,6 +10,9 @@ let
   # must be one of the .nix files in modules/platform
   platform = "server";
 
+  primary-eth="enP4p65s0";
+
+  secrets = import "${sources.prawnix-secrets-solidsnake}/default.nix";
 in
 {
   imports =
@@ -21,12 +24,14 @@ in
       ./sops.nix
       # wireguard host-tunnel config
       ./host-tunnel.nix
+      # disko
+      "${sources.disko}/module.nix"
       # platform specific configuration
-      (inputs.self + /modules/platform/${platform}.nix)
+      (self + /modules/platform/${platform}.nix)
       # use zsh4humans
-      (inputs.self + /modules/zsh/default.nix)
+      (self + /modules/zsh/default.nix)
       # application suite
-      (inputs.self + /modules/applications/minimal-dev.nix)
+      (self + /modules/applications/minimal-dev.nix)
     ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
@@ -144,6 +149,22 @@ in
   # dont use networkmanager on server
   networking.networkmanager.enable = lib.mkForce false;
 
+
+  #TODO REMOVE. this duplicates what we do in the systemd.network config
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+# Networking configuration
+  networking = {
+    useDHCP = lib.mkDefault false;
+    interfaces.${primary-eth} = {
+        macAddress = "9a:b7:87:e9:27:ab";
+        useDHCP = lib.mkDefault true;
+      };
+  };
+
 # borg backup services and timers
   systemd.services.local-borg-backup = {
      wantedBy = [ "multi-user.target" ];
@@ -151,7 +172,7 @@ in
       description = "Run borg to backup /data/* to /mnt/local_backup/borg-backups";
       serviceConfig = {
         Environment = "PATH=/run/current-system/sw/bin";
-        ExecStart = "${./create_local_backups.sh} ${inputs.prawnix-secrets-solidsnake.borgbackup.notify-emailaddress}";
+        ExecStart = "${./create_local_backups.sh} ${secrets.borgbackup.notify-emailaddress}";
       };
    };
 
@@ -218,13 +239,13 @@ in
         port = 2222;  # Use a non-standard port for security
         # Only allow running the unlock service when connecting via SSH
         authorizedKeys = [
-          ''command="systemctl default" ${inputs.prawnix-secrets-solidsnake.initrd.authorized_key.primary}''
-          ''command="systemctl default" ${inputs.prawnix-secrets-solidsnake.initrd.authorized_key.secondary}''
+          ''command="systemctl default" ${secrets.initrd.authorized_key.primary}''
+          ''command="systemctl default" ${secrets.initrd.authorized_key.secondary}''
         ];
         # Location of the SSH host key
         # TODO document creating a key here as part of setup
         # sudo ssh-keygen -t ed25519 -f /etc/ssh/initrd_ssh_host_ed25519_key -C "eva@host"
-        hostKeys = [ inputs.prawnix-secrets-solidsnake.initrd.host_key ];
+        hostKeys = [ secrets.initrd.host_key ];
       };
     };
   };

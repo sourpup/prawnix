@@ -52,22 +52,6 @@
       ] (system: function nixpkgs.legacyPackages.${system});
   in
   {
-  nixosConfigurations.solidsnake = nixpkgs.lib.nixosSystem rec {
-      system = "aarch64-linux";
-      # this lets us import modules from flakes in our other modules
-      specialArgs = {
-        user = "eva";
-        inputs = inputs;
-        primary-eth="enP4p65s0";
-        # To use packages from nixpkgs-stable,
-        # we configure some parameters for it first
-      };
-      modules = [
-        hosts/solidsnake/configuration.nix
-        disko.nixosModules.disko
-      ];
-    };
-
   nixosConfigurations.decoyoctopus = nixpkgs.lib.nixosSystem rec {
       system = "aarch64-linux";
       # this lets us import modules from flakes in our other modules
