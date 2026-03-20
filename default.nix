@@ -39,5 +39,6 @@ in
     mistral = nixos sources.nixpkgs ./hosts/mistral;
     solidsnake = nixos sources.nixpkgs ./hosts/solidsnake;
     raiden = nixos sources.nixpkgs ./hosts/raiden;
+    decoyoctopus = nixos sources.nixpkgs ./hosts/decoyoctopus;
   };
 }

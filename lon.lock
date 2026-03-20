@@ -62,6 +62,16 @@
       "lastModified": 1774026140,
       "submodules": false
     },
+    "prawnix-secrets-decoyoctopus": {
+      "type": "Git",
+      "fetchType": "git",
+      "branch": "main",
+      "revision": "4de75ed5be7479cab7c5b03857610fd67b796dfa",
+      "url": "/home/eva/prawnix-secrets-decoyoctopus/",
+      "hash": "sha256-BaQ0aOAH8SFSnmtnGfhmokrNs+bRIm30IpN5lYe2uVo=",
+      "lastModified": 1774026740,
+      "submodules": false
+    },
     "sops-nix": {
       "type": "GitHub",
       "fetchType": "tarball",

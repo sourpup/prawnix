@@ -1,10 +1,10 @@
-{ inputs, ... }:
+{ sources,  ... }:
 let
-  secrets = inputs.prawnix-secrets-decoyoctopus;
+  secrets = import "${sources.prawnix-secrets-decoyoctopus}/default.nix";
 in
 {
   imports = [
-    inputs.sops-nix.nixosModules.sops
+    "${sources.sops-nix}/modules/sops"
   ];
 
   sops = {

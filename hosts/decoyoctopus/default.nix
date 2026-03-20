@@ -2,13 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, lib, pkgs, user, ... }:
+{ self, sources, config, inputs, lib, pkgs, user, ... }:
 
 let
 
   hostname = "decoyoctopus";
   # must be one of the .nix files in modules/platform
   platform = "server";
+
+  secrets = import "${sources.prawnix-secrets-decoyoctopus}/default.nix";
 
 in
 {
@@ -17,18 +19,20 @@ in
       ./hardware-configuration.nix
       ./host-tunnel.nix
       # platform specific configuration
-      (inputs.self + /modules/platform/${platform}.nix)
+      (self + /modules/platform/${platform}.nix)
       # secrets
       ./sops.nix
+      # disko
+      "${sources.disko}/module.nix"
       # use zsh4humans
-      (inputs.self + /modules/zsh/default.nix)
+      (self + /modules/zsh/default.nix)
       # application suite
-      (inputs.self + /modules/applications/minimal.nix)
+      (self + /modules/applications/minimal.nix)
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
 
-  users.users.${user}.openssh.authorizedKeys.keys = inputs.prawnix-secrets-decoyoctopus.auth_keys;
+  users.users.${user}.openssh.authorizedKeys.keys = secrets.auth_keys;
 
   services.openssh = {
     ports = [ 4422 ]; #distract the script kiddies :)
@@ -42,7 +46,7 @@ in
     interfaces = {
       enp1s0 = {
         ipv6.addresses = [{
-          address = inputs.prawnix-secrets-decoyoctopus.ipv6;
+          address = secrets.ipv6;
           prefixLength = 64;
         }];
       useDHCP = true;

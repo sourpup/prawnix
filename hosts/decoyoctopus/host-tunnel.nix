@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ self, sources, config, lib, pkgs, inputs, ... }:
 
 let
 
@@ -12,12 +12,14 @@ wireguard_ipv4 = "10.99.99.1";
 wireguard_peer_ipv6 = "fd31:bf08:57cb::9"; # our peers ip on the wireguard network
 wireguard_peer_ipv4 = "10.99.99.9";
 
+secrets = import "${sources.prawnix-secrets-decoyoctopus}/default.nix";
+
 socat_service = { in_port, out_port }: ({
       wantedBy = [ "multi-user.target" ];
       after = [ "firewall.service" "network.target" ];
       description = "forward ipv4 port ${in_port} to ipv4 port ${out_port}";
         serviceConfig = {
-          ExecStart = "${pkgs.socat}/bin/socat -d3 TCP4-LISTEN:${in_port},fork,su=nobody,reuseaddr,bind=${inputs.prawnix-secrets-decoyoctopus.ipv4} 'TCP4:[${wireguard_peer_ipv4}]:${out_port}'";
+          ExecStart = "${pkgs.socat}/bin/socat -d3 TCP4-LISTEN:${in_port},fork,su=nobody,reuseaddr,bind=${secrets.ipv4} 'TCP4:[${wireguard_peer_ipv4}]:${out_port}'";
         };
     });
 
@@ -26,7 +28,7 @@ socat6_service = { in_port, out_port }: ({
       after = [ "firewall.service" "network.target" ];
       description = "forward ipv6 port ${in_port} to ipv6 port ${out_port}";
         serviceConfig = {
-          ExecStart = "${pkgs.socat}/bin/socat -d3 TCP6-LISTEN:${in_port},fork,su=nobody,reuseaddr,bind=${inputs.prawnix-secrets-decoyoctopus.ipv6} 'TCP6:[${wireguard_peer_ipv6}]:${out_port}'";
+          ExecStart = "${pkgs.socat}/bin/socat -d3 TCP6-LISTEN:${in_port},fork,su=nobody,reuseaddr,bind=${secrets.ipv6} 'TCP6:[${wireguard_peer_ipv6}]:${out_port}'";
         };
     });
 
@@ -158,7 +160,7 @@ in
                "${wireguard_peer_ipv4}/32"
             ];
 
-            Endpoint = inputs.prawnix-secrets-decoyoctopus.wireguard.solidsnake.endpoint;
+            Endpoint = secrets.wireguard.solidsnake.endpoint;
           }
         ];
       };
