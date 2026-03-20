@@ -52,38 +52,6 @@
       ] (system: function nixpkgs.legacyPackages.${system});
   in
   {
-    nixosConfigurations.mistral = nixpkgs.lib.nixosSystem rec {
-      # this lets us import modules from flakes in our other modules
-      system = "x86_64-linux";
-      specialArgs = {
-        # including system in special args lets us use multiple versions of nixpkgs
-        # reference: https://nixos-and-flakes.thiscute.world/nixos-with-flakes/downgrade-or-upgrade-packages
-        user = "eva";
-        inputs = inputs;
-        pkgs-mistral-firmware = import nixpkgs-mistral-firmware {
-            inherit system;
-            config.allowUnfree = true;
-          };
-      };
-      modules = [
-        hosts/mistral/configuration.nix
-      ];
-    };
-
-    nixosConfigurations.emmerich = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      # this lets us import modules from flakes in our other modules
-      specialArgs = {
-        user = "eva";
-        inputs = inputs;
-        # To use packages from nixpkgs-stable,
-        # we configure some parameters for it first
-      };
-      modules = [
-        hosts/emmerich/configuration.nix
-      ];
-    };
-
   nixosConfigurations.solidsnake = nixpkgs.lib.nixosSystem rec {
       system = "aarch64-linux";
       # this lets us import modules from flakes in our other modules
@@ -126,20 +94,6 @@
       };
       modules = [
         hosts/liquidsnake-build/configuration.nix
-      ];
-    };
-
-    nixosConfigurations.raiden = nixpkgs.lib.nixosSystem rec {
-      # this lets us import modules from flakes in our other modules
-      system = "x86_64-linux";
-      specialArgs = {
-        # including system in special args lets us use multiple versions of nixpkgs
-        # reference: https://nixos-and-flakes.thiscute.world/nixos-with-flakes/downgrade-or-upgrade-packages
-        user = "eva";
-        inputs = inputs;
-      };
-      modules = [
-        hosts/raiden/configuration.nix
       ];
     };
 
