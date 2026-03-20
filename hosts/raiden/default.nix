@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, ... }:
+{ self, sources, pkgs, ... }:
 
 let
 
@@ -16,22 +16,22 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # base platform configuration
-      (inputs.self + /modules/platform/${platform}.nix)
+      (self + /modules/platform/${platform}.nix)
       # configure zswap as swap
-      (inputs.self + /modules/swap/zswap.nix)
+      (self + /modules/swap/zswap.nix)
       # use sway
-      (inputs.self + /modules/sway/${hostname}.nix)
+      (self + /modules/sway/${hostname}.nix)
       # use our wallpapers
-      (inputs.self + /modules/wallpapers/default.nix)
+      (self + /modules/wallpapers/default.nix)
       # use zsh4humans
-      (inputs.self + /modules/zsh/default.nix)
+      (self + /modules/zsh/default.nix)
       # use alacritty
-      (inputs.self + /modules/alacritty/${platform}.nix)
+      (self + /modules/alacritty/${platform}.nix)
       # application suite
-      (inputs.self + /modules/applications/graphical-full.nix)
+      (self + /modules/applications/graphical-full.nix)
       # application specific inclusions/configurations
-      (inputs.self + /modules/applications/configs/firefox-work.nix)
-      (inputs.self + /modules/applications/configs/wireguard.nix)
+      (self + /modules/applications/configs/firefox-work.nix)
+      (self + /modules/applications/configs/wireguard.nix)
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
