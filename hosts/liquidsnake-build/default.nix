@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, lib, pkgs, user, ... }:
+{ config, self, lib, pkgs, user, ... }:
 
 let
 
@@ -16,11 +16,11 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # platform specific configuration
-      (inputs.self + /modules/platform/${platform}.nix)
+      (self + /modules/platform/${platform}.nix)
       # use zsh4humans
-      (inputs.self + /modules/zsh/default.nix)
+      (self + /modules/zsh/default.nix)
       # application suite
-      (inputs.self + /modules/applications/minimal-dev.nix)
+      (self + /modules/applications/minimal-dev.nix)
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.

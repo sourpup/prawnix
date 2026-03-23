@@ -41,5 +41,6 @@ in
     solidsnake = nixos sources.nixpkgs ./hosts/solidsnake;
     raiden = nixos sources.nixpkgs ./hosts/raiden;
     decoyoctopus = nixos sources.nixpkgs ./hosts/decoyoctopus;
+    liquidsnake-build = nixos sources.nixpkgs ./hosts/liquidsnake-build;
   };
 }

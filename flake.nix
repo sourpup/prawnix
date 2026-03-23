@@ -52,21 +52,6 @@
       ] (system: function nixpkgs.legacyPackages.${system});
   in
   {
-
-  nixosConfigurations.liquidsnake-build = nixpkgs.lib.nixosSystem rec {
-      system = "aarch64-linux";
-      # this lets us import modules from flakes in our other modules
-      specialArgs = {
-        user = "eva";
-        inputs = inputs;
-        # To use packages from nixpkgs-stable,
-        # we configure some parameters for it first
-      };
-      modules = [
-        hosts/liquidsnake-build/configuration.nix
-      ];
-    };
-
     packages = forAllSystems (pkgs: {
         colmena-diff = pkgs.callPackage tools/colmena-diff.nix { };
     });
