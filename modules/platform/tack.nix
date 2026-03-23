@@ -19,6 +19,21 @@ let
     (builtins.substring 0 8 repo.lastModifiedDate) else null;
 
 
+  # to perfectly emulate flakes, we would want to add all of the source we use on
+  # a specific system so we can add them to the flake registry
+
+  # this is rather hard to do without evaluating every possible source
+  # evaluating every source is bad since it wastes time & disk space in the best case
+  # and fails outright in the worse case, e.g. if the source is a local path that is
+  # not present on this system
+
+  # we could solve the worse case by adding a pathExists check in lon.nix before it tries to fetch,
+  # but that wouldn't solve the other problems
+
+  # realisticly, most users probably just want nixpkgs in their path/registry
+  isNixpkgs = sourceName: (builtins.match ".*nixpkgs.*" sourceName != null);
+  availableSources = lib.filterAttrs (name: _: isNixpkgs name) sources;
+
 in
 
 {
@@ -36,7 +51,7 @@ in
   # make pinned dependencies available as lookup paths (like <nixpkgs>)
   # Sets $NIX_PATH to our sources
   # suggestion from https://nix.dev/guides/recipes/dependency-management.html
-  nix.nixPath = lib.mapAttrsToList (k: v: "${k}=${v}") sources;
+  nix.nixPath = lib.mapAttrsToList (k: v: "${k}=${v}") availableSources;
 
   # Translate lon sources to Flakes in the system registry.
   nix.registry = lib.mapAttrs (_: path: {
@@ -44,7 +59,7 @@ in
       type = "path";
       inherit path;
     };
-  }) sources;
+  }) availableSources;
 
   # track revisions using git shas
   system = {
