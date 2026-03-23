@@ -37,6 +37,7 @@ in
 
   nixosConfigurations = {
     mistral = nixos sources.nixpkgs ./hosts/mistral;
+    sunny = nixos sources.nixpkgs ./hosts/sunny;
     solidsnake = nixos sources.nixpkgs ./hosts/solidsnake;
     raiden = nixos sources.nixpkgs ./hosts/raiden;
     decoyoctopus = nixos sources.nixpkgs ./hosts/decoyoctopus;
