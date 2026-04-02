@@ -27,9 +27,9 @@
       "owner": "NixOS",
       "repo": "nixpkgs",
       "branch": "nixos-25.11",
-      "revision": "fea3b367d61c1a6592bc47c72f40a9f3e6a53e96",
-      "url": "https://github.com/NixOS/nixpkgs/archive/fea3b367d61c1a6592bc47c72f40a9f3e6a53e96.tar.gz",
-      "hash": "sha256-GNU+ooRmrHLfjlMsKdn0prEKVa0faVanm0jrgu1J/gY="
+      "revision": "bcd464ccd2a1a7cd09aa2f8d4ffba83b761b1d0e",
+      "url": "https://github.com/NixOS/nixpkgs/archive/bcd464ccd2a1a7cd09aa2f8d4ffba83b761b1d0e.tar.gz",
+      "hash": "sha256-d3Yx83vSrN+2z/loBh4mJpyRqr9aAJqlke4TkpFmRJA="
     },
     "nixpkgs-mistral-firmware": {
       "type": "GitHub",
@@ -52,16 +52,6 @@
       "url": "https://github.com/SolidEva/nvix/archive/c35f855b2d4f3fd70c94503b52fbab596da56346.tar.gz",
       "hash": "sha256-telkcyGNjyM86wvKHvmUhjsqfzETW5xiGAgIASapLBo="
     },
-    "prawnix-secrets-solidsnake": {
-      "type": "Git",
-      "fetchType": "git",
-      "branch": "main",
-      "revision": "63081013dbaddbadea6aae3d68e09a97ee663ed3",
-      "url": "/home/eva/prawnix-secrets-solidsnake/",
-      "hash": "sha256-iFpwslxUvR5oHKys/XIFQ5CC/V6ntt2ANd+MQLt55bM=",
-      "lastModified": 1774026140,
-      "submodules": false
-    },
     "prawnix-secrets-decoyoctopus": {
       "type": "Git",
       "fetchType": "git",
@@ -70,6 +60,16 @@
       "url": "/home/eva/prawnix-secrets-decoyoctopus/",
       "hash": "sha256-BaQ0aOAH8SFSnmtnGfhmokrNs+bRIm30IpN5lYe2uVo=",
       "lastModified": 1774026740,
+      "submodules": false
+    },
+    "prawnix-secrets-solidsnake": {
+      "type": "Git",
+      "fetchType": "git",
+      "branch": "main",
+      "revision": "63081013dbaddbadea6aae3d68e09a97ee663ed3",
+      "url": "/home/eva/prawnix-secrets-solidsnake/",
+      "hash": "sha256-iFpwslxUvR5oHKys/XIFQ5CC/V6ntt2ANd+MQLt55bM=",
+      "lastModified": 1774026140,
       "submodules": false
     },
     "sops-nix": {
