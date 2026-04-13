@@ -30,6 +30,7 @@ in
     ssh-to-age # for sops-nix
     tcpdump
     traceroute
+    tree
     unzip
     wireguard-tools
     wget
