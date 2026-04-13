@@ -11,7 +11,7 @@
   ...
 }@args:
 let
-  user = "eva";
+  user = "arthur";
 
   # a lil function to create nixos configurations
   nixos =
@@ -36,6 +36,7 @@ in
 
 
   nixosConfigurations = {
+    mudpup = nixos sources.nixpkgs ./hosts/mudpup;
     mistral = nixos sources.nixpkgs ./hosts/mistral;
     sunny = nixos sources.nixpkgs ./hosts/sunny;
     solidsnake = nixos sources.nixpkgs ./hosts/solidsnake;

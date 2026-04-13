@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ self, pkgs, ... }:
 
 let
   host_sway_conf = (pkgs.writeTextFile {
@@ -39,7 +39,7 @@ in
 {
   imports = [
     ./default.nix
-    (inputs.self + /modules/wallpapers/default.nix)
+    (self + /modules/wallpapers/default.nix)
   ];
 
   # install this hosts sway config
