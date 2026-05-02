@@ -22,6 +22,7 @@
     imagemagick
 
     # hardware tools
+    gptfdisk
     minicom
     pciutils
     usbmuxd
