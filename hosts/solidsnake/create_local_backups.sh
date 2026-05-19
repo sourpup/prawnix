@@ -88,6 +88,8 @@ for target in ${TARGETS[*]}; do
 done
 
 
+# unmounting now that we are done
+systemctl stop mnt-local_backup.mount
 
 echo Sending status email...
 echo "Subject: local borg run $(date) complete" | msmtp --file /data/backups/borg-msmtp.conf $email
