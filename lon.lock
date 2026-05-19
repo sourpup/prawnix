@@ -7,9 +7,9 @@
       "owner": "nix-community",
       "repo": "disko",
       "branch": "master",
-      "revision": "5ad85c82cc52264f4beddc934ba57f3789f28347",
-      "url": "https://github.com/nix-community/disko/archive/5ad85c82cc52264f4beddc934ba57f3789f28347.tar.gz",
-      "hash": "sha256-PAqwnsBSI9SVC2QugvQ3xeYCB0otOwCacB1ueQj2tgw="
+      "revision": "d405a179887d52b24c0ddd31e09a150bd1f66779",
+      "url": "https://github.com/nix-community/disko/archive/d405a179887d52b24c0ddd31e09a150bd1f66779.tar.gz",
+      "hash": "sha256-glCununz6lmaK5fs2X946HA3EkNxB2JagdAAvInuRYU="
     },
     "nixos-hardware": {
       "type": "GitHub",
@@ -17,9 +17,9 @@
       "owner": "NixOS",
       "repo": "nixos-hardware",
       "branch": "master",
-      "revision": "f8e82243fd601afb9f59ad230958bd073795cbfe",
-      "url": "https://github.com/NixOS/nixos-hardware/archive/f8e82243fd601afb9f59ad230958bd073795cbfe.tar.gz",
-      "hash": "sha256-qonGfS2lzCgCl59Zl63jF6dIRRpvW3AJooBGMaXjHiY="
+      "revision": "8792fab9d4a6454a9201675f01326f827ce35ead",
+      "url": "https://github.com/NixOS/nixos-hardware/archive/8792fab9d4a6454a9201675f01326f827ce35ead.tar.gz",
+      "hash": "sha256-u73aVD/lUmmT3JV+kPDztl7zPwQKd0eobD1AbJltaGs="
     },
     "nixpkgs": {
       "type": "GitHub",
@@ -27,9 +27,9 @@
       "owner": "NixOS",
       "repo": "nixpkgs",
       "branch": "nixos-25.11",
-      "revision": "0c88e1f2bdb93d5999019e99cb0e61e1fe2af4c5",
-      "url": "https://github.com/NixOS/nixpkgs/archive/0c88e1f2bdb93d5999019e99cb0e61e1fe2af4c5.tar.gz",
-      "hash": "sha256-q/nkKLDtHIyLjZpKhWk3cSK5IYsFqtMd6UtXF3ddjgA="
+      "revision": "687f05a9184cad4eaf905c48b63649e3a86f5433",
+      "url": "https://github.com/NixOS/nixpkgs/archive/687f05a9184cad4eaf905c48b63649e3a86f5433.tar.gz",
+      "hash": "sha256-vZJZjLo513IeI8hjzHFc6TDezUd4uCE2Eq4SNO3DNNg="
     },
     "nixpkgs-mistral-firmware": {
       "type": "GitHub",
@@ -48,9 +48,9 @@
       "owner": "NixOS",
       "repo": "nixpkgs",
       "branch": "nixos-unstable",
-      "revision": "15f4ee454b1dce334612fa6843b3e05cf546efab",
-      "url": "https://github.com/NixOS/nixpkgs/archive/15f4ee454b1dce334612fa6843b3e05cf546efab.tar.gz",
-      "hash": "sha256-Ad49moKWeXtKBJNy2ebiTQUEgdLyvGmTeykAQ9xM+Z4="
+      "revision": "d233902339c02a9c334e7e593de68855ad26c4cb",
+      "url": "https://github.com/NixOS/nixpkgs/archive/d233902339c02a9c334e7e593de68855ad26c4cb.tar.gz",
+      "hash": "sha256-30sZNZoA1cqF5JNO9fVX+wgiQYjB7HJqqJ4ztCDeBZE="
     },
     "nvix": {
       "type": "GitHub",
