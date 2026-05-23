@@ -22,6 +22,18 @@ in
         group = "systemd-network";
         mode = "0640";
       };
+      "nut/admin_password" = {
+        owner = "root";
+        mode = "0640";
+      };
+      "nut/email_msmtp_conf" = {
+        owner = "nutmon";
+        mode = "0600";
+      };
+      "borg/email_msmtp_conf" = {
+        owner = "root";
+        mode = "0600";
+      };
     };
   };
  }

@@ -3,18 +3,19 @@
 set -euxo pipefail
 
 # Argument validation check
-if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <email-to-notify>"
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <email-to-notify> <path-to-msmtp.conf>"
     exit 1
 fi
 
 email=$1
+msmtp_conf=$2
 
 trap 'backup_failed' ERR
 
 backup_failed() {
 	echo ERROR Sending failure email...
-	echo "Subject: ERROR local borg run $(date) failed" | msmtp --file /data/backups/borg-msmtp.conf $email
+	echo "Subject: ERROR local borg run $(date) failed" | msmtp --file $msmtp_conf $email
 }
 
 # borrowed from
@@ -92,4 +93,4 @@ done
 systemctl stop mnt-local_backup.mount
 
 echo Sending status email...
-echo "Subject: local borg run $(date) complete" | msmtp --file /data/backups/borg-msmtp.conf $email
+echo "Subject: local borg run $(date) complete" | msmtp --file $msmtp_conf $email

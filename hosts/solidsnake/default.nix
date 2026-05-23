@@ -24,6 +24,8 @@ in
       ./sops.nix
       # wireguard host-tunnel config
       ./host-tunnel.nix
+      # ups configuration
+      ./ups.nix
       # disko
       "${sources.disko}/module.nix"
       # platform specific configuration
@@ -172,7 +174,7 @@ in
       description = "Run borg to backup /data/* to /mnt/local_backup/borg-backups";
       serviceConfig = {
         Environment = "PATH=/run/current-system/sw/bin";
-        ExecStart = "${./create_local_backups.sh} ${secrets.borgbackup.notify-emailaddress}";
+        ExecStart = ''${./create_local_backups.sh} ${secrets.borgbackup.notify-emailaddress} ${config.sops.secrets."borg/email_msmtp_conf".path}'';
       };
    };
 
