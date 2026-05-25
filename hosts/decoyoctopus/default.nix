@@ -30,6 +30,10 @@ in
       (self + /modules/applications/minimal.nix)
     ];
 
+  # DAD delays our ability to bind our ipv6 address after network.target completes
+  # disable it so our socat jobs can bind the ipv6 address immediately
+  boot.kernel.sysctl = { "net.ipv6.conf.enp1s0.accept_dad" = 0; };
+
   networking.hostName = "${hostname}"; # Define your hostname.
 
   users.users.${user}.openssh.authorizedKeys.keys = secrets.auth_keys;
