@@ -10,6 +10,19 @@ let
   # must be one of the .nix files in modules/platform
   platform = "laptop";
 
+  # something in the linux-firmware bump in nixpkgs commit
+  # "dd9633711ad69a86ba7771a3af9b21f453a2c707"
+  # started causing system freezes due to nvme timeouts
+  # these freezes usually show up by ~30 minutes after boot.
+  # sometimes faster though
+  # they look like:
+  # Oct 03 15:29:12 mistral kernel: nvme nvme0: 16/0/0 default/read/poll queues
+  # Oct 03 15:29:12 mistral kernel: nvme nvme0: Shutdown timeout set to 10 seconds
+  # Oct 03 15:29:12 mistral kernel: nvme nvme0: I/O 26 QID 2 timeout, reset controller
+  # Oct 03 15:28:42 mistral kernel: nvme nvme0: Abort status: 0x0
+  # Oct 03 15:28:42 mistral kernel: nvme nvme0: I/O 26 (I/O Cmd) QID 2 timeout, aborting
+
+  # pinning to the older linux-firmware package for now
   pkgs-mistral-firmware = import sources.nixpkgs-mistral-firmware {
     inherit (pkgs.stdenv.hostPlatform) system;
     config.unfree = true;
