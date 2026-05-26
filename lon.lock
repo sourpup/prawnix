@@ -72,6 +72,16 @@
       "lastModified": 1774026740,
       "submodules": false
     },
+    "prawnix-secrets-revolverocelot": {
+      "type": "Git",
+      "fetchType": "git",
+      "branch": "main",
+      "revision": "ff01fe0d6c4fa702466d239c0a062a362a1aa5b3",
+      "url": "/home/eva/prawnix-secrets-revolverocelot/",
+      "hash": "sha256-z6g+I3Hv5mT9aVw/RukEey5g6Rm+4J7Fo27xsFUE0bw=",
+      "lastModified": 1774300386,
+      "submodules": false
+    },
     "prawnix-secrets-solidsnake": {
       "type": "Git",
       "fetchType": "git",

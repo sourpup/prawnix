@@ -42,5 +42,6 @@ in
     raiden = nixos sources.nixpkgs ./hosts/raiden;
     decoyoctopus = nixos sources.nixpkgs ./hosts/decoyoctopus;
     liquidsnake-build = nixos sources.nixpkgs ./hosts/liquidsnake-build;
+    revolverocelot = nixos sources.nixpkgs ./hosts/revolverocelot;
   };
 }
