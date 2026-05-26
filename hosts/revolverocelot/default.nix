@@ -42,10 +42,10 @@ in
   networking = {
     interfaces = {
       enp1s0 = {
-        # ipv6.addresses = [{
-        #   address = secrets.ipv6;
-        #   prefixLength = 64;
-        # }];
+        ipv6.addresses = [{
+          address = secrets.ipv6;
+          prefixLength = 64;
+        }];
         useDHCP = true;
       };
     };
