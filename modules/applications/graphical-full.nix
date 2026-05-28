@@ -32,6 +32,7 @@
     devcontainer # used for zmk build
     discord
     drawio
+    element-desktop
     easyeffects # improve sound
     ffmpeg
     freecad-wayland
@@ -69,4 +70,6 @@
   # https://wiki.archlinux.org/title/Thunderbolt
   services.hardware.bolt.enable = true;
 
+  # required for element desktop
+  services.gnome.gnome-keyring.enable = true;
 }
