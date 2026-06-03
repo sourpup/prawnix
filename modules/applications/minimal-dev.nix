@@ -34,12 +34,19 @@
     python3
     ruff # linter for python
     rustc
+    treefmt
 
     # android dev
     android-tools
 
     # network tools
     dig
+
+    # nix tools
+    deadnix
+    nixfmt
+    nixd
+    statix
   ];
 
   # enable iphone tethering for iphone users
