@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ self, sources,  ... }:
+{ self, sources, lib,  ... }:
 
 let
 
@@ -35,6 +35,11 @@ in
     ];
 
   networking.hostName = "${hostname}"; # Define your hostname.
+
+  swapDevices = lib.mkForce [ {
+    device = "/var/lib/swapfile";
+    size = 8*1024; # 8GiB, in MiB
+  } ];
 
   # Bootloader.
   boot.loader = {
