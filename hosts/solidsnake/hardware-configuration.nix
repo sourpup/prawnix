@@ -32,7 +32,6 @@
   boot.initrd.availableKernelModules = [ "8021q"
 "nls_iso8859_1"
 "nls_cp437"
-"crct10dif_ce"
 "polyval_ce"
 "polyval_generic"
 "sm4"
