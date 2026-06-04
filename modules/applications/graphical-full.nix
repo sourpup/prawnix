@@ -24,6 +24,7 @@
   environment.systemPackages = with pkgs; [
     # extra apps
     android-studio
+    android-tools
     anki
     arp-scan
     bambu-studio
@@ -56,11 +57,10 @@
     tlp # power monitoring
     transmission_4-gtk
     vorta
-    wireshark-qt
+    wireshark
     yt-dlp
   ];
 
-  programs.adb.enable = true;
   users.users.${user}.extraGroups = ["adbusers" "kvm"]; # for android dev
 
   # enable thunderbolt configuration
