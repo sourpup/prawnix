@@ -64,6 +64,11 @@ in
     })
   ];
 
+  environment.systemPackages = with pkgs; [
+    android-studio
+    bambu-studio
+  ];
+
   networking.hostName = "${hostname}"; # Define your hostname.
 
   # Bootloader.

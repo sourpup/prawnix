@@ -23,11 +23,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # extra apps
-    android-studio
     android-tools
     anki
     arp-scan
-    bambu-studio
     borgbackup
     chromium
     devcontainer # used for zmk build
