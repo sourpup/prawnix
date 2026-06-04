@@ -18,6 +18,7 @@ in
   services = {
     desktopManager.gnome.enable = false;
     displayManager = {
+      defaultSession = "sway";
       gdm = {
         enable = true;
       };
