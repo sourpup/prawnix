@@ -21,6 +21,16 @@
       "url": "https://github.com/NixOS/nixos-hardware/archive/4ed851c979641e28597a05086332d75cdc9e395f.tar.gz",
       "hash": "sha256-fPBRVf6A5xlACYcOI59shGrjURuvwu0lRsDoSCEXt/I="
     },
+    "nixos-mailserver": {
+      "type": "Git",
+      "fetchType": "git",
+      "branch": "nixos-26.05",
+      "revision": "661ec59a97ccee13a63f79280b282eb6f7d3f817",
+      "url": "https://gitlab.com/simple-nixos-mailserver/nixos-mailserver",
+      "hash": "sha256-rq6WOopxq3U2AGEWO80o9LIJDYcYIdgw6jyl+y+19w8=",
+      "lastModified": 1781301671,
+      "submodules": false
+    },
     "nixpkgs": {
       "type": "GitHub",
       "fetchType": "tarball",
@@ -76,10 +86,10 @@
       "type": "Git",
       "fetchType": "git",
       "branch": "main",
-      "revision": "ff01fe0d6c4fa702466d239c0a062a362a1aa5b3",
+      "revision": "04cb911014620c853cc5d0d9374f562092a6f3f1",
       "url": "/home/eva/prawnix-secrets-revolverocelot/",
-      "hash": "sha256-z6g+I3Hv5mT9aVw/RukEey5g6Rm+4J7Fo27xsFUE0bw=",
-      "lastModified": 1774300386,
+      "hash": "sha256-SKbErRBNMREuS18yAArP42cniovyUWGeSGtWLiOdoY4=",
+      "lastModified": 1781444902,
       "submodules": false
     },
     "prawnix-secrets-solidsnake": {

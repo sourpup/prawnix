@@ -17,6 +17,8 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./sops.nix
+      ./email.nix
       # platform specific configuration
       (self + /modules/platform/${platform}.nix)
       # disko
@@ -32,12 +34,12 @@ in
   users.users.${user}.openssh.authorizedKeys.keys = secrets.auth_keys;
 
   services.openssh = {
-     # ports = [ 4422 ]; #distract the script kiddies :)
+     ports = [ 4422 ]; #distract the script kiddies :)
      settings.PasswordAuthentication = false;
      settings.PermitRootLogin = "no";
    };
 
-  # services.fail2ban.enable = true;
+  services.fail2ban.enable = true;
 
   networking = {
     interfaces = {

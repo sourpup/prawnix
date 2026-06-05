@@ -1,6 +1,6 @@
 { sources,  ... }:
 let
-  secrets = import "${sources.prawnix-secrets-decoyoctopus}/default.nix";
+  secrets = import "${sources.prawnix-secrets-revolverocelot}/default.nix";
 in
 {
   imports = [
@@ -12,6 +12,10 @@ in
 
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
     secrets = {
+      "mailserver/account/eva/password" = {
+        owner = "root";
+        mode = "0600";
+      };
     };
   };
  }
