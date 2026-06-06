@@ -8,6 +8,9 @@
       ./tack.nix
     ];
 
+  # use lix
+  nix.package = pkgs.lixPackageSets.stable.lix;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
