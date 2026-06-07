@@ -18,4 +18,8 @@
 
   # use power-profiles-daemon on laptops to manage battery usage
   services.power-profiles-daemon.enable = true;
+
+  # dont shut down on a quick power button press
+  # hold still works as expected
+  services.logind.settings.Login.HandlePowerKey = "ignore";
 }
