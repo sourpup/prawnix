@@ -1,4 +1,4 @@
-a multi-host flake which defines a reasonable nixos system, made up of:
+a multi-host nixos configuration which defines a reasonable nixos system, made up of:
 - sway
 - gdm
 - a number of tools for settings management (wifi, bluetooth, sound, etc)
@@ -6,18 +6,17 @@ a multi-host flake which defines a reasonable nixos system, made up of:
 - zsh
 - neovim (nixvim via a nvix fork)
 
-this flake is configured for my use case, but you might find the modules helpful.
+this is configured for my use case, but you might find the modules helpful.
 laptop, desktop, and server uses are considered
 
 ## Usage Instructions:
 1) If you have a fresh nixos install be sure to do the following in `/etc/nixos/configuration.nix`:
-  - enable flakes
   - add git
   - set your machines hostname
 2) Create a <hostname>.nix file in the hosts directory. use one of the existing hosts as an example. emmerich is a desktop, mistral is a laptop
   - be sure to copy your machines `/etc/nixos/hardware-configuration.nix` to your new hosts directory
-3) add a `nixosConfigurations.<hostname>` section to the `flake.nix` file
-4) `sudo nixos-rebuild --flake "path-to-flake" switch` should then just work
+3) add a `nixosConfigurations` entry to the `default.nix` file
+4) `sudo nixos-rebuild --no-flake --file <path_to>/prawnix/default.nix -A "nixosConfigurations.$(hostname)"` should then just work
 
 
 ## CM3588 install (ignore this if you are not using a CM3588 board)
