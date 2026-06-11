@@ -27,9 +27,9 @@
       "owner": "NixOS",
       "repo": "nixpkgs",
       "branch": "nixos-26.05",
-      "revision": "6b316287bae2ee04c9b93c8c858d930fd07d7338",
-      "url": "https://github.com/NixOS/nixpkgs/archive/6b316287bae2ee04c9b93c8c858d930fd07d7338.tar.gz",
-      "hash": "sha256-bXMRa9VTsHSPXL4Cw8R6JJLQeY3Y/IP4+YJCYVmQ7FY="
+      "revision": "bd0ff2d3eac24699c3664d5966b9ef36f388e2ca",
+      "url": "https://github.com/NixOS/nixpkgs/archive/bd0ff2d3eac24699c3664d5966b9ef36f388e2ca.tar.gz",
+      "hash": "sha256-q8yYEC5f1mFlQO9RGna4LTc9QrcvWunX6FYp83munkQ="
     },
     "nixpkgs-mistral-firmware": {
       "type": "GitHub",
