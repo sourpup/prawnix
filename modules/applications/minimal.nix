@@ -1,6 +1,6 @@
 # minimal, headless application set
 # graphical applications should go in either graphical or graphical-full
-{ pkgs, sources, user, ... }:
+{ pkgs, sources, self, user, lib, ... }:
 
 let
   nvix = import sources.nvix { inherit (pkgs.stdenv.hostPlatform) system; };
@@ -9,6 +9,7 @@ in
 {
   imports =
   [
+    (self + /modules/applications/configs/helix.nix)
   ];
 
 # Allow unfree packages
@@ -51,7 +52,7 @@ in
     nvix.packages
   ];
 
-  environment.variables.EDITOR = "vim";
+  environment.variables.EDITOR = lib.mkDefault "vim";
 
   programs.gnupg.agent = {
      enable = true;
