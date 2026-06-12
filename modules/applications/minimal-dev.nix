@@ -40,6 +40,7 @@
     android-tools
 
     # network tools
+    (lib.hiPrio bind)
     dig
 
     # nix tools
