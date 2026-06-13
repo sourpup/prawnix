@@ -37,6 +37,9 @@ in
 
   networking.hostName = "${hostname}"; # Define your hostname.
 
+  # never allow flakes to add configs to system
+  nix.settings.accept-flake-config = false;
+
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
   # Bootloader.
   boot.loader = {
