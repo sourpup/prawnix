@@ -26,17 +26,15 @@ in
       # also consider "flatwhite" or "kaolin-light"
       theme = "rose_pine_dawn"
 
-      #TODO test copy & paste across ssh
-      #
-      #  Note: Helix doesn't share the system clipboard by default. Type
-      #     Space + y / p to yank / paste on the system's clipboard.
-
       # settings at https://docs.helix-editor.com/master/editor.html
       [editor]
       mouse = true
       line-number = "relative"
       end-of-line-diagnostics = "hint"
       true-color = true
+      bufferline = "always"
+      color-modes = true
+      popup-border = "all"
 
       [editor.cursor-shape]
       insert = "bar"
