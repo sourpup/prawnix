@@ -101,13 +101,10 @@ in
   ip6tables --delete-chain ${wireguard_peer_input_chain} ${ignore_result}
   '';
 
-  # allow dns lookups from wg0
-  services.resolved.extraConfig = ''
-    [Resolve]
-    DNSStubListener=true
-    DNSStubListenerExtra=${wireguard_ipv4}
-    DNSStubListenerExtra=${wireguard_ipv6}
-  '';
+  services.resolved.settings.Resolve = {
+    DNSStubListener=true;
+    DNSStubListenerExtra=["${wireguard_ipv4}" "${wireguard_ipv6}"];
+  };
 
   systemd = {
 
