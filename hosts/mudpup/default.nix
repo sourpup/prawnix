@@ -37,6 +37,7 @@ in
 
   networking.hostName = "${hostname}"; # Define your hostname.
 
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
   # Bootloader.
   boot.loader = {
     systemd-boot = {
