@@ -11,6 +11,9 @@
   # use lix
   nix.package = pkgs.lixPackageSets.stable.lix;
 
+  # never allow flake configs by default
+  nix.settings.accept-flake-config = false;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
