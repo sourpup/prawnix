@@ -64,6 +64,9 @@ in
     })
   ];
 
+  # eval and build arm64
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+
   environment.systemPackages = with pkgs; [
     android-studio
     bambu-studio
