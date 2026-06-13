@@ -23,6 +23,10 @@ in
       (self + /modules/applications/minimal-dev.nix)
     ];
 
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+  ];
+
   networking.hostName = "${hostname}"; # Define your hostname.
 
   networking.networkmanager.enable = true;
