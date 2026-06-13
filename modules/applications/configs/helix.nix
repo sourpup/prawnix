@@ -36,6 +36,7 @@ in
       mouse = true
       line-number = "relative"
       end-of-line-diagnostics = "hint"
+      true-color = true
 
       [editor.cursor-shape]
       insert = "bar"
