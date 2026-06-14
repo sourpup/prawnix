@@ -19,6 +19,8 @@ in
       (self + /modules/platform/${platform}.nix)
       # disable the nvidia card
       "${sources.nixos-hardware}/common/gpu/nvidia/disable.nix"
+      # configure zswap as swap
+      (self + /modules/swap/zswap.nix)
       # use sway
       (self + /modules/sway/${hostname}.nix)
       # use our wallpapers
