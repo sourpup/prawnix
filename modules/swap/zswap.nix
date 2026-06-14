@@ -26,7 +26,7 @@
   # swapfile is stored on the rootfs, so it is trivially encrypted
   swapDevices = [ {
     device = "/var/lib/swapfile";
-    size = 16*1024; # 16GiB, in MiB
+    size = 48*1024; # 48GiB, in MiB
   } ];
 
 }
