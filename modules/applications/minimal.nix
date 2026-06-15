@@ -23,11 +23,13 @@ in
     fd
     file
     fzf
+    lon
     ncdu # tui for disk usage
     nix-diff
     nmap
     ripgrep
     rsync
+    sops
     ssh-to-age # for sops-nix
     tcpdump
     traceroute
@@ -37,6 +39,7 @@ in
     wget
     zenith # top/htop replacement
 
+    # nix specific tools
     optnix # useful for local search of nixos options
 
     # image tools
