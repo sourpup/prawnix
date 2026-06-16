@@ -31,6 +31,16 @@
       "lastModified": 1781301671,
       "submodules": false
     },
+    "nixos-pi-zero-2": {
+      "type": "GitHub",
+      "fetchType": "tarball",
+      "owner": "SolidEva",
+      "repo": "nixos-pi-zero-2",
+      "branch": "main",
+      "revision": "9005a43edafff1e7a0e8c2d59c5546c199af3f7c",
+      "url": "https://github.com/SolidEva/nixos-pi-zero-2/archive/9005a43edafff1e7a0e8c2d59c5546c199af3f7c.tar.gz",
+      "hash": "sha256-udGrTLXWswEmjOCn84tWJoTd2220KarrCOoHPbiw/W0="
+    },
     "nixpkgs": {
       "type": "GitHub",
       "fetchType": "tarball",

@@ -43,5 +43,13 @@ in
     decoyoctopus = nixos sources.nixpkgs ./hosts/decoyoctopus;
     liquidsnake-build = nixos sources.nixpkgs ./hosts/liquidsnake-build;
     revolverocelot = nixos sources.nixpkgs ./hosts/revolverocelot;
+
+
+    # generic targets
+    # can get a bootable sd card by doing
+    # nix-build -A nixosConfigurations.rpi-zero2.config.system.build.sdImage
+    rpi-zero2 = nixos sources.nixpkgs ./hosts/rpi-zero2;
   };
+
+
 }
