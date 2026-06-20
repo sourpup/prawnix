@@ -40,7 +40,6 @@
     krita
     mediainfo
     mumble
-    nheko # matrix client
     nvme-cli
     openscad
     pdftk
