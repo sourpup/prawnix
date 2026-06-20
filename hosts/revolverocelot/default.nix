@@ -19,6 +19,7 @@ in
       ./hardware-configuration.nix
       ./sops.nix
       ./email.nix
+      ./web.nix
       # platform specific configuration
       (self + /modules/platform/${platform}.nix)
       # disko
