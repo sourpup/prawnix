@@ -48,6 +48,8 @@ in
     # generic targets
     # can get a bootable sd card by doing
     # nix-build -A nixosConfigurations.rpi-zero2.config.system.build.sdImage
+    # can deploy remotely by doing
+    # nixos-rebuild switch -f . -A nixosConfigurations.rpi-zero2 --ask-sudo-password --target-host nixos@pi
     rpi-zero2 = nixos sources.nixpkgs ./hosts/rpi-zero2;
   };
 

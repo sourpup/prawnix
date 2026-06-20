@@ -17,7 +17,7 @@
   ];
 
   users.users.nixos.openssh.authorizedKeys.keys = [
-    # add your ssh keys here
+    # TODO ssh keys here
   ];
 
   networking.hostName = "pi";
@@ -25,6 +25,8 @@
   services.openssh = {
     enable = true;
   };
+
+  networking.wireless.iwd.enable = true;
 
   
   system.stateVersion = "26.05";
