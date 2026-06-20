@@ -28,6 +28,7 @@
     arp-scan
     borgbackup
     chromium
+    cinny-desktop
     devcontainer # used for zmk build
     discord
     drawio
