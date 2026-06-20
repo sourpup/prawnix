@@ -72,16 +72,6 @@
       "url": "https://github.com/NixOS/nixpkgs/archive/331800de5053fcebacf6813adb5db9c9dca22a0c.tar.gz",
       "hash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw="
     },
-    "nvix": {
-      "type": "GitHub",
-      "fetchType": "tarball",
-      "owner": "SolidEva",
-      "repo": "nvix",
-      "branch": "master",
-      "revision": "c35f855b2d4f3fd70c94503b52fbab596da56346",
-      "url": "https://github.com/SolidEva/nvix/archive/c35f855b2d4f3fd70c94503b52fbab596da56346.tar.gz",
-      "hash": "sha256-telkcyGNjyM86wvKHvmUhjsqfzETW5xiGAgIASapLBo="
-    },
     "prawnix-secrets-decoyoctopus": {
       "type": "Git",
       "fetchType": "git",

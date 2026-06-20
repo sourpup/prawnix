@@ -2,10 +2,6 @@
 # graphical applications should go in either graphical or graphical-full
 { pkgs, sources, self, user, lib, ... }:
 
-let
-  nvix = import sources.nvix { inherit (pkgs.stdenv.hostPlatform) system; };
-in
-
 {
   imports =
   [
@@ -51,11 +47,7 @@ in
     pciutils
     usbmuxd
 
-    # use our neovim/nixvim config
-    nvix.packages
   ];
-
-  environment.variables.EDITOR = lib.mkDefault "vim";
 
   programs.gnupg.agent = {
      enable = true;
@@ -72,7 +64,7 @@ in
       ui = true;
     };
     core = {
-      editor = "vim";
+      editor = "hx";
       pager = "less";
     };
     pull = {
