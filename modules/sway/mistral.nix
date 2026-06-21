@@ -23,7 +23,7 @@ output * bg /etc/wallpapers/horizontal/cat_window.png fill
 output 'Samsung Electric Company Odyssey G95NC HNTY800969' resolution 7680x2160@59.987Hz
 output 'Samsung Electric Company Odyssey G95NC HNTY800969' scale 1.3
 output 'Samsung Electric Company Odyssey G95NC HNTY800969' dpms on
-output 'Samsung Electric Company Odyssey G95NC HNTY800969' bg /etc/wallpapers/horizontal/32_10_house_island.jpg fill
+output 'Samsung Electric Company Odyssey G95NC HNTY800969' bg /etc/wallpapers/horizontal/mtn_town.jpg fill
 
 # Default wallpaper
 
