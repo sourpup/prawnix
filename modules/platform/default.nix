@@ -23,6 +23,9 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  # trust all users in the wheel group, aka the sudoers
+  nix.settings.trusted-users = [ "@wheel" ];
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
