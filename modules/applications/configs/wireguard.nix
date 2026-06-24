@@ -21,6 +21,8 @@
   networking.wg-quick.interfaces.wg1.autostart = false;
 
 
+  networking.wg-quick.interfaces.wg2.configFile = "/home/${user}/wireguard/wg2.conf";
+  networking.wg-quick.interfaces.wg2.autostart = false;
   # wireguard example config:
   #
   # [Interface]
