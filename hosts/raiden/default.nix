@@ -10,6 +10,8 @@ let
   # must be one of the .nix files in modules/platform
   platform = "laptop";
 
+  secrets = import "${sources.prawnix-secrets-raiden}/default.nix";
+
 in
 {
   imports =
@@ -17,6 +19,8 @@ in
       ./hardware-configuration.nix
       # base platform configuration
       (self + /modules/platform/${platform}.nix)
+      # secrets
+      "${sources.prawnix-secrets-raiden}/configuration.nix"
       # configure zswap as swap
       (self + /modules/swap/zswap.nix)
       # use sway
