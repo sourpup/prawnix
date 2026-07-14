@@ -86,10 +86,10 @@
       "type": "Git",
       "fetchType": "git",
       "branch": "main",
-      "revision": "3c5068e5f1ae8a269da9e771883b4870f3ee2e11",
+      "revision": "66a686b35e88d5ff8a7eb7ec09fe9ae0f616a0bb",
       "url": "/home/eva/prawnix-secrets-raiden/",
-      "hash": "sha256-se8TUfj/gEC1f9Xxp15RL5hkTKsM1qDWGJTXe/y2ti8=",
-      "lastModified": 1782468236,
+      "hash": "sha256-ukqduWBGGAeIDTQvJwDFrSGxjuG+f6OmQzHvDWDxPOc=",
+      "lastModified": 1784039925,
       "submodules": false
     },
     "prawnix-secrets-revolverocelot": {

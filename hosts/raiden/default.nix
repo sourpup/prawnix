@@ -17,10 +17,12 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # TODO remove
+      # ./test.nix
       # base platform configuration
       (self + /modules/platform/${platform}.nix)
-      # secrets
-      "${sources.prawnix-secrets-raiden}/configuration.nix"
+      # use remote builders
+      # "${sources.prawnix-secrets-raiden}/remote-builders.nix"
       # configure zswap as swap
       (self + /modules/swap/zswap.nix)
       # use sway
