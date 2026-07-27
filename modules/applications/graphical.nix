@@ -1,11 +1,12 @@
 # general graphical applications, shared between DEs/WMs
 # this should be kept minimal, most packages should go in graphical-full.nix
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 
 {
   imports =
   [
     ./minimal-dev.nix
+    (self + /modules/applications/configs/keepmenu.nix)
   ];
 
 # Allow unfree packages
