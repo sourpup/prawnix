@@ -10,6 +10,8 @@ let
   # must be one of the .nix files in modules/platform
   platform = "laptop";
 
+  secrets = import "${sources.prawnix-secrets-mistral}/default.nix";
+
   # something in the linux-firmware bump in nixpkgs commit
   # "dd9633711ad69a86ba7771a3af9b21f453a2c707"
   # started causing system freezes due to nvme timeouts
@@ -38,6 +40,8 @@ in
       (self + /modules/rb-fixes/default.nix)
       # disable the nvidia card
       "${sources.nixos-hardware}/common/gpu/nvidia/disable.nix"
+      # use remote builders
+      # "${sources.prawnix-secrets-mistral}/remote-builders.nix"
       # configure zswap as swap
       (self + /modules/swap/zswap.nix)
       # use sway
