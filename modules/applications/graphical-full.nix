@@ -29,6 +29,7 @@
     borgbackup
     chromium
     cinny-desktop
+    deezer-desktop
     devcontainer # used for zmk build
     discord
     drawio
