@@ -25,6 +25,7 @@
     nmap
     ripgrep
     rsync
+    sbctl
     sops
     ssh-to-age # for sops-nix
     tcpdump
