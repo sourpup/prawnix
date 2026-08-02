@@ -48,8 +48,6 @@ in
       (self + /modules/sway/${hostname}.nix)
       # use our wallpapers
       (self + /modules/wallpapers/default.nix)
-      # use zsh4humans
-      (self + /modules/zsh/default.nix)
       # use alacritty
       (self + /modules/alacritty/${platform}.nix)
       # application suite

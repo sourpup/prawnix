@@ -6,6 +6,7 @@
   imports =
     [
       ./tack.nix
+      (self + /modules/fish/fish.nix)
     ];
 
   # use lix

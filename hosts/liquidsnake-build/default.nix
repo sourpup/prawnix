@@ -17,8 +17,6 @@ in
       ./hardware-configuration.nix
       # platform specific configuration
       (self + /modules/platform/${platform}.nix)
-      # use zsh4humans
-      (self + /modules/zsh/default.nix)
       # application suite
       (self + /modules/applications/minimal-dev.nix)
     ];

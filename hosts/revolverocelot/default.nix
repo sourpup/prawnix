@@ -24,8 +24,6 @@ in
       (self + /modules/platform/${platform}.nix)
       # disko
       "${sources.disko}/module.nix"
-      # use zsh4humans
-      (self + /modules/zsh/default.nix)
       # application suite
       (self + /modules/applications/minimal.nix)
     ];
