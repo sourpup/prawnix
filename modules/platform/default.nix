@@ -63,6 +63,9 @@
     #media-session.enable = true;
   };
 
+  # enable the firmware update service
+  services.fwupd.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
     isNormalUser = true;
