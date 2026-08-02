@@ -24,8 +24,9 @@
     '';
   };
 
-  # okay, one plugin. nothing crazy
+  # okay, ~one~ two plugins. nothing crazy
   environment.systemPackages = [
-    pkgs.fishPlugins.bass
+    pkgs.fishPlugins.bass # wrap bash commands with fish
+    pkgs.fishPlugins.hydro # simple prompt
   ];
 }
