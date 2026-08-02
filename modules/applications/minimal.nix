@@ -29,6 +29,7 @@
     sops
     ssh-to-age # for sops-nix
     tcpdump
+    tmux
     traceroute
     tree
     unzip
