@@ -16,6 +16,7 @@ in
   nixpkgs.overlays = [ helix-overlay ];
   environment.systemPackages = [
     pkgs.helix
+    pkgs.typos-lsp
   ];
 
   environment.variables.EDITOR = "hx";
@@ -67,12 +68,26 @@ in
 
   environment.etc = {
     "xdg/helix/languages.toml".text = ''
+      [language-server.typos]
+      # typos-lsp must be on your PATH, or otherwise change this to an absolute path to typos-lsp
+      command = "typos-lsp"
+      # Logging level of the language server. Defaults to error.
+      # Run with helix -v to output LSP logs to the editor log (:log-open)
+      environment = {"RUST_LOG" = "typos_lsp=error"}
+      # How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
+      # Defaults to Info.
+      config.diagnosticSeverity = "Warning"
+
       [language-server.nix]
       command = "nixd"
 
       [[language]]
       name = "nix"
       formatter = { command = "nixfmt" }
+
+      [[language]]
+      name = "markdown"
+      language-servers = [ "marksman", "markdown-oxide", "rumdl", "typos"]
     '';
   };
 
