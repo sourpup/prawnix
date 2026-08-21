@@ -1,5 +1,5 @@
 # relatively basic sway setup
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 
 let
   nmtuiLauncher = pkgs.writeShellScriptBin "nmtuiLauncher" ''
@@ -10,7 +10,9 @@ in
 {
   imports =
     [
-      ./mako.nix # for notifications
+    (self + "/modules/mako/default.nix") # for notifications
+    (self + "/modules/waybar/default.nix")
+    (self + "/modules/tofi/default.nix")
     ];
 
 
@@ -79,8 +81,6 @@ in
     wl-clipboard # lets manage the system clipboard from the cli
     wl-gammactl
     wf-recorder
-    waybar # menu bar
-    libnotify # some applications depend on this to feed mako
     nautilus # gui file explorer
     eog # image viewer
     gcolor3 # color picker
@@ -89,7 +89,6 @@ in
     kanshi
     papers # pdf viewer
     slurp
-    tofi # menu/launcher
     blueman # bluetooth settings
     pavucontrol # sound settings
     alsa-tools # aplay, hda-verb, etc
@@ -181,33 +180,6 @@ in
     })
 
   ];
-
-  # setup our bar
-  programs.waybar.enable = true;
-
-  environment.etc = {
-    "xdg/waybar/config.jsonc".source = ./waybar-config.jsonc;
-  };
-  environment.etc = {
-    "xdg/waybar/style.css".source = ./waybar-style.css;
-  };
-
-  # set up our menu/launcher
-  environment.etc = {
-    "xdg/tofi/tofi-config".source = ./tofi-config;
-  };
-
-  # tofi fails to regenerate its cache properly on nixos
-  # https://github.com/philj56/tofi/issues/115
-  system.userActivationScripts.regenerateTofiCache.text =
-  ''
-    if [[ -d $XDG_CACHE_HOME ]]; then
-      tofi_cache=$XDG_CACHE_HOME/tofi-drun
-    else
-      tofi_cache=$HOME/.cache/tofi-drun
-    fi
-    [[ -f "$tofi_cache" ]] && rm "$tofi_cache"
-  '';
 
   fonts.packages = with pkgs; [
     cantarell-fonts
