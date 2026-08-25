@@ -5,7 +5,7 @@ let
     name = "keepmenu_conf";
     text = ''
     [dmenu]
-    dmenu_command = tofi --config /etc/xdg/tofi/tofi-config
+    dmenu_command = fuzzel --dmenu --width 70 --config /etc/xdg/fuzzel/fuzzel.ini
     pinentry = pinentry-qt
     title_path = 25
 
