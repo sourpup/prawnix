@@ -22,6 +22,16 @@
       "url": "https://github.com/nix-community/lanzaboote/archive/v1.1.0.tar.gz",
       "hash": "sha256-hqijVSEETttmo8Okql9/LG0Ua34hdciKW1a5zzlj8mU="
     },
+    "wrappers": {
+      "type": "GitHub",
+      "fetchType": "tarball",
+      "owner": "BirdeeHub",
+      "repo": "nix-wrapper-modules",
+      "branch": "main",
+      "revision": "b56e973dd2bd62244b44d6542fb52182bc3a3cda",
+      "url": "https://github.com/BirdeeHub/nix-wrapper-modules/archive/b56e973dd2bd62244b44d6542fb52182bc3a3cda.tar.gz",
+      "hash": "sha256-Dn6IPaLyltx8hBTyC4hgNWDb7T7WHRYUG6wWh6KBHXA="
+    },
     "nixos-hardware": {
       "type": "GitHub",
       "fetchType": "tarball",
