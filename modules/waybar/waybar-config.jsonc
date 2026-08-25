@@ -12,7 +12,8 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
 
     "modules-left": [
-        "sway/workspaces"
+        "sway/workspaces",
+        "niri/workspaces"
     ],
 
     "modules-center": [
