@@ -25,8 +25,8 @@ in
       # "${sources.prawnix-secrets-raiden}/remote-builders.nix"
       # configure zswap as swap
       (self + /modules/swap/zswap.nix)
-      # use sway
-      (self + /modules/sway/${hostname}.nix)
+      # use niri
+      (self + /modules/niri/${hostname}.nix)
       # use our wallpapers
       (self + /modules/wallpapers/default.nix)
       # use alacritty
