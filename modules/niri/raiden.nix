@@ -49,7 +49,12 @@ let
         }
 
         // set our wallpaper
-        spawn-at-startup "swaybg" "-i" "/etc/wallpapers/horizontal/future_stacked_city.png" "-m" "fill" 
+        spawn-at-startup "swaybg" "-i" "/etc/wallpapers/horizontal/future_stacked_city.png" "-m" "fill"
+
+        layout {
+            // You can change the default width of the new windows.
+            default-column-width { proportion 0.25; }
+        }
       '';
     }
   );
