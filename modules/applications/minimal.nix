@@ -58,6 +58,7 @@
 
   # setup some sane git options
   programs.git.enable = true;
+  programs.git.lfs.enable = true;
   programs.git.config =  {
     init = {
       defaultBranch = "main";
