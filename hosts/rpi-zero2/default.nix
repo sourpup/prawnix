@@ -1,5 +1,6 @@
 {
-  sources,  ...
+  sources,
+  ...
 }:
 {
   imports = [
@@ -20,15 +21,26 @@
     # TODO ssh keys here
   ];
 
-  networking.hostName = "pi";
-
   services.openssh = {
     enable = true;
   };
 
-  networking.wireless.iwd.enable = true;
+  networking = {
+    hostName = "pi";
+    useNetworkd = true;
+    wireless.iwd = {
+      enable = true;
+      settings = {
+        Network = {
+          EnableIPv6 = true;
+        };
+        Settings = {
+          AutoConnect = true;
+        };
+      };
+    };
+  };
 
-  
   system.stateVersion = "26.05";
   nixpkgs.hostPlatform = "aarch64-linux";
   nixpkgs.buildPlatform = "x86_64-linux";
