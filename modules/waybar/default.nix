@@ -179,6 +179,84 @@ in
           /*border: 2px solid #F18FB0;*/
           color: #f1c4e0;
       }
+      * {
+          border: none;
+          border-radius: 0;
+          min-height: 0;
+          font-family: "iosevka nerd font";
+          font-weight: 500;
+          font-size: 14px;
+          padding: 0;
+      }
+
+      window#waybar {
+          background: #161616;
+          border: 2px solid #52bdff;
+      }
+
+      tooltip {
+          background-color: #161616;
+          border: 2px solid #be95ff;
+      }
+
+      #clock,
+      #tray,
+      #battery,
+      #network,
+      #pulseaudio {
+          margin: 6px 6px 6px 0px;
+          padding: 2px 8px;
+      }
+
+      #workspaces {
+          background-color: #525253;
+          margin: 6px 0px 6px 6px;
+          /*border: 2px solid #434a4c;*/
+      }
+
+      #workspaces button {
+          all: initial;
+          min-width: 0;
+          box-shadow: inset 0 -3px transparent;
+          padding: 2px 4px;
+          color: #140a1d;
+      }
+
+      #workspaces button.focused {
+          color: #f1c4e0;
+      }
+
+      #workspaces button.urgent {
+          background-color: #e78a4e;
+      }
+
+      #clock {
+          background-color: #78a9ff;
+          /*border: 2px solid #434a4c;*/
+          color: #140a1d;
+      }
+
+
+      #network,
+      #pulseaudio {
+          background-color: #bd93f9;
+          /*border: 2px solid #F18FB0;*/
+          color: #f1c4e0;
+      }
+
+      #battery {
+          background-color: #bd93f9;
+          /*border: 2px solid #F18FB0;*/
+          color: #f1c4e0;
+      }
+
+      #battery.warning,
+      #battery.critical,
+      #battery.urgent {
+          background-color: #FF4971;
+          /*border: 2px solid #F18FB0;*/
+          color: #f1c4e0;
+      }
     '';
   };
 

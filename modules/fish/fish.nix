@@ -11,6 +11,7 @@
         set -g fish_greeting ""
 
         set -g hydro_symbol_start "$(set_color -o normal)$(prompt_hostname)$(set_color --reset):"
+        set -g fish_color_autosuggestion 9f94b0
       '';
     shellAbbrs = {
       nes = "ne --subdir shared";
