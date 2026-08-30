@@ -1,5 +1,8 @@
 {
   sources,
+  self,
+  pkgs,
+  lib,
   ...
 }:
 {
@@ -13,10 +16,14 @@
     # default nixos user config
     ./nixos-user.nix
 
+    # cross compiling for arm64 is broken :p
+    # (self + /modules/fish/fish.nix)
+
     # optional wifi on sd card config
     #(self + "modules/rpi/wifi-config.nix")
   ];
 
+  nix.package = pkgs.lixPackageSets.stable.lix;
   users.users.nixos.openssh.authorizedKeys.keys = [
     # TODO ssh keys here
   ];
@@ -27,19 +34,13 @@
 
   networking = {
     hostName = "pi";
-    useNetworkd = true;
-    wireless.iwd = {
+    useDHCP = lib.mkDefault true;
+    networkmanager = {
       enable = true;
-      settings = {
-        Network = {
-          EnableIPv6 = true;
-        };
-        Settings = {
-          AutoConnect = true;
-        };
-      };
     };
+    wireless.enable = true;
   };
+
 
   system.stateVersion = "26.05";
   nixpkgs.hostPlatform = "aarch64-linux";
