@@ -25,7 +25,7 @@ in
   environment.etc = {
     "xdg/helix/config.toml".text = ''
       # also consider "flatwhite" or "kaolin-light"
-      theme = "rose_pine_dawn"
+      theme = "tokyonight"
 
       # settings at https://docs.helix-editor.com/master/editor.html
       [editor]

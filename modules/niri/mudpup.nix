@@ -89,7 +89,7 @@ output "DP-2" {
         window-rule {
             draw-border-with-background false
         }
-         
+        
         // set our wallpaper
         spawn-at-startup "swaybg" "-i" "/etc/wallpapers/horizontal/gris4.PNG" "-m" "fill" 
       '';

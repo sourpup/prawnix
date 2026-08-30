@@ -166,7 +166,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#F18FB0ff"
+        active-color "#BE95FF"
 
         // Color of the ring on inactive monitors.
         //
@@ -197,8 +197,8 @@ layout {
         off
 
         width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        active-color "#be95ff"
+        inactive-color "505050"
 
         // Color of the border around windows that request your attention.
         urgent-color "#9b0000"

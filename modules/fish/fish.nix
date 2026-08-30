@@ -8,6 +8,7 @@
         function sst
           ssh -t $argv "tmux a || tmux"
         end
+        set -g fish_color_autosuggestion 9f94b0
       '';
   };
 
