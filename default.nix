@@ -52,6 +52,7 @@ in
     # can deploy remotely by doing
     # nixos-rebuild switch -f . -A nixosConfigurations.rpi-zero2 --ask-sudo-password --target-host nixos@pi
     rpi-zero2 = nixos sources.nixpkgs ./hosts/rpi-zero2;
+    aeropi = nixos sources.nixpkgs ./hosts/aeropi;
   };
 
 
