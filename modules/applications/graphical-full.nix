@@ -49,8 +49,8 @@
     transmission_4-gtk
     vorta
     wireshark
-    wineWowPackages.stable
-    winetricks
+    # wineWowPackages.stable
+    # winetricks
     yt-dlp
   ];
 

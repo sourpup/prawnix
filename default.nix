@@ -45,6 +45,7 @@ in
     liquidsnake-build = nixos sources.nixpkgs ./hosts/liquidsnake-build;
     revolverocelot = nixos sources.nixpkgs ./hosts/revolverocelot;
     rex = nixos sources.nixpkgs ./hosts/rex;
+    raildog = nixos sources.nixpkgs ./hosts/raildog;
 
 
     # generic targets

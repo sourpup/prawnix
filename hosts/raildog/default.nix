@@ -28,7 +28,6 @@ in
       # application suite
       (self + /modules/applications/graphical-full.nix)
       # secure boot
-      (self + /modules/bootsecurity/secureboot.nix)
       # application specific inclusions/configurations
       (self + /modules/applications/configs/firefox-work.nix)
       (self + /modules/applications/configs/wireguard.nix)

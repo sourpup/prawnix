@@ -47,6 +47,9 @@ let
             // automatically.
             position x=0 y=0
         }
+        window-rule {
+            draw-border-with-background false
+        }
 
         // set our wallpaper
         spawn-at-startup "swaybg" "-i" "/etc/wallpapers/horizontal/gris4.PNG" "-m" "fill" 
